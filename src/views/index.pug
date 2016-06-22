@@ -1,0 +1,12 @@
+extends layout
+
+block content
+	.container
+		h1(class="text-center")= title
+		p Welcome to #{title}
+		p Some text
+
+		ul
+		each val, index in {"1":"one","2":"two","3":"three"}
+			li text #{val} #{index}
+		p another text

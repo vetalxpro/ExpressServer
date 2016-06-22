@@ -1,0 +1,22 @@
+doctype html
+html
+	head
+		title=title
+		//- link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.5.3/mocha.min.css")
+		//- script(src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.5.3/mocha.min.js")
+		link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.css")
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.js")
+		link(rel="stylesheet" href="css/style.css")
+		script mocha.setup('bdd');
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.min.js")
+		script var assert = chai.assert;
+	body
+		h1(style="text-align:center") Mocha Test
+
+		script(src="js/script.js")
+
+		script(src="js/test.js")
+
+		div(id="mocha")
+
+		script mocha.run();
