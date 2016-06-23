@@ -2,28 +2,28 @@
 
 // var user=prompt("Кто пришел?","");
 // if(user===null){
-// 	console.log("Вход отменен");
+//  console.log("Вход отменен");
 // }else if(user=="Админ"){
-// 	console.log("user - "+user);
-// 	var password = prompt("Введите пароль","");
-// 	if(password===null){
-// 		console.log("Вход отменен");
-// 	}else if(password=="Черный Властелин"){
-// 		console.log("Добро пожаловать");
-// 	}else{
-// 		console.log("Пароль неверен");
-// 	}
+//  console.log("user - "+user);
+//  var password = prompt("Введите пароль","");
+//  if(password===null){
+//    console.log("Вход отменен");
+//  }else if(password=="Черный Властелин"){
+//    console.log("Добро пожаловать");
+//  }else{
+//    console.log("Пароль неверен");
+//  }
 // }else{
-// 	console.log("Я вас не знаю");
+//  console.log("Я вас не знаю");
 // }
 // var message;
 // var login=prompt("Кто вы?","");
 // (login=="Вася") ?
-// 	message = "Привет" :
-// 		(login=="Директор") ?
-// 			message = "Здавствуйте" :
-// 				(login=="") ?
-// 					message = "Нет логина" : message = "--";
+//  message = "Привет" :
+//    (login=="Директор") ?
+//      message = "Здавствуйте" :
+//        (login=="") ?
+//          message = "Нет логина" : message = "--";
 // console.log(message);
 // console.log(null||2||undefined);//2
 // console.log(1||2||3);//1
@@ -33,15 +33,15 @@
 
 // var age = 50;
 // if(age>=14 && age<=90){
-// 	console.log(true);
+//  console.log(true);
 // }else {
-// 	console.log(false);
+//  console.log(false);
 // }
 
 // if(!(age>=14 && age<=90)){
-// 	console.log(true);
+//  console.log(true);
 // }else {
-// 	console.log('awd');
+//  console.log('awd');
 // }
 
 // console.log(''+1+0); //'10'
@@ -66,7 +66,7 @@
 
 // var i=3;
 // while(i){
-// 	console.log(i--);
+//  console.log(i--);
 // }
 // var i = 0;
 // while (++i < 5) console.log(i); //1,2,3,4
@@ -77,9 +77,9 @@
 // for (let i = 0;i<5;++i)console.log(i);//0,1,2,3,4
 
 // for(let i=0;i<=10;i++){  //even numbers
-// 	if(i%2==0){
-// 		console.log(i);
-// 	}
+//  if(i%2==0){
+//    console.log(i);
+//  }
 // }
 
 // for (let i = 0; i < 3; i++) {
@@ -98,7 +98,7 @@
 //         console.log('Вы нажали отмену');
 //         break;
 //     }else if(number==''){
-//     	console.log('Вы не ввели число. Повторите ввод.')
+//      console.log('Вы не ввели число. Повторите ввод.')
 //     }else if (number > 100) {
 //         console.log('Ваше число %s > 100', number);
 //         break;
@@ -109,8 +109,8 @@
 
 // var number;
 // do{
-// 	number=prompt('Введите число > 100','');
-// 	console.log(number);
+//  number=prompt('Введите число > 100','');
+//  console.log(number);
 // }while(number<=100 && number!=null);
 
 // Для всех i от 1 до 10 {
@@ -155,109 +155,109 @@
 // }
 // var a= +prompt('a?','');
 // switch(a){
-// 	case 0:
-// 		console.log(0);
-// 		break;
-// 	case 1:
-// 		console.log(1);
-// 		break;
-// 	case 2:
-// 	case 3:
-// 		console.log('2,3');
-// 		break;
-// 	default:
-// 		console.log(false);
+//  case 0:
+//    console.log(0);
+//    break;
+//  case 1:
+//    console.log(1);
+//    break;
+//  case 2:
+//  case 3:
+//    console.log('2,3');
+//    break;
+//  default:
+//    console.log(false);
 // }
 
 // function hello(name){
-// 	name=name||'!Внимание! Имя не передано в функцию!';
-// 	console.log('Привет '+name);
+//  name=name||'!Внимание! Имя не передано в функцию!';
+//  console.log('Привет '+name);
 // }
 // hello('');
 
 // function checkAge(age){
-// 	if(age>18){
-// 		return true;
-// 	}else{
-// 		return(confirm('Разрешено?'));
-// 	}
+//  if(age>18){
+//    return true;
+//  }else{
+//    return(confirm('Разрешено?'));
+//  }
 // }
 // var a;
 // checkAge(19);
 // console.log(checkAge(19));
 
 // function checkAge(age){
-// 	(age>18) ? true : confirm('Разрешено?');
+//  (age>18) ? true : confirm('Разрешено?');
 // }
 
 // function checkAge(age){
-// 	return (age>18)||confirm('Разрешено?');
+//  return (age>18)||confirm('Разрешено?');
 // }
 
 
 // function min(a,b){
-// 	if (a<b){
-// 		return a;
-// 	}
-// 	return b;
+//  if (a<b){
+//    return a;
+//  }
+//  return b;
 // }
 // console.log(min(1,1));
 
 // function pow(x,n){
-// 	var result=x;
-// 	for(let i=1;i<n;i++){
+//  var result=x;
+//  for(let i=1;i<n;i++){
 
-// 		result*=x;
-// 	}
-// 	return result;
+//    result*=x;
+//  }
+//  return result;
 // }
 // console.log(pow);
 
 // function ask(question,yes,no){
-// 	if(confirm(question,'')){
-// 		yes();
-// 	}else{
-// 		no();
-// 	}
+//  if(confirm(question,'')){
+//    yes();
+//  }else{
+//    no();
+//  }
 // }
 // function showYes(){
-// 	alert('Вы согласились');
+//  alert('Вы согласились');
 // }
 // function showNo(){
-// 	alert('Вы отменили выполнение');
+//  alert('Вы отменили выполнение');
 // }
 // ask('Вопрос?',showYes,showNo);
 
 // function ask(question,yes,no){
-// 	if(confirm(question)){
-// 		yes();
-// 	}else{
-// 		no();
-// 	}
+//  if(confirm(question)){
+//    yes();
+//  }else{
+//    no();
+//  }
 // }
 // ask('Вопрос?',
-// 	function(){alert('Yes');},
-// 	function(){alert('No');}
+//  function(){alert('Yes');},
+//  function(){alert('No');}
 // );
 
 // var sum = new Function('a,b','var result=a+b;return result*3;');
 // console.log(sum(2,3));
 
 // function pow(x,n){
-// 	if(n!=1){
-// 		return x*pow(x,n-1);
-// 	}else{
-// 		return x;
-// 	}
+//  if(n!=1){
+//    return x*pow(x,n-1);
+//  }else{
+//    return x;
+//  }
 // }
 // console.log(pow(2,3));
 
 // function test(x){
-// 	if(x){
-// 		console.log(x);
-// 		//x--;
-// 		test(x-1);
-// 	}
+//  if(x){
+//    console.log(x);
+//    //x--;
+//    test(x-1);
+//  }
 // }
 // test(10);
 
@@ -271,54 +271,54 @@
 // console.log(sumTo(100));
 
 // function sumToR(x){
-// 	if(x==1){
-// 		return x;
-// 	}else{
-// 		return x+sumToR(x-1);
-// 	}
+//  if(x==1){
+//    return x;
+//  }else{
+//    return x+sumToR(x-1);
+//  }
 // }
 // console.log(sumToR(100));
 
 // function sumToA(x){
-// 	return x*(x+1)/2;
+//  return x*(x+1)/2;
 // }
 // console.log(sumToA(100));
 
 // function factorial(n){
-// 	if(n==1){
-// 		return 1;
-// 	}else{
-// 		return n*factorial(n-1);
-// 	}
+//  if(n==1){
+//    return 1;
+//  }else{
+//    return n*factorial(n-1);
+//  }
 // }
 // console.log(factorial(5));
 
 // function factorialIf(n){
-// 	var result = n;
-// 	if(n!=1){
-// 		for(let i=1;i<n;i++){
-// 			result*=i;
-// 		}
-// 	}
-// 	return result;
+//  var result = n;
+//  if(n!=1){
+//    for(let i=1;i<n;i++){
+//      result*=i;
+//    }
+//  }
+//  return result;
 // }
 // console.log(factorialIf(50));
 
 // function factorial(n){
-// 	if(n!=1){
-// 		return n*factorial(n-1);
-// 	}else{
-// 		return 1;
-// 	}
+//  if(n!=1){
+//    return n*factorial(n-1);
+//  }else{
+//    return 1;
+//  }
 // }
 // console.log(factorial(5));
 
 // function fib(n){
-// 	if(n>1){
-// 		return fib(n-1)+fib(n-2);
-// 	}else{
-// 		return n;
-// 	}
+//  if(n>1){
+//    return fib(n-1)+fib(n-2);
+//  }else{
+//    return n;
+//  }
 // }
 
 // console.log(fib(20));
@@ -353,12 +353,12 @@
 // console.log(g(5));
 
 // var g=(function (){
-// 	return 1;
+//  return 1;
 // });
 // console.log((
-// 	function(){
-// 		return 1;
-// 	}())
+//  function(){
+//    return 1;
+//  }())
 // );
 
 function pow(x, n) {
@@ -377,7 +377,7 @@ function pow(x, n) {
 
 // if (n < 0) {
 //   alert('Степень '+n+
-//   	'не поддерживается, введите целую степень, большую 0');
+//    'не поддерживается, введите целую степень, большую 0');
 // } else {
 //   alert( pow(x, n) );
 // }
@@ -394,7 +394,7 @@ function pow(x, n) {
 // console.log(4/0);
 
 // function test(a,b){
-// 	return (a==b)? true:NaN;
+//  return (a==b)? true:NaN;
 // }
 // console.log(isNaN(test(null,1)));
 
@@ -406,7 +406,7 @@ function pow(x, n) {
 // console.log(parseInt('1011110011',2));
 
 // function isNumeric(n){
-// 	return !isNaN(parseFloat(n)) && isFinite(n);
+//  return !isNaN(parseFloat(n)) && isFinite(n);
 // }
 // console.log(isNumeric('43.5'));
 
@@ -448,10 +448,10 @@ function pow(x, n) {
 // }
 
 // function getDecimal(num){
-// 	if(num>1){
-// 		return num%1;
-// 	}
-// 	return -num%1;
+//  if(num>1){
+//    return num%1;
+//  }
+//  return -num%1;
 // }
 
 // function getDecimal(number) {
@@ -506,16 +506,16 @@ function pow(x, n) {
 // console.log(randInterval(9, 10));
 
 // function randomInt(min,max){
-// 	var rand=min-0.5+Math.random()*(max-min+1);
-// 	rand=Math.round(rand);
-// 	return rand;
+//  var rand=min-0.5+Math.random()*(max-min+1);
+//  rand=Math.round(rand);
+//  return rand;
 // }
 // console.log(randomInt(0,10));
 
 // function randomInt2(min,max){
-// 	var rand=min+Math.random()*(max-min+1);
-// 	rand=Math.floor(rand);
-// 	return rand;
+//  var rand=min+Math.random()*(max-min+1);
+//  rand=Math.floor(rand);
+//  return rand;
 // }
 // console.log(randomInt2(0,50));
 
@@ -591,43 +591,140 @@ function pow(x, n) {
 // console.log(ucFirst('вася'));
 
 // function checkSpam(str) {
-// 	var str = str.toLowerCase();
-// 	if(str.indexOf('xxx')!=-1||str.indexOf('viagra')!=-1) return 'spam';
-// 	return 'not spam';
+//  var str = str.toLowerCase();
+//  if(str.indexOf('xxx')!=-1||str.indexOf('viagra')!=-1) return 'spam';
+//  return 'not spam';
 // }
 // console.log(checkSpam('string viagra'));
 
-function checkSpam(string) {
-  var spamFilter = ['xxx', 'viagra'];
-  var strToLower = string.toLowerCase();
+// function checkSpam(string) {
+//   var spamFilter = ['xxx', 'viagra'];
+//   var strToLower = string.toLowerCase();
 
-  for (let i = 0; i < spamFilter.length; i++) {
-    if (strToLower.indexOf(spamFilter[i]) != -1) return string + ' - spam!';
-  }
+//   for (let i = 0; i < spamFilter.length; i++) {
+//     if (strToLower.indexOf(spamFilter[i]) != -1) return string + ' - spam!';
+//   }
 
-  return string + ' - not spam';
+//   return string + ' - not spam';
+// }
+
+// console.log(checkSpam('string xxx'));
+
+
+
+// function trancate(str, maxLength) {
+//   if (str.length > maxLength) {
+//     return str.slice(0, maxLength) + '...';
+//   }
+
+//   return str;
+// }
+// console.log(trancate('Super long string', 10));
+
+
+// function extractCurrencyValue(str) {
+//   if (str.indexOf('$') == 0) {
+//     return +str.slice(1);
+//   }
+
+//   return str;
+// }
+
+// console.log(extractCurrencyValue('$120'));
+
+// var user = {};
+// user['name'] = 'Вася';
+// user['surname'] = 'Петров';
+
+// console.log(user);
+// user['name']='Сергей';
+// delete user['name'];
+// console.log(user);
+
+// var counter = 0;
+// for (let key in user) {
+//   ++counter;
+//   console.log(counter + ' ' + key + ' ' + user[key]);
+// }
+
+
+var schedule = {};
+
+
+function isObjectEmpty(object) {
+
+  for (let key in object) return false;
+  return true;
 }
 
-console.log(checkSpam('string xxx'));
+console.log(schedule);
+console.log(isObjectEmpty(schedule));
+
+schedule['8.00'] = 'wakeup';
+
+console.log(schedule);
+console.log(isObjectEmpty(schedule));
 
 
-
-function trancate(str, maxLength) {
-  if (str.length > maxLength) {
-    return str.slice(0, maxLength) + '...';
-  }
-
-  return str;
-}
-console.log(trancate('Super long string', 10));
-
-
-function extractCurrencyValue(str) {
-  if (str.indexOf('$') == 0) {
-    return +str.slice(1);
-  }
-
-  return str;
+var salaries = {
+  'Вася': 100,
+  'Петя': 300,
+  'Даша': 250
 }
 
-console.log(extractCurrencyValue('$120'));
+
+function sumSalaries(salaries) {
+  let sum = 0;
+
+  for (let name in salaries) {
+    sum += salaries[name];
+  }
+  return sum;
+}
+
+console.log(sumSalaries(salaries));
+
+
+function maxSalarie(salaries) {
+  let max = 0;
+  let maxName = '';
+
+  for (let name in salaries) {
+
+    if (max < salaries[name]) {
+      max = salaries[name];
+      maxName = name;
+    }
+  }
+
+  if (maxName) {
+    return maxName;
+  }
+  return 'Нет сотрудников';
+}
+
+console.log(maxSalarie(salaries));
+
+
+var menu = {
+  width: 200,
+  heith: 300,
+  title: 'My menu'
+}
+
+
+function multiplyNumeric(menu) {
+  for (let number in menu) {
+    if (isNumeric(menu[number])) {
+      menu[number] *= 2;
+    }
+  }
+  return menu;
+}
+
+
+function isNumeric(number) {
+  return !isNaN(parseFloat(number)) && isFinite(number);
+}
+
+console.log(multiplyNumeric(menu));
