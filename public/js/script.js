@@ -872,12 +872,13 @@ function pow(x, n) {
 
 var eratosfen = function(maxArrValue) {
   let arrNumbers = [];
+  let index = 0;
 
   for (let i = 2; i < maxArrValue; i++) {
     arrNumbers.push(i);
   }
   let p =arrNumbers[0];
-  while(p * p < maxArrValue) {
+  for(let p = arrNumbers[index];p * p < maxArrValue;p=arrNumbers[++index]) {
     for (let i = 1; i < arrNumbers.length; i++) {
       for (let j = 2; j < arrNumbers.length; j++) {
         if (arrNumbers[i] == p * j) {
@@ -888,13 +889,10 @@ var eratosfen = function(maxArrValue) {
 
     }
 
-
-
-    p++;
   }
   return arrNumbers;
 }
 
-console.log(eratosfen(10));
+console.log(eratosfen(120));
 // console.log(filterArr(arrNumbers).length);
 // console.log(arrNumbers);
