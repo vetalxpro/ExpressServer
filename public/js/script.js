@@ -119,10 +119,10 @@
 //   если не делится, то i - простое число
 // }
 
-// next:
+// next1:
 //     for (let i = 2; i <= 10; i++) {
 //         for (let j = 2; j < Math.sqrt(i); j++) {
-//             if (i % j == 0) continue next;
+//             if (i % j == 0) continue next1;
 //         }
 //         console.log(i);
 //     }
@@ -648,83 +648,253 @@ function pow(x, n) {
 // }
 
 
-var schedule = {};
+// var schedule = {};
 
 
-function isObjectEmpty(object) {
+// function isObjectEmpty(object) {
 
-  for (let key in object) return false;
-  return true;
-}
+//   for (let key in object) return false;
+//   return true;
+// }
 
-console.log(schedule);
-console.log(isObjectEmpty(schedule));
+// console.log(schedule);
+// console.log(isObjectEmpty(schedule));
 
-schedule['8.00'] = 'wakeup';
+// schedule['8.00'] = 'wakeup';
 
-console.log(schedule);
-console.log(isObjectEmpty(schedule));
-
-
-var salaries = {
-  'Вася': 100,
-  'Петя': 300,
-  'Даша': 250
-}
+// console.log(schedule);
+// console.log(isObjectEmpty(schedule));
 
 
-function sumSalaries(salaries) {
-  let sum = 0;
+// var salaries = {
+//   'Вася': 100,
+//   'Петя': 300,
+//   'Даша': 250
+// }
 
-  for (let name in salaries) {
-    sum += salaries[name];
+
+// function sumSalaries(salaries) {
+//   let sum = 0;
+
+//   for (let name in salaries) {
+//     sum += salaries[name];
+//   }
+//   return sum;
+// }
+
+// console.log(sumSalaries(salaries));
+
+
+// function maxSalarie(salaries) {
+//   let max = 0;
+//   let maxName = '';
+
+//   for (let name in salaries) {
+
+//     if (max < salaries[name]) {
+//       max = salaries[name];
+//       maxName = name;
+//     }
+//   }
+
+//   if (maxName) {
+//     return maxName;
+//   }
+//   return 'Нет сотрудников';
+// }
+
+// console.log(maxSalarie(salaries));
+
+
+// var menu = {
+//   width: 200,
+//   heith: 300,
+//   title: 'My menu'
+// }
+
+
+// function multiplyNumeric(menu) {
+//   for (let number in menu) {
+//     if (isNumeric(menu[number])) {
+//       menu[number] *= 2;
+//     }
+//   }
+//   return menu;
+// }
+
+
+// function isNumeric(number) {
+//   return !isNaN(parseFloat(number)) && isFinite(number);
+// }
+
+// console.log(multiplyNumeric(menu));
+
+// var user = {
+//   name: 'Вася',
+//   age: 30
+// };
+
+// var clone = {};
+
+// for(let key in user){
+//   clone[key]=user[key];
+// }
+// clone['name']='Петя';
+// console.log(user);
+// console.log(clone);
+
+// var fruits = ['Яблоко', 'Апельсин', 'Слива'];
+// console.log(fruits[0]);
+// fruits[3] = 'Груша';
+// console.log(fruits);
+// console.log(fruits.length);
+// // alert(fruits);
+// console.log(fruits.pop());
+// console.log(fruits.push('Банан'));
+// console.log(fruits);
+// console.log(fruits.shift());
+// console.log(fruits.unshift('Виноград'));
+// console.log(fruits);
+// fruits.age = 25;
+// console.log(fruits);
+
+// var arr = [1, 2, 3, 4, 5];
+// arr.length = 3;
+// arr[3] = 10;
+// console.log(arr);
+
+// var matrix = [
+//   [1, 2, 3, 4],
+//   [4, 5, 6, 7],
+//   [7, 8, 9, 10]
+// ];
+
+// console.log(matrix[1][1]);
+
+// var goods = [1, 2, 3, 4, 5];
+
+// function showArrLastItem(arr) {
+//   return arr[arr.length - 1];
+// }
+
+// console.log(showArrLastItem(goods));
+
+// goods.push(6);
+// goods[goods.length] = 7;
+// console.log(goods);
+
+// var styles = ['Джаз', 'Блюз'];
+// styles.push('Рок-н-Ролл');
+// console.log(styles);
+// styles[styles.length - 2] = 'Классика';
+// console.log(styles);
+// console.log(styles.shift() + ' - ' + styles);
+// styles.unshift('Рэп', 'Регги')
+// console.log('' + styles);
+
+// var arr = ["Яблоко", "Апельсин", "Груша", "Лимон"];
+
+// function randArrItem(arr) {
+//   var rand = Math.floor(Math.random() * arr.length);
+//   return arr[rand];
+// }
+// console.log(randArrItem(arr));
+
+// var arr = [];
+// while(true){
+//   let item = prompt('Введите значение','');
+//   if(item===null||item===''||isNaN(item))break;
+//   arr.push(+item);
+// }
+// console.log(arr);
+// var sum = 0;
+// for(let i=0;i<arr.length;i++){
+//   sum+=arr[i];
+// }
+// console.log(sum);
+
+// var arr = [1, 2, 3,4];
+
+// var arr2 = arr;
+// arr2[0] = 5;
+
+// alert( arr[0] );
+
+// var arr = ['test', 2, 1.5, false];
+
+// function find(arr,value){
+//   for(let i=0;i<arr.length;i++){
+//     if(arr[i]===value){
+//       return i;
+//     }
+//   }
+//   return -1;
+
+
+//   return arr;
+// }
+// console.log(find(arr,0));
+
+// console.log(!![].indexOf);
+
+
+// if ([].indexOf) {
+
+//   var find = function(array, value) {
+//     return array.indexOf(value);
+//   }
+
+// } else {
+//   var find = function(array, value) {
+//     for (var i = 0; i < array.length; i++) {
+//       if (array[i] === value) return i;
+//     }
+
+//     return -1;
+//   }
+
+// }
+// console.log(find(arr,false));
+
+// var arr = [5, 4, 3, 8, 0];
+
+// function filterRangeOfArray(arr, min, max) {
+//   let filtArr = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] >= min && arr[i] <= max) {
+//       filtArr.push(arr[i]);
+//     }
+//   }
+//   return filtArr;
+// }
+// console.log(filterRangeOfArray(arr, 3, 5));
+
+
+var eratosfen = function(maxArrValue) {
+  let arrNumbers = [];
+
+  for (let i = 2; i < maxArrValue; i++) {
+    arrNumbers.push(i);
   }
-  return sum;
-}
+  let p =arrNumbers[0];
+  while(p * p < maxArrValue) {
+    for (let i = 1; i < arrNumbers.length; i++) {
+      for (let j = 2; j < arrNumbers.length; j++) {
+        if (arrNumbers[i] == p * j) {
+          arrNumbers.splice(i, 1);
+          break;
+        }
+      }
 
-console.log(sumSalaries(salaries));
-
-
-function maxSalarie(salaries) {
-  let max = 0;
-  let maxName = '';
-
-  for (let name in salaries) {
-
-    if (max < salaries[name]) {
-      max = salaries[name];
-      maxName = name;
     }
+
+
+
+    p++;
   }
-
-  if (maxName) {
-    return maxName;
-  }
-  return 'Нет сотрудников';
+  return arrNumbers;
 }
 
-console.log(maxSalarie(salaries));
-
-
-var menu = {
-  width: 200,
-  heith: 300,
-  title: 'My menu'
-}
-
-
-function multiplyNumeric(menu) {
-  for (let number in menu) {
-    if (isNumeric(menu[number])) {
-      menu[number] *= 2;
-    }
-  }
-  return menu;
-}
-
-
-function isNumeric(number) {
-  return !isNaN(parseFloat(number)) && isFinite(number);
-}
-
-console.log(multiplyNumeric(menu));
+console.log(eratosfen(10));
+// console.log(filterArr(arrNumbers).length);
+// console.log(arrNumbers);
