@@ -1042,14 +1042,165 @@ function pow(x, n) {
 
 // console.log(removeClass(obj, 'menu'));
 
-var arr = [5, 3, 8, 1, 4];
-var filterRangeInPlace = function(arr, a, b) {
+// var arr = [5, 3, 8, 1, 4];
+// var filterRangeInPlace = function(arr, a, b) {
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] < a || arr[i] > b) {
+//       arr.splice(i, 1);
+//       i--;
+//     }
+//   }
+// }
+// filterRangeInPlace(arr, 1, 4)
+// console.log(arr);
+
+// var arr = [5, 2, 1,1, -10, 8];
+// var compareReverse = function(a,b){
+// 	return b-a;
+// }
+// console.log(arr.sort(compareReverse));
+
+// var arr= ['HTML','JavaScript','CSS'];
+// var arrSorted = arr.slice().sort();
+// console.log(arrSorted);
+// console.log(arr);
+
+// var arr=[1,2,3,4,5];
+// arr.sort(function(a,b){
+// 	return Math.random()-0.5;
+// });
+// console.log(arr);
+
+
+// var vasya = {
+//   name: "Вася",
+//   age: 23
+// };
+// var masha = {
+//   name: "Маша",
+//   age: 18
+// };
+// var vovochka = {
+//   name: "Вовочка",
+//   age: 6
+// };
+
+// var people = [vasya, masha, vovochka];
+
+// people.sort(function(a, b) {
+//   if (a.age > b.age) return 1;
+//   return -1;
+// });
+
+// console.log(people[0].age);
+
+// var list = {
+//   value: 1,
+//   next: {
+//     value: 2,
+//     next: {
+//       value: 3,
+//       next: {
+//         value: 4,
+//         next: null
+//       }
+//     }
+//   }
+// }
+
+// var printList = function(list) {
+//   var tmp = list;
+//   while (tmp) {
+//     console.log(tmp.value);
+//     tmp = tmp.next;
+//   }
+// }
+
+// console.time('printList');
+// printList(list);
+// console.timeEnd('printList');
+
+
+// var printListRecursive = function(list) {
+//   console.log(list.value);
+//   if (list.next) {
+//     printListRecursive(list.next);
+//   }
+// }
+
+
+// printListRecursive(list);
+
+
+// var printReverseList = function(list) {
+//   var arr = [];
+//   var tmp = list;
+//   while (tmp) {
+//     arr.push(tmp.value);
+//     tmp = tmp.next;
+//   }
+//   for (let i = arr.length - 1; i >= 0; i--) {
+//     console.log(arr[i]);
+//   }
+// }
+
+
+// printReverseList(list);
+
+
+// var printReverseListRecursive = function(list) {
+//   if (list.next) {
+//     printReverseListRecursive(list.next);
+//   }
+//   console.log(list.value);
+// }
+
+// printReverseListRecursive(list);
+
+// var arr=["воз", "киборг", "корсет", "ЗОВ", "гробик", "костер", "сектор"];
+
+// var aclean=function(arr){
+// 	var result=[];
+// 	var tmpObj={};
+
+// 	for(let i=0;i<arr.length;i++){
+// 		var sorted = arr[i].toLowerCase()
+// 			.split('')
+// 			.sort()
+// 			.join('');
+
+// 		tmpObj[sorted]=arr[i];
+// 	}
+
+// 	for(let key in tmpObj) result.push(tmpObj[key]);
+
+// 	return result;
+
+// }
+
+// console.log(aclean(arr));
+
+var strings = ["кришна", "кришна", "харе", "харе",
+  "харе", "харе", "кришна", "кришна", "8-()"
+];
+
+var unique = function(arr) {
+  var result = [];
+  var tmpObj = {};
+
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i] < a || arr[i] > b) {
-      arr.splice(i, 1);
-      i--;
-    }
+    let key = arr[i];
+    tmpObj[key] = true;
   }
+
+  if (Object.keys) {
+    result = Object.keys(tmpObj);
+  } else {
+
+    for (let key in tmpObj) result.push(key);
+  }
+
+  return result;
+
 }
-filterRangeInPlace(arr, 1, 4)
-console.log(arr);
+console.log(unique(strings));
