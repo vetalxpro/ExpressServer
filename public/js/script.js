@@ -870,29 +870,186 @@ function pow(x, n) {
 // console.log(filterRangeOfArray(arr, 3, 5));
 
 
-var eratosfen = function(maxArrValue) {
-  let arrNumbers = [];
-  let index = 0;
+// var eratosfen = function(maxArrValue) {
+//   let arrNumbers = [];
+//   let sum = 0;
 
-  for (let i = 2; i < maxArrValue; i++) {
-    arrNumbers.push(i);
-  }
-  let p =arrNumbers[0];
-  for(let p = arrNumbers[index];p * p < maxArrValue;p=arrNumbers[++index]) {
-    for (let i = 1; i < arrNumbers.length; i++) {
-      for (let j = 2; j < arrNumbers.length; j++) {
-        if (arrNumbers[i] == p * j) {
-          arrNumbers.splice(i, 1);
-          break;
-        }
-      }
+//   for (let i = 2; i <= maxArrValue; i++) {
+//     arrNumbers.push(i);
+//   }
 
+//   for (let index = 0, p = arrNumbers[index]; p * p < maxArrValue; p = arrNumbers[++index]) {
+//     for (let i = 1; i < arrNumbers.length; i++) {
+//       for (let j = 2; j < arrNumbers.length; j++) {
+//         if (arrNumbers[i] == p * j) {
+//           arrNumbers.splice(i, 1);
+//           break;
+//         }
+//       }
+//     }
+//   }
+//   for (let i = 0; i < arrNumbers.length; i++) {
+//     sum += arrNumbers[i];
+//   }
+
+//   return [sum, arrNumbers];
+// }
+
+// console.log(eratosfen(100));
+
+// var getMaxSubSum = function(arr) {
+//   var maxSum = 0;
+
+//   for (let i = 0; i < arr.length; i++) {
+//     var subSum = 0;
+
+//     for (let j = i; j < arr.length; j++) {
+//       subSum += arr[j];
+//       maxSum = Math.max(maxSum, subSum);
+//     }
+//   }
+//   return maxSum;
+// }
+
+// var getMaxSubSum2 = function(arr) {
+//   var maxSum = 0;
+//   var subSum = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     subSum += arr[i];
+//     maxSum = Math.max(maxSum, subSum);
+//     if (subSum < 0) subSum = 0;
+//   }
+//   return maxSum;
+// }
+
+// console.log(getMaxSubSum2([2, -1, 2, 3, -9]));
+
+// var names = 'Маша, Петя, Марина, Василий';
+// var arr = names.split(', ');
+// console.log(arr);
+// for(let i=0;i<arr.length;i++){
+// 	console.log('Message to '+arr[i]);
+// }
+// console.log('a,b,c,d'.split(',',2)); //[a,b]
+// console.log('test'.split(''));//["t", "e", "s", "t"]
+
+// console.log(["Маша", "Петя", "Марина", "Василий"].join(', '));
+
+// console.log(new Array(5).join('ля'));
+
+// var arr = [1, 2, 15, 20, 5];
+// console.log(arr.splice(0, 0, 9, 7, 8) && arr);
+// console.log(arr.slice(3));
+
+// console.log('2' > '15');
+
+// var compareNumeric = function(a, b) {
+//     if (a > b) return 1;
+//     return -1;
+//   }
+//   // console.log(arr.sort(compareNumeric));
+
+// console.log(arr.sort(function(a, b) {
+//   return a - b;
+// }));
+
+// console.log(arr.reverse());
+
+// console.log(arr.concat([100,200],300));
+
+// console.log(arr.indexOf(15));  //lastIndexOf search from the end of arr
+
+// var store = {};
+// var items = ['id1','id2','id3'];
+// for(let i=0;i<items.length;i++){
+// 	var key = items[i];
+// 	store[key]=key;
+// }
+// console.log(store);
+// console.log('id1' in store);
+
+// var user = {
+// 	name:'Petya',
+// 	age:30
+// }
+
+// console.log(Object.keys(user));
+
+// var obj = {
+//   className: 'form a div'
+// }
+
+// var addClass = function(obj, element) {
+
+//   if (obj['className']) {
+//     var arrClass = obj['className'].split(' ');
+//   } else {
+//     var arrClass = [];
+//   }
+
+
+//   if (arrClass.indexOf(element) == -1) arrClass.push(element);
+
+//   obj['className'] = arrClass.join(' ');
+
+//   return obj;
+// }
+
+// console.log(addClass(obj, 'new') && addClass(obj, 'open') && addClass(obj, 'me'));
+
+// var camelize = function(str) {
+// 	if(str){
+// 	  var strArr = str.split('-');
+// 	  for (let i = 1; i < strArr.length; i++) {
+// 	    strArr[i] = strArr[i].charAt(0).toUpperCase() + strArr[i].slice(1);
+// 	    console.log(strArr[i]);
+// 	  }
+// 	  return strArr.join('');
+// 	 }
+// 	 return str;
+// }
+// console.log(camelize('list-style-image'));
+
+// var obj = {
+//   className: 'menu open start menu menu close'
+// }
+
+// var removeClass = function(obj, element) {
+//   if (obj['className']) {
+//     var classArr = obj['className'].split(' ');
+//   } else {
+//     var classArr = [];
+//   }
+//   console.log(classArr);
+
+// while (true) {
+//   if (classArr.indexOf(element) < 0) break;
+//   classArr.splice(classArr.indexOf(element), 1)
+// }
+//   for (var i = 0; i < classArr.length; i++) {
+//     if (classArr[i] == element) {
+//       classArr.splice(i, 1);
+//       i--;
+//     }
+//   }
+
+//   console.log(classArr);
+
+//   obj['className'] = classArr.join(' ');
+
+//   return obj;
+// }
+
+// console.log(removeClass(obj, 'menu'));
+
+var arr = [5, 3, 8, 1, 4];
+var filterRangeInPlace = function(arr, a, b) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < a || arr[i] > b) {
+      arr.splice(i, 1);
+      i--;
     }
-
   }
-  return arrNumbers;
 }
-
-console.log(eratosfen(120));
-// console.log(filterArr(arrNumbers).length);
-// console.log(arrNumbers);
+filterRangeInPlace(arr, 1, 4)
+console.log(arr);
