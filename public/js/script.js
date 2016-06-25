@@ -1180,27 +1180,158 @@ function pow(x, n) {
 
 // console.log(aclean(arr));
 
-var strings = ["кришна", "кришна", "харе", "харе",
-  "харе", "харе", "кришна", "кришна", "8-()"
-];
+// var strings = ["кришна", "кришна", "харе", "харе",
+//   "харе", "харе", "кришна", "кришна", "8-()"
+// ];
 
-var unique = function(arr) {
-  var result = [];
-  var tmpObj = {};
+// var unique = function(arr) {
+//   var result = [];
+//   var tmpObj = {};
 
-  for (let i = 0; i < arr.length; i++) {
-    let key = arr[i];
-    tmpObj[key] = true;
-  }
+//   for (let i = 0; i < arr.length; i++) {
+//     let key = arr[i];
+//     tmpObj[key] = true;
+//   }
 
-  if (Object.keys) {
-    result = Object.keys(tmpObj);
-  } else {
+//   if (Object.keys) {
+//     result = Object.keys(tmpObj);
+//   } else {
 
-    for (let key in tmpObj) result.push(key);
-  }
+//     for (let key in tmpObj) result.push(key);
+//   }
 
-  return result;
+//   return result;
 
+// }
+// console.log(unique(strings));
+
+// var arr = ["Яблоко", "Апельсин", "Груша"];
+// arr.forEach(function(item, i, arr) {
+// 	console.log(item + ' ' + i + ' ' + arr);
+// });
+
+// var arr = [1, -1, 2, -2, 3];
+// console.log(arr.filter(function(number) {
+//   return number > 0;
+// }));
+
+// var names = ['HTML', 'CSS', 'JavaScript','5'];
+// console.log(names.map(function(item){
+// 	return item.toLowerCase();
+// }));
+
+// console.log(names.every(function(item){
+// 	return isNaN(item);
+// }));
+// console.log(names.some(function(item){
+// 	return isNaN(item);
+// }));
+
+// var arr = [1, 2, 3, 4, 5];
+// console.log(arr.reduce(function(sum,item,i,array){
+// 	return sum+item;
+// },0));
+
+// console.log(arr.reduceRight(function(sum,item){
+// 	return sum+item;
+// },0));
+
+// var arr = ["Есть", "жизнь", "на", "Марсе"];
+// console.log(arr.map(function(item,i){
+// 	return item.length;
+// }));
+
+// var arr = [1, 2, 3, 4, 5];
+// var getSums = function(arr) {
+//   var result = [];
+
+//   if(!arr.length)return result;
+
+//   arr.reduce(function(sum, item) {
+//     result.push(sum + item);
+//     return item + sum;
+//   }, 0);
+//   return result;
+// }
+// console.log(getSums(arr));
+// console.log(getSums([-2, -1, 0, 1]));
+
+// function sayHi(a) {
+//   // arguments[0]='notVasya';
+//   console.log(typeof(arguments));
+//   console.log(arguments);
+// }
+// sayHi('Vasya', 'Petya');
+
+// var vasya = {
+//   age: 21,
+//   name: 'Вася',
+//   surname: 'Петров',
+// };
+
+// var user = {
+//   isAdmin: false,
+//   isEmailConfirmed: true
+// };
+
+// var student = {
+//   university: 'My university'
+// };
+
+// function copy(dst) {
+//   var dst = arguments[0];
+//   for (let i = 1; i < arguments.length; i++) {
+//     var arg = arguments[i];
+//     for (let key in arg) {
+//       dst[key] = arg[key];
+//     }
+//   }
+//   return dst;
+// }
+
+
+// var newArr = copy({}, vasya, user, student);
+// console.log(newArr);
+
+// function showWarning(width,height,title,content){
+// 	width=width||200;
+// 	height=height||100;
+// 	title=title||'Default Title';
+// 	content=content||'content';
+// 	return [width,height,title,content];
+// }
+// console.log(showWarning());
+
+// function f() {
+//   console.log( arguments.callee === f ); // only work without strict mode
+// }
+// f();
+
+// arguments.callee.caller    //only without use strict
+
+// function showWarning(options) {
+//   var width = options.width || 200;
+//   var height = options.heigth || 100;
+//   var title = options.title || 'Default Title';
+//   var content = options.content || 'content';
+//   return [width, height, title, content];
+// }
+// console.log(showWarning({ content: 'new content', title: 'new title' }));
+
+// function f(x) {
+// 	console.log(arguments);
+//   if (arguments.length) return 1;
+//   return 0;
+// }
+// console.log(f(undefined));
+// console.log(f());
+
+function sumArgs(){
+	var sum=0;
+	if(arguments.length==0)return console.log(sum);
+	for(let i =0;i<arguments.length;i++){
+		sum+=arguments[i];
+	}
+	console.log(sum);
 }
-console.log(unique(strings));
+sumArgs(1,2,3,4);
