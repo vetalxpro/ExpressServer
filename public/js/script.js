@@ -1326,12 +1326,222 @@ function pow(x, n) {
 // console.log(f(undefined));
 // console.log(f());
 
-function sumArgs(){
-	var sum=0;
-	if(arguments.length==0)return console.log(sum);
-	for(let i =0;i<arguments.length;i++){
-		sum+=arguments[i];
-	}
-	console.log(sum);
+// function sumArgs(){
+// 	var sum=0;
+// 	if(arguments.length==0)return console.log(sum);
+// 	for(let i =0;i<arguments.length;i++){
+// 		sum+=arguments[i];
+// 	}
+// 	console.log(sum);
+// }
+// sumArgs(1,2,3,4);
+
+// console.log(new Date(2005,3,8,20,30,30));
+
+// var myBirthDay = new Date(1988,3,8,20,30,30);
+// console.log(myBirthDay.getFullYear());
+// var today=new Date();
+// today.setHours(0);
+// console.log(today);
+
+// var d = new Date(2011, 1, 28);
+// d.setDate(d.getDate() + 2);
+
+// console.log( d ); // 2 марта, 2011
+
+// var arr=[];
+// for(let i=0;i<1000;i++){
+// 	arr[i]=0;
+// }
+// function walkIn(arr){
+// 	for(let key in arr){
+// 		arr[key]++;
+// 	}
+// }
+// function walkLength(arr){
+// 	for(let i=0;i<arr.length;i++){
+// 		arr[i]++;
+// 	}
+// }
+// function bench(f){
+// 	var date=new Date();
+// 	for(let i=0;i<100;i++) f(arr);
+// 	return new Date()-date;
+// }
+// console.log('walkIn = '+bench(walkIn));
+// console.log('walkLenght ='+bench(walkLength));
+
+// var arr = [];
+// for (var i = 0; i < 1000; i++) arr[i] = 0;
+
+// function walkIn(arr) {
+//   for (var key in arr) arr[key]++;
+// }
+
+// function walkLength(arr) {
+//   for (var i = 0; i < arr.length; i++) arr[i]++;
+// }
+
+// function bench(f) {
+//   var date = new Date();
+//   for (var i = 0; i < 1000; i++) f(arr);
+//   return new Date() - date;
+// }
+
+// // bench для каждого теста запустим много раз, чередуя
+// var timeIn = 0,
+//   timeLength = 0;
+// for (var i = 0; i < 100; i++) {
+//   timeIn += bench(walkIn);
+//   timeLength += bench(walkLength);
+// }
+
+// console.log( 'Время walkIn: ' + timeIn + 'мс' );
+// console.log( 'Время walkLength: ' + timeLength + 'мс' );
+// console.log(performance.now());
+
+// console.time('test');
+// console.timeEnd('test');
+
+// var date = new Date();
+// var options={
+// 	 era: 'long',
+// year: 'numeric',
+// month: 'long',
+// day: 'numeric',
+// weekday: 'long',
+// timezone: 'UTC',
+// hour: 'numeric',
+// minute: 'numeric',
+// second: 'numeric'
+// }
+// console.log(date.toLocaleString('en-US'));
+// console.log(date.toLocaleString('ru',options));
+// console.log(date.toString());
+// console.log(date.toDateString());
+// console.log(date.toTimeString());
+// console.log(date.toUTCString());
+// console.log(date.toISOString());
+
+// console.log(Date.parse('2012-01-26T13:51:50.417Z'));
+// var ms = Date.parse('2012-01-26T13:51:50.417-07:00');
+
+// console.log( ms ); // 1327611110417 (число миллисекунд)
+// console.log(performance.now());
+
+// console.log(new Date(2012, 1, 20, 3, 12, 30));
+
+// function getWeekDay(date) {
+//   if (date.toLocaleString) {
+//     return date.toLocaleString('ru', { weekday: 'short' });
+//   }
+//   var days = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
+//   return days[date.getDay()];
+
+// }
+// var date = new Date();
+// console.log(getWeekDay(date));
+
+// function getLocalDay(date) {
+//   var day = date.getDay();
+//   if (day == 0) day = 7;
+//   return day;
+// }
+// console.log((new Date(1541544847878)));
+
+// function getDateAgo(date, days) {
+//   var dateCopy = new Date(date);
+//   dateCopy.setDate(dateCopy.getDate() - days);
+//   return dateCopy.toLocaleString('ru', {
+//     month: 'long',
+//     weekday: 'short',
+//     day: 'numeric',
+//     year: 'numeric'
+//   });
+// }
+// console.log(getDateAgo(date, 10306));
+// console.log(date.toLocaleString('ru'));
+
+// function getDaysFromBirthday(bDate) {
+//   var result = new Date() - bDate;
+
+//   console.log((result / (1000 * 60 * 60 * 24)).toFixed(1));
+// }
+
+// var bDate = new Date('1988/4/8');
+// getDaysFromBirthday(bDate);
+
+// function getLastDayOfMonth(year, month) {
+//   var day = new Date(year, month + 1, 0);
+//   // var day=date.getDate(date.setDate(date.getDate()-1));
+
+//   console.log(day.getDate());
+// }
+// getLastDayOfMonth(2012, 1);
+
+
+// function getSecondsToday() {
+//   var now = new Date();
+//   var today = new Date(now);
+//   today.setHours(0, 0, 0, 0);
+//   console.log(today);
+//   return ((now - today) / 1000);
+// }
+// console.log(getSecondsToday());
+
+// function getSecondsToTomorrow() {
+//   var now = new Date();
+//   var tomorrow = new Date(now);
+//   tomorrow.setHours(0, 0, 0, 0);
+//   tomorrow.setDate(tomorrow.getDate() + 1);
+//   console.log((tomorrow - now) / 1000);
+// }
+// getSecondsToTomorrow();
+
+// function formatDate(date) {
+//   var yyyy = date.getFullYear().toString();
+//   var mm = date.getMonth() + 1;
+//   if (mm < 10) mm = '0' + mm;
+//   var dd = date.getDate().toString();
+//   if (dd < 10) dd = '0' + dd;
+//   return mm + '.' + dd + '.' + yyyy.slice(2);
+// }
+// console.log(formatDate(new Date()));
+
+function formatDate(date) {
+  var now = new Date();
+  var diff = now - date;
+
+  if (diff < 1000) return 'только что';
+
+  var sec = Math.floor(diff / 1000);
+  if (sec < 60) return sec + ' сек назад';
+
+  var min = Math.floor(sec / 60);
+  if (min < 60) return min + ' мин назад';
+
+  var hours = (min / 60);
+  if (hours < 24) {
+    var diffHours = now.getHours() - date.getHours();
+    var diffMinutes = now.getMinutes() - date.getMinutes();
+    if (diffHours < 0) return 'вчера';
+    return diffHours + ' ч ' + diffMinutes + ' мин назад';
+  }
+
+  var d = date;
+  d = [
+    '0' + d.getDate(),
+    '0' + (d.getMonth() + 1),
+    '' + d.getFullYear(),
+    '0' + d.getHours(),
+    '0' + d.getMinutes()
+  ];
+
+  d = d.map(function(val) {
+    return val.slice(-2);
+  });
+
+  return d.slice(0, 3).join('.') + ' ' + d.slice(3).join(':');
 }
-sumArgs(1,2,3,4);
+var date = new Date(2016, 5, 26, 23, 55);
+console.log(formatDate(date));
