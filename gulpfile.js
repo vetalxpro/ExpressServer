@@ -22,7 +22,8 @@ gulp.task('nodemon', function(callback) {
         ignore: [
             //'gulpfile.js',
             'node_modules/',
-            './public/'
+            './public/',
+            'notes.js'
         ],
         env: { 'NODE_ENV': 'development' }
     }).on('start', function() {
