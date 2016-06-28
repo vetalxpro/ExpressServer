@@ -388,3 +388,47 @@
 // }
 
 
+//===================================================
+// var user = {
+// 	name:'Vasya',
+// 	sayHi:function(){
+// 		showName(this);
+// 		}
+// }
+// function showName(obj){
+// 		console.log(obj.name);
+// }
+
+// user.sayHi();
+// user.sayHi=function(){
+// 	console.log('GoodBye '+this.name);
+// };
+// user.sayHi();
+
+// var user = {
+// 	name:'user'
+// };
+// var admin = {
+// 	name:'admin'
+// };
+// function showNameFunc(){
+// 	console.log(this.name);
+// }
+// user.showName=showNameFunc;
+// admin.showName=showNameFunc;
+// user.showName();
+// admin.showName();
+
+
+// function func(){
+// 	console.log(this);
+// }
+// func();
+
+
+var arr=['a','b'];
+arr.push(function(){
+	console.log(this);
+});
+console.log(arr[2]);
+
