@@ -1,10 +1,6 @@
 ;(function() {
-  var message = 'Hi from module';
 
-  function showMessage() {
-    console.log(message);
-  }
+  	console.log('Hi vetalxpro!\n\r');
 
-  showMessage();
 
 })();
