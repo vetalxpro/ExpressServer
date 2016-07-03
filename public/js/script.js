@@ -291,4 +291,335 @@
 
 // =================ООП в прототипном стиле
 
+// ====================Прототип объекта
 
+// var animal = {
+// 	eats :true
+// };
+// var rabbit = {
+// 	jumps : true,
+// 	// eats :true,
+// 	__proto__:animal
+// };
+
+// console.log(rabbit.eats);
+// console.log(rabbit.hasOwnProperty('eats'));
+
+// for(let key in rabbit){
+// 	if(!rabbit.hasOwnProperty(key)) continue;
+// 	console.log(key+' = '+rabbit[key]);
+// }
+
+// var data = {
+// 	text:'message',
+// 	age:25
+// }
+// console.log(data);
+// console.log(data.hasOwnProperty('toString')? data.toString:undefined);
+
+// var data = Object.create(null);
+// data.text = 'text';
+// console.log(data.text);
+// console.log(data.toString);
+
+// console.log(Object.getPrototypeOf(rabbit));
+
+// Чтение: Object.getPrototypeOf(obj)
+// Запись: Object.setPrototypeOf(obj, proto)
+// Создание объекта с прототипом:
+// Object.create(proto, descriptors)
+
+// var animal = {
+// 	jumps : null,
+// 	eat:function(){
+// 		this.full = true;
+// 	}
+// };
+// var rabbit = {
+// 	jumps : true
+// };
+
+// rabbit.__proto__=animal;
+// console.log(rabbit.jumps); //true
+// delete rabbit.jumps;
+// console.log(rabbit.jumps); // null
+// delete animal.jumps;
+// console.log(rabbit.jumps); // undefined
+
+// rabbit.eat();
+
+// var head = {
+//   glasses: 1
+// };
+
+// var table = {
+//   pen: 3
+// };
+
+// var bed = {
+//   sheet: 1,
+//   pillow: 2
+// };
+
+// var pockets = {
+//   money: 2000
+// };
+
+// pockets.__proto__=bed;
+// bed.__proto__=table;
+// table.__proto__=head;
+
+
+// =================Свойство F.prototype и
+// создание объектов через new
+
+// var animal = {
+//   eats: true
+// };
+
+// function Rabbit(name) {
+//   this.name = name;
+//   // this.__proto__=animal;
+// }
+
+//=================Свойство F.prototype
+
+// Rabbit.prototype = animal;
+// var rabbit = new Rabbit('Robby');
+// console.log(rabbit.eats);
+
+// function Rabbit(name){
+// 	this.name = name;
+// 	console.log(name);
+// }
+// console.log(Object.getOwnPropertyNames(Rabbit));
+// console.log(Rabbit.prototype.constructor == Rabbit);
+
+// var rabbit1 = new Rabbit('name1');
+// var rabbit2=new rabbit1.constructor('name2');
+
+// // ===================Свойство constructor
+
+// Rabbit.prototype = {
+// 	jumps:true,
+// 	constructor:Rabbit
+// };
+// Rabbit.prototype.jumps = true;
+
+
+// ========================Эмуляция Object.create для IE8-
+
+// function inherit(proto) {
+//   function F() {}     // (1)
+//   F.prototype = proto // (2)
+//   var object = new F; // (3)
+//   return object;      // (4)
+// }
+// 1)Создана новая функция F. Она ничего не делает с this, так что если вызвать new F, то получим пустой объект.
+// 2)Свойство F.prototype устанавливается в будущий прототип proto
+// 3)Результатом вызова new F будет пустой объект с __proto__ равным значению F.prototype.
+// 4)Мы получили пустой объект с заданным прототипом, как и хотели. Возвратим его.
+// if (!Object.create) Object.create = inherit;  определение inherit - выше
+
+
+// var animal = {
+//   eats: true
+// };
+
+// var rabbit = inherit(animal);
+
+// console.log( rabbit.eats ); // true
+
+// function Rabbit(){};
+
+// Rabbit.prototype = {
+// 	eats:true
+// };
+
+// var rabbit = new Rabbit();
+
+
+
+// // Rabbit.prototype = {};  //true
+// // Rabbit.prototype.eats = false;// false
+// // delete rabbit.eats; // (*) true
+// // delete Rabbit.prototype.eats; // (*) udef
+
+
+
+// console.log(rabbit.eats);    //true
+
+
+
+// function Menu(options){
+// 	options = Object.create(options);
+// 	options.width = options.width||300;
+// 	options.height = options.height||600;
+// 	// this.width = options.width;
+// 	// this.height = options.height;
+// 	console.log(options.width);
+// 	console.log(options.height);
+
+// }
+// var options = {width:200};
+// var menu = new Menu(options);
+// // console.log(menu.width);
+// // console.log(menu.height);
+
+
+// function Rabbit(name){
+// 	this.name = name;
+// }
+// Rabbit.prototype.sayHi = function(){
+// 	console.log(this.name);
+// }
+
+// var rabbit = new Rabbit('Rabbit');
+
+// rabbit.sayHi();   //Rabbit    все браузеры
+// Rabbit.prototype.sayHi();//undefined   все браузеры
+// Object.getPrototypeOf(rabbit).sayHi();//undefined    не работатает в ИЕ8-
+// rabbit.__proto__.sayHi();//undefined   не работает в ИЕ10 -
+
+// function Obj(){
+// 	this.a = 1;
+// 	this.b = 2;
+// }
+// Obj.prototype = {c:3,constructor:Obj};
+// var obj = new Obj();
+// console.log(Object.getOwnPropertyNames(obj));
+// var obj1 = new obj.constructor();
+// console.log(obj1.__proto__);
+// for(var key in obj1) console.log('%s = %s',key,obj1[key]);
+
+
+// =============================Встроенные "классы" в JavaScript
+
+
+// var obj = {};
+// var obj1 = new Object();
+// console.log(obj+'');
+// console.log(obj1);
+// console.log(obj.__proto__.toString);
+// console.log(obj.__proto__.__proto__); //null
+
+// var f = function(){
+
+// };
+// console.log(Object.getOwnPropertyNames(Object));
+// console.log(Object.getOwnPropertyNames(Object.prototype));
+// console.log(Object.getOwnPropertyNames(Function.prototype));
+// console.log(Object.getOwnPropertyNames(Array.prototype));
+// console.log(Object.getOwnPropertyNames(String.prototype));
+// console.log(Object.getOwnPropertyNames(Number.prototype));
+// console.log(Object.getOwnPropertyNames(Boolean.prototype));
+
+// console.log(Object.getOwnPropertyNames(Date.prototype));
+// console.log(Object.getOwnPropertyNames(JSON));
+// console.log(Object.getOwnPropertyNames(console));
+
+
+// function showList(){
+// 	console.log([].join.call(arguments,' - '));
+// 	console.log(Array.prototype.join.call(arguments,' / '));
+// }
+// showList('name1','name2','name3');
+
+// var user = "Вася"; // создали строку (примитив)
+
+// console.log( user.toUpperCase() ); // ВАСЯ
+// был создан временный объект new String
+// вызван метод
+// new String уничтожен, результат возвращён
+
+// String.prototype.repeat = function(times){
+// 	return new Array(times+1).join(this);
+// };
+// console.log('ля'.repeat(3));
+
+// Object.prototype.each = function(f){
+// 	for(var prop in this){
+// 		var value = this[prop];
+// 		f.call(value,prop,value);
+// 	}
+// }
+// Object.defineProperty(Object.prototype, 'each', {
+//   enumerable: false
+// });
+
+// var user = {
+// 	name:'vasya',
+// 	age:25
+// };
+
+// user.each(function(prop,val){
+// 	console.log(prop);
+// });
+
+// if (!Object.create) {
+
+//   Object.create = function(proto) {
+//     function F() {}
+//     F.prototype = proto;
+//     return new F;
+//   };
+
+// }
+
+
+// Function.prototype.defer = function(delay){
+// 	var f = this;
+// 	return function(){
+// 		var context = this;
+// 		var args = arguments;
+// 		setTimeout(function(){
+// 			f.apply(context,args);
+// 		},delay);
+// 	}
+// };
+
+// function f(a,b){
+// 	console.log(a+b);
+// }
+// f.defer(1000)(1,2);
+// console.log((Function.prototype.defer));
+
+// ==============================Свои классы на прототипах
+
+// =======Обычный конструктор
+// function Animal(name) {
+//   this.name = name;
+//   this.speed = 0;
+//   this.run = function(speed) {
+//     this.speed += speed;
+//     console.log(this.name + ' run with speed ' + this.speed);
+//   };
+//   this.stop = function() {
+//     this.speed = 0;
+//     console.log(this.name + ' stop with speed ' + this.speed);
+//   };
+// }
+
+
+
+
+
+// =============Класс через прототип
+function Animal(name) {
+  this.name = name;
+  this.speed = 0;
+}
+Animal.prototype.run = function(speed) {
+  this.speed += speed;
+  console.log(this.name + ' run with speed ' + this.speed);
+};
+Animal.prototype.stop = function() {
+  this.speed = 0;
+  console.log(this.name + ' stop with speed ' + this.speed);
+};
+
+
+var animal = new Animal('beast');
+console.log(animal.name);
+animal.run(10);
+animal.stop();
