@@ -605,21 +605,284 @@
 
 
 // =============Класс через прототип
-function Animal(name) {
-  this.name = name;
-  this.speed = 0;
+// function Animal(name) {
+//   this.name = name;
+//   this.speed = 0;
+// }
+// Animal.prototype.run = function(speed) {
+//   this.speed += speed;
+//   console.log(this.name + ' run with speed ' + this.speed);
+// };
+// Animal.prototype.stop = function() {
+//   this.speed = 0;
+//   console.log(this.name + ' stop with speed ' + this.speed);
+// };
+
+
+// var animal = new Animal('beast');
+// console.log(animal.name);
+// animal.run(10);
+// animal.stop();
+
+
+// function CoffeeMachine(power) {
+//   this._waterAmount = 0;
+//   this._power = power;
+// }
+// CoffeeMachine.prototype.WATER_HEAT_CAPACITY = 4200;
+
+
+// CoffeeMachine.prototype._getTimeBoil = function() {
+//   return this._waterAmount * this.WATER_HEAT_CAPACITY * 80 / this._power;
+// };
+// CoffeeMachine.prototype.run = function() {
+//   setTimeout(function() {
+//     console.log('Coffee Ready!');
+//   }, this._getTimeBoil());
+// };
+// CoffeeMachine.prototype.setWaterAmount = function(amount) {
+//   this._waterAmount = amount;
+// };
+
+// var coffeeMachine = new CoffeeMachine(10000);
+// coffeeMachine.setWaterAmount(50);
+// coffeeMachine.run();
+
+
+
+// function Hamster(){
+// 	this.food = [];
+// }
+// Hamster.prototype.found = function(something){
+// 	this.food.push(something);
+// };
+
+// var speedy = new Hamster();
+// var lazy = new Hamster();
+
+// speedy.found('apple');
+// speedy.found('nut');
+
+// console.log(speedy.food);
+// console.log(lazy.food);
+
+
+// ===============Наследование классов в JavaScript
+
+// console.dir([1,2,3,4,5]);
+
+// function Animal(name){
+// 	this.name = name;
+// 	this.speed = 0;
+// }
+
+// Animal.prototype.run = function(speed){
+// 	this.speed +=speed;
+// 	console.log(this.name + ' бежит со скоростью '+this.speed);
+// };
+// Animal.prototype.stop = function(){
+// 	this.speed = 0;
+// 	console.log(this.name + ' стоит со скоростью ' +this.speed);
+// };
+
+// function Rabbit(name){
+// 	// this.name = name;
+// 	// this.speed = 0;
+// 	Animal.apply(this,arguments);
+// }
+
+// Rabbit.prototype = Object.create(Animal.prototype);
+// Rabbit.prototype.constructor = Rabbit;
+// Rabbit.prototype.jump = function(){
+// 	this.speed++;
+// 	console.log(this.name+' прыгает');
+// }
+// // Rabbit.prototype.run = function(speed){
+// // 	this.speed++;
+// // 	this.jump();
+// // };
+// Rabbit.prototype.run = function(){
+// 	Animal.prototype.run.apply(this,arguments);
+// 	this.jump();
+// }
+
+// var rabbit = new Rabbit('Bunny');
+// rabbit.jump();
+// // console.log(rabbit.speed);
+// rabbit.run(10);
+
+
+// function Animal(name){
+// 	this.name = name;
+// }
+// Animal.prototype.walk = function(){
+// 	console.log('walk '+ this.name);
+// };
+// function Rabbit(name){
+// 	this.name = name;
+// }
+// Rabbit.prototype = Object.create(Animal.prototype);
+// Rabbit.prototype.constructor = Rabbit;
+
+// Rabbit.prototype.walk = function(){
+// 	console.log('jumping and walking '+this.name);
+// };
+// var rabbit = new Rabbit('Rab');
+// rabbit.walk();
+
+
+// function Animal(name) {
+//   this.name = name;
+
+// }
+// Animal.prototype.walk = function() {
+//     console.log( "ходит " + this.name );
+// };
+
+// function Rabbit(name) {
+//   Animal.apply(this, arguments);
+// }
+// Rabbit.prototype = Object.create(Animal.prototype);
+
+// Rabbit.prototype.walk = function() {
+//   console.log( "прыгает " + this.name );
+// };
+
+// var rabbit = new Rabbit("Кроль");
+// rabbit.walk();
+// var animal = new Animal('dog');
+// animal.walk();
+
+
+
+// function Clock(options) {
+//   this._template = options.template;
+
+
+// }
+// Clock.prototype._render = function() {
+//   var date = new Date();
+
+//   var hours = ('0' + date.getHours()).slice(-2);
+//   var min = ('0' + date.getMinutes()).slice(-2);
+//   var sec = ('0' + date.getSeconds()).slice(-2);
+
+//   var output = this._template.replace('h', hours).replace('m', min).replace('s', sec);
+//   console.log(output);
+// }
+// Clock.prototype.stop = function() {
+//   clearInterval(this._timer);
+// };
+
+// Clock.prototype.start = function() {
+//   this._render();
+//   var self = this;
+//   // var args = arguments;
+//   this._timer = setInterval(function() {
+//     // console.clear();
+//     self._render();
+//   }, 1000);
+// }
+
+
+// var clock = new Clock({
+// 	template:'h:m:s'
+// });
+// clock.start();
+// var clock2 = new Clock({
+// 	template:'hz:mz:sz'
+// });
+// clock2.start();
+
+// function ExtendedClock(options) {
+//   Clock.apply(this, arguments);
+//   this._precision = options.precision || 1000;
+// }
+// ExtendedClock.prototype = Object.create(Clock.prototype);
+// ExtendedClock.prototype.start = function() {
+//   this._render();
+//   var self = this;
+//   this._timer = setInterval(function() {
+//     console.clear();
+//     self._render();
+//   }, this._precision);
+// };
+
+
+// var clock = new ExtendedClock({
+//   template: 'h:m:s',
+//   precision: 5000
+// });
+
+// clock.start();
+
+
+
+function Menu(state) {
+  this._state = state || Menu.STATE_CLOSED;
 }
-Animal.prototype.run = function(speed) {
-  this.speed += speed;
-  console.log(this.name + ' run with speed ' + this.speed);
+
+Menu.STATE_OPEN = 1;
+Menu.STATE_CLOSED = 0;
+
+
+Menu.prototype.open = function() {
+  this._state = Menu.STATE_OPEN;
+  // console.log(this._state);
 };
-Animal.prototype.stop = function() {
-  this.speed = 0;
-  console.log(this.name + ' stop with speed ' + this.speed);
+
+Menu.prototype.close = function() {
+  this._state = Menu.STATE_CLOSED;
+  // console.log(this._state);
+};
+
+Menu.prototype.showState = function() {
+  console.info(this.showStateAsString());
+};
+Menu.prototype.showStateAsString = function(){
+	switch(this._state){
+		case Menu.STATE_OPEN:
+			return 'open'
+		case Menu.STATE_CLOSED:
+			return 'closed';
+		default:
+			return this._state;
+
+	}
+}
+
+function AnimatingMenu(state) {
+  Menu.apply(this, arguments);
+}
+
+AnimatingMenu.STATE_ANIMATING = 'animation';
+
+AnimatingMenu.prototype = Object.create(Menu.prototype);
+AnimatingMenu.prototype.constructor = Menu;
+
+AnimatingMenu.prototype.open = function() {
+  this._state = AnimatingMenu.STATE_ANIMATING;
+  var self = this;
+  var args = arguments;
+  this._timerId = setTimeout(function() {
+    Menu.prototype.open.apply(self, args);
+  }, 1000);
+};
+
+AnimatingMenu.prototype.close = function() {
+  clearTimeout(this._timerId);
+  Menu.prototype.close.apply(this, arguments);
 };
 
 
-var animal = new Animal('beast');
-console.log(animal.name);
-animal.run(10);
-animal.stop();
+var amenu = new AnimatingMenu();
+amenu.showState();
+amenu.open();
+amenu.showState();
+
+setTimeout(function(){
+	amenu.showState();
+	amenu.close();
+	amenu.showState();
+},1500);
+
