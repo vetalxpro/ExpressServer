@@ -909,11 +909,239 @@ function httpGet(url) {
 
 // =======================Композиция генераторов
 
-function* generateSeq(start,end){
-	for(let i =start;i<=end;i++){
-		yield i;
-	}
-}
+// function* generateSeq(start,end){
+// 	for(let i =start;i<=end;i++){
+// 		yield i;
+// 	}
+// }
 
-let sequence = [...generateSeq(2,5)];
-console.log(sequence);
+// let sequence = [...generateSeq(2,5)];
+// console.log(sequence);
+
+
+// function* generateSequence(start, end) {
+//   for (let i = start; i <= end; i++) {
+//     yield i;
+//   }
+// }
+
+// function* generateAlphaNum() {
+//   yield * generateSequence(48, 57);
+//   yield * generateSequence(65, 90);
+//   yield * generateSequence(97, 122);
+// }
+// let str = '';
+// for (let code of generateAlphaNum()) {
+//   str += String.fromCharCode(code);
+// }
+// console.log(str);
+
+
+// ====================yield – дорога в обе стороны
+
+// function* gen() {
+//   try {
+//     let ask1 = yield '2+2?';
+//     console.log(ask1);
+//     let ask2 = yield '3*3';
+//     console.log(ask2);
+//   } catch (e) {
+//     console.log(e);
+//   }
+// }
+// let generator = gen();
+// console.log(generator.next().value);
+// console.log(generator.next(4).value);
+// try{
+// 	generator.throw(new Error('err'));
+// }catch(e){
+// 	console.log(e+'eeeee');
+// }
+// console.log(generator.next(9).done);
+
+
+// =============================Плоский асинхронный код
+
+
+// function* showUserAvatar() {
+// 		let userFetch = yield fetch('json/user.json');
+//   	let userInfo = yield userFetch.json();
+
+//     let githubFetch = yield fetch(`https://api.github.com/users/${userInfo.name}`);
+//     let githubUserInfo = yield githubFetch.json();
+
+//     let img = new Image();
+//     img.src = githubUserInfo.avatar_url;
+//     img.className = "promise-avatar-example";
+//     document.body.appendChild(img);
+
+//     yield new Promise((resolve) => setTimeout(resolve, 2000));
+//     // img.remove();
+//     return img.src;
+
+// }
+// co(showUserAvatar()).then(console.log).catch(console.log);
+
+// function execute(generator, yieldValue) {
+//   let next = generator.next(yieldValue);
+//   if (!next.done) {
+//     next.value.then(
+//       result => execute(generator, result),
+//       err => generator.throw(err)
+//     );
+//   } else {
+//     console.log(next.value);
+//   }
+// }
+// execute(showUserAvatar());
+
+// ===========================================console.log
+
+// function* fetchUser(url) {
+//   let userFetch = yield fetch(url);
+//   let user = yield userFetch.json();
+//   return user;
+// }
+
+// function* fetchGithubUser(user) {
+//   let githubUserFetch = yield fetch(`https://api.github.com/users/${user.name}`);
+//   let githubUser = yield githubUserFetch.json();
+//   return githubUser;
+// }
+
+// function sleep(ms) {
+//   return new Promise((resolve) => setTimeout(resolve, ms));
+// }
+
+// function* fetchAvatar(url) {
+//   let user = yield * fetchUser(url);
+//   let githubUser = yield * fetchGithubUser(user);
+//   return githubUser.avatar_url;
+// }
+
+// function* showUserAvatar() {
+//   let avatarUrl;
+
+//   try {
+//     avatarUrl = yield * fetchAvatar('json/user.json');
+
+//   } catch (e) {
+//     console.log(e);
+//   }
+//   let img = new Image();
+//   img.src = avatarUrl;
+//   img.className = 'promise-avatar-example';
+//   document.body.appendChild(img);
+
+//   yield sleep(2000);
+
+//   return img.src;
+// }
+
+// co(showUserAvatar()).then(console.log).catch(alert);
+
+
+
+// ==================================Proxy
+
+// let proxy = new Proxy(target, handler)
+
+// ====================get/set
+
+
+// get(target, property, receiver)
+// set(target, property, value, receiver)
+
+
+// let user = {};
+
+// let proxy = new Proxy(user,{
+// 	get(target,prop){
+// 		console.log(`Reading ${prop}`);
+// 		return target[prop];
+// 	},
+// 	set(target,prop,value){
+// 		console.log(`Writing ${prop} ${value}`);
+// 		target[prop]=value;
+// 		return true;
+// 	}
+// });
+
+// proxy.firstName = 'Ivan';
+// proxy.firstName;
+// console.log(user.firstName);
+
+
+// let dictionary = {
+//   'Hello': 'Привет',
+//   'Bye': 'Пока'
+// };
+
+// // console.log( dictionary['Hello'] );
+
+// dictionary = new Proxy(dictionary,{
+// 	get(target,phrase){
+// 		if(phrase in target){
+// 			return target[phrase];
+// 		}else{
+// 			console.warn('No phrase for '+phrase);
+// 			return phrase;
+// 		}
+// 	}
+// });
+
+// console.log(dictionary['Hello']);
+// console.log(dictionary['Welcome']);
+
+// // =======================has
+
+// dictionary = new Proxy(dictionary,{
+// 	has(target,phrase){
+// 		return true;
+// 	}
+// })
+
+// console.log('Hello' in dictionary);
+// console.log('Welcome' in dictionary);
+
+// // ==================deleteProperty
+
+// let proxy = new Proxy(dictionary,{
+// 	deleteProperty(target,phrase){
+// 		return true;
+// 	}
+// });
+// delete proxy['Hello'];
+// console.log(dictionary);
+
+
+// // ===================propertyIsEnumerable
+
+// let obj = {a:1,b:2};
+// proxy = new Proxy(obj,{});
+// for(let prop in proxy){
+// 	console.log(prop);
+// }
+
+// let user = {
+//   name: "Ilya",
+//   surname: "Kantor",
+//   _version: 1,
+//   _secret: 123456
+// };
+
+// let proxy = new Proxy(user, {
+//   enumerate(target) {
+//     let props = Object.keys(target).filter(function(prop) {
+//       return prop[0] != '_';
+//     });
+//     console.log(props);
+//     return props[Symbol.iterator]();
+//   }
+// });
+
+// for (let prop in proxy) {
+//   console.log(prop);
+// }
+
+
