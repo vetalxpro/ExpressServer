@@ -8,18 +8,90 @@
 </head>
 
 <body>
-
-  <div>Это</div>
-  <div>Все</div>
-  <div>Элементы DOM</div>
-  <div id="alert" class="alert"></div>
+    <div id="alert" class="alert"></div>
+    <div id="tree"></div>
     <script>
-    var elem = document.body.children[4];
-
-
-
+    'use strict';
     var alert = document.getElementById('alert');
-    alert.textContent = HTMLElement.prototype.remove;
+    alert.textContent = 'console';
+
+    var data = {
+        "Рыбы": {
+            "Форель": {},
+            "Щука": {}
+        },
+
+        "Деревья": {
+            "Хвойные": {
+                "Лиственница": {},
+                "Ель": {}
+            },
+            "Цветковые": {
+                "Берёза": {},
+                "Тополь": {}
+            }
+        }
+    };
+    var data = {
+        "Рыбы": {
+            "Форель": {},
+            "Щука": {}
+        },
+
+        "Деревья": {
+            "Хвойные": {
+                "Лиственница": {},
+                "Ель": {}
+            },
+            "Цветковые": {
+                "Берёза": {},
+                "Тополь": {}
+            }
+        }
+    };
+
+    var container = document.getElementById('tree');
+
+    function createTree(container,obj){
+      if(createTreeDom(obj)){
+      container.appendChild(createTreeDom(obj));
+      }
+    }
+    function isObjectEmpty(obj){
+      for(let key in obj) return false;
+      return true;
+    }
+    function createTreeDom(obj){
+      if(isObjectEmpty(obj)) return;
+      var ul = document.createElement('ul');
+      for(let key in obj){
+        var li = document.createElement('li');
+        li.innerHTML = key;
+        var childrenUl = createTreeDom(obj[key]);
+        if(childrenUl) li.appendChild(childrenUl);
+        ul.appendChild(li);
+
+      }
+      return ul;
+    }
+
+    createTree(container,data);
+
+    var liElements = container.getElementsByTagName('li');
+    
+    for(let i =0;i<liElements.length;i++){
+      var childCount = liElements[i].getElementsByTagName('li').length;
+      if(childCount){
+        liElements[i].firstChild.data += ` [${childCount}]`;
+      }
+    }
+
+
+    
+    
+
+
+
     </script>
 </body>
 
