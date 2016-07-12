@@ -2,97 +2,251 @@
 <html>
 
 <head>
-    <title>DOM test</title>
-    <link rel="stylesheet" type="text/css" href="test.css">
-    <script type="text/javascript" src="test.js"></script>
+  <title>DOM test</title>
+  <link rel="stylesheet" type="text/css" href="test.css">
+  <script type="text/javascript" src="test.js"></script>
 </head>
 
 <body>
-    <div id="alert" class="alert"></div>
-    <div id="tree"></div>
-    <script>
-    'use strict';
-    var alert = document.getElementById('alert');
-    alert.textContent = 'console';
+  <div id="alert" class="alert"></div>
+  <div id="tree" hidden></div>
+  <div id="insertAdjacent">
+    <ul>
+      <li>1</li>
+      <li>2</li>
+    </ul>
+  </div>
+  <div>
+    <table id="sortTable" class="table">
+      <thead>
+        <tr>
+          <th>Имя</th>
+          <th>Фамилия</th>
+          <th>Отчество</th>
+          <th>Возраст</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Вася</td>
+          <td>Петров</td>
+          <td>Александрович</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>Петя</td>
+          <td>Иванов</td>
+          <td>Петрович</td>
+          <td>15</td>
+        </tr>
+        <tr>
+          <td>Владимир</td>
+          <td>Димов</td>
+          <td>Александрович</td>
+          <td>9</td>
+        </tr>
+        <tr>
+          <td>Владимир</td>
+          <td>Димов</td>
+          <td>Александрович</td>
+          <td>19</td>
+        </tr>
+        <tr>
+          <td>Владимир</td>
+          <td>Димов</td>
+          <td>Александрович</td>
+          <td>5</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <script>
+  'use strict';
+  var alert = document.getElementById('alert');
+  alert.innerHTML = 'console';
 
-    var data = {
-        "Рыбы": {
-            "Форель": {},
-            "Щука": {}
-        },
 
-        "Деревья": {
-            "Хвойные": {
-                "Лиственница": {},
-                "Ель": {}
-            },
-            "Цветковые": {
-                "Берёза": {},
-                "Тополь": {}
-            }
+  var data = {
+    "Рыбы": {
+      "Форель": {},
+      "Щука": {}
+    },
+
+    "Деревья": {
+      "Хвойные": {
+        "Лиственница": {},
+        "Ель": {}
+      },
+      "Цветковые": {
+        "Берёза": {},
+        "Тополь": {}
+      }
+    }
+  };
+
+  var container = document.getElementById('tree');
+
+  // container.removeAttribute('hidden');
+
+  function createTree(container, object) {
+    container.appendChild(createTreeDom(object));
+  }
+
+  function createTreeDom(object) {
+    if (isObjectEmpty(object)) return;
+    let ul = document.createElement('ul');
+    for (let key in object) {
+      let li = document.createElement('li');
+      li.textContent = key;
+      let childUl = createTreeDom(object[key]);
+      if (childUl) li.appendChild(childUl);
+      ul.appendChild(li);
+    }
+    return ul;
+  }
+
+  function isObjectEmpty(object) {
+    for (let key in object) return false;
+    return true;
+  }
+
+  createTree(container, data);
+
+  container.classList.add('alert');
+
+  function showChildCount(container) {
+    let tagLiArr = container.getElementsByTagName('li');
+    for (let i = 0; i < tagLiArr.length; i++) {
+      let li = tagLiArr[i];
+      let count = li.getElementsByTagName('li').length;
+      if (count > 0) li.firstChild.data += ` [${count}]`;
+    }
+  }
+  showChildCount(container);
+
+
+
+
+  function createElementClock() {
+    var div = document.createElement('div');
+    div.setAttribute('id', 'clock');
+    div.innerHTML = '<span class="hours">hh</span>:<span class="minutes">mm</span>:<span class="seconds">ss</span>';
+    document.body.insertBefore(div, document.body.firstChild);
+    updateClock();
+  }
+
+  function updateClock() {
+    let date = new Date();
+    let hh = ('0' + date.getHours()).slice(-2);
+    let mm = ('0' + date.getMinutes()).slice(-2);
+    let ss = ('0' + date.getSeconds()).slice(-2);
+    let clock = document.getElementById('clock');
+    clock.children[0].innerHTML = hh;
+    clock.children[1].innerHTML = mm;
+    clock.children[2].innerHTML = ss;
+
+  }
+
+  var timerClockId;
+
+  function startClock() {
+    timerClockId = setInterval(() => updateClock(), 1000);
+  }
+
+  function stopClock() {
+    clearInterval(timerClockId);
+  }
+
+  createElementClock();
+  startClock();
+
+  function createCalendar(id, year, month) {
+    let table = document.createElement('table');
+    table.setAttribute('id', 'calendar');
+    table.classList.add('table');
+    let weekDays = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'];
+    let date = (arguments.length == 3) ? new Date(year, month - 1) : new Date();
+    month = date.getMonth();
+    date.setDate(1);
+    let thead = document.createElement('thead');
+    thead.appendChild(document.createElement('tr'));
+    for (let i = 0; i < weekDays.length; i++) {
+      let th = document.createElement('th');
+      th.textContent = weekDays[i];
+      thead.firstChild.appendChild(th);
+    }
+    let tbody = document.createElement('tbody');
+    for (let i = 0; i < 5; i++) {
+      let tr = document.createElement('tr');
+      for (let j = 0; j < 7; j++) {
+
+        let td = document.createElement('td');
+        tr.appendChild(td);
+        if (j > 4) td.style.background = '#FECEAD';
+        if (td == tr.children[getDay(date)] && date.getMonth() == month) {
+          td.textContent = date.getDate();
+          if (new Date().getDate() == date.getDate() && new Date().getMonth() == month) {
+            // td.style.background = '#CCCCCC';
+            td.style.border = '3px solid';
+          }
+          date.setDate(date.getDate() + 1);
         }
-    };
-    var data = {
-        "Рыбы": {
-            "Форель": {},
-            "Щука": {}
-        },
-
-        "Деревья": {
-            "Хвойные": {
-                "Лиственница": {},
-                "Ель": {}
-            },
-            "Цветковые": {
-                "Берёза": {},
-                "Тополь": {}
-            }
-        }
-    };
-
-    var container = document.getElementById('tree');
-
-    function createTree(container,obj){
-      if(createTreeDom(obj)){
-      container.appendChild(createTreeDom(obj));
-      }
-    }
-    function isObjectEmpty(obj){
-      for(let key in obj) return false;
-      return true;
-    }
-    function createTreeDom(obj){
-      if(isObjectEmpty(obj)) return;
-      var ul = document.createElement('ul');
-      for(let key in obj){
-        var li = document.createElement('li');
-        li.innerHTML = key;
-        var childrenUl = createTreeDom(obj[key]);
-        if(childrenUl) li.appendChild(childrenUl);
-        ul.appendChild(li);
 
       }
-      return ul;
-    }
-
-    createTree(container,data);
-
-    var liElements = container.getElementsByTagName('li');
-    
-    for(let i =0;i<liElements.length;i++){
-      var childCount = liElements[i].getElementsByTagName('li').length;
-      if(childCount){
-        liElements[i].firstChild.data += ` [${childCount}]`;
-      }
+      tbody.appendChild(tr);
     }
 
 
-    
-    
+
+
+    table.appendChild(thead);
+    table.appendChild(tbody);
+    id.appendChild(table);
+  }
+
+  function getDay(date) {
+    let day = date.getDay();
+    if (day === 0) day = 7;
+    return day - 1;
+  }
 
 
 
-    </script>
+  alert.innerHTML += `<P>${new Date().toLocaleString('ru')}</P>`;
+  createCalendar(document.body);
+
+  let ul1 = document.body.querySelector('#insertAdjacent').children[0].children[1];
+  ul1.insertAdjacentHTML('afterEnd', '<li>3</li><li>4</li><li>5</li>');
+
+  function sortTableFunc() {
+    let tbody = sortTable.children[1];
+    let rows = [];
+    // console.log(tbody.children);
+    for (let i = 0; i < tbody.children.length; i++) {
+      let element = tbody.children[i];
+      rows.push({
+        element: element,
+        value: element.lastElementChild.textContent
+      });
+    }
+    rows.sort(function(a, b) {
+      return a.value - b.value;
+    });
+
+    rows.forEach(function(item) {
+      tbody.appendChild(item.element);
+    });
+  }
+  // sortTableFunc();
+  function bench(){
+    let t = performance.now();
+    for(let i =0;i<1;i++){
+      sortTableFunc();
+    }
+    console.log(performance.now()-t);
+  }
+  bench();
+  </script>
 </body>
 
 </html>
