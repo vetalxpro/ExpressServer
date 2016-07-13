@@ -7,7 +7,7 @@
   <script type="text/javascript" src="test.js"></script>
 </head>
 
-<body>
+<body onload="start()">
   <div id="alert" class="alert"></div>
   <div id="tree" hidden></div>
   <div id="insertAdjacent">
@@ -61,7 +61,7 @@
     </table>
   </div>
   <div id="example">
-    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur perferendis, doloribus autem laboriosam distinctio, sapiente nesciunt odio quam esse voluptatum ea. Obcaecati expedita commodi error, sunt vero blanditiis dolorum quia iure quas, dolorem voluptas debitis fuga nesciunt, reprehenderit adipisci optio. Consectetur, autem at animi. Expedita dolorum, sed, dicta ipsam facilis consectetur, id molestias et, amet mollitia veritatis maiores quod laboriosam! Quas repudiandae itaque corporis nostrum necessitatibus, officia doloremque nihil excepturi quasi animi! Blanditiis dolorum autem impedit doloribus, aliquid dicta suscipit ipsum amet enim voluptatem inventore commodi, quod nam, natus labore nulla! Eum consectetur, praesentium nulla sit consequatur, exercitationem id sed?"
+
   </div>
   <script>
   'use strict';
@@ -242,24 +242,25 @@
     });
   }
   sortTableFunc();
-  function bench(){
+
+  function bench() {
     let t = performance.now();
-    for(let i =0;i<1;i++){
+    for (let i = 0; i < 1; i++) {
       sortTableFunc();
     }
-    console.log(performance.now()-t);
+    console.log(performance.now() - t);
   }
   // bench();
 
-  function createButton(buttonName){
+  function createButton(buttonName) {
     let a = document.createElement('a');
-    a.textContent=buttonName;
-    a.setAttribute('href','#');
+    a.textContent = buttonName;
+    a.setAttribute('href', '#');
     a.style.color = 'red';
     a.style.fontWeight = 'bold';
     a.style.height = '30px';
     a.style.width = '100px';
-    a.style.display='block';
+    a.style.display = 'block';
     a.style.textDecoration = 'none';
     a.style.textAlign = 'center';
     a.style.border = '2px groove green';
@@ -271,49 +272,149 @@
   // createButton('Click Me');
 
 
-  function showNotification(options){
+  function showNotification(options) {
     let notification = document.createElement('div');
     notification.classList.add('notification');
-    if(options.cssText){
+    if (options.cssText) {
       notification.style.cssText = options.cssText;
     }
     notification.style.top = (options.top || 0) + 'px';
-    notification.style.right = (options.right||0)+'px';
-    if(options.className){
+    notification.style.right = (options.right || 0) + 'px';
+    if (options.className) {
       notification.classList.add(options.className);
     }
     notification.innerHTML = options.html;
 
     document.body.appendChild(notification);
 
-    setTimeout(()=>document.body.removeChild(notification),2000);
+    setTimeout(() => document.body.removeChild(notification), 2000);
   }
-  setTimeout(()=>showNotification({
+  setTimeout(() => showNotification({
     top: 0,
     right: 220,
     html: "Hi vetalxpro"
-  }),500);
-  
-  console.log(example.clientHeight);
+  }), 500);
+
+  // console.log(example.clientHeight);
   // console.log(example.offsetParent);
-  console.log(example.offsetLeft);
-  console.log(example.offsetWidth);
-  console.log(example.clientLeft);
-  console.log(example.clientTop);
-  console.log(example.clientWidth);
-  console.log(example.scrollWidth);
-  console.log(example.scrollHeight);
-  console.log(example.scrollLeft);
-  function showScrollBottom(elem){
-    let scrollBottom = elem.scrollHeight-elem.clientHeight-elem.scrollTop;
+  // console.log(example.offsetLeft);
+  // console.log(example.offsetWidth);
+  // console.log(example.clientLeft);
+  // console.log(example.clientTop);
+  // console.log(example.clientWidth);
+  // console.log(example.scrollWidth);
+  // console.log(example.scrollHeight);
+  // console.log(example.scrollLeft);
+  function showScrollBottom(elem) {
+    let scrollBottom = elem.scrollHeight - elem.clientHeight - elem.scrollTop;
     return scrollBottom;
-   }
-  
+  }
+
   // setInterval(()=>example.scrollTop +=15,20);
 
+  // console.log(document.documentElement.clientHeight);
+  // console.log(document.documentElement.scrollHeight);
+  // console.log(window.pageXOffset);
+  document.body.style.overflow = '';
+
+  function createPlaceHolder(height, width) {
+    let placeHolder = document.createElement('div');
+    placeHolder.className = 'placeholder';
+    placeHolder.style.height = height + 'px';
+    placeHolder.style.width = width + 'px';
+    placeHolder.innerHTML = `<i>PlaceHolder ${height}x${width}</i>`;
+    placeHolder.style.lineHeight = height + 'px';
+    document.body.appendChild(placeHolder);
+  }
+  createPlaceHolder(200, 400);
+
+  let place = document.body.getElementsByClassName('placeholder')[0];
+  // console.log(place.getBoundingClientRect());
+
+  function createMessageLefter(elem, text) {
+    let place = document.body.getElementsByClassName('placeholder')[0];
+    let coords = place.getBoundingClientRect();
+    let message = document.createElement('div');
+    message.style.cssText = 'position:fixed; color:blue;';
+    message.style.right = coords.right + 'px';
+    message.style.top = coords.top + coords.height / 2 + 'px';
+    message.innerHTML = text;
+    return message;
+  }
+  // document.body.appendChild(createMessageLefter(place,'PlaceHolder on the right --->'));
+
+  // console.log(screen.width);
+  // console.log(screen.height);
+
+  function getCoords(elem) {
+    let box = elem.getBoundingClientRect();
+    return {
+      top: box.top + pageYOffset,
+      left: box.left + pageXOffset,
+      right: box.right + pageXOffset,
+      bottom: box.bottom + pageYOffset
+    };
+  }
+  // console.log(getCoords(calendar));
+
+  function getDocumentScroll() {
+    return {
+      top: pageYOffset,
+      bottom: pageYOffset + document.documentElement.clientHeight,
+      height: document.documentElement.scrollHeight
+    }
+  }
+
+  function createNote(anchor, position, html) {
+    let note = document.createElement('div');
+    note.className = 'note';
+    note.innerHTML = html;
+    document.body.appendChild(note);
+    positionAt(anchor, position, note);
+  }
+
+  function positionAt(anchor, position, elem) {
+    let anchorCoords = getCoords(anchor);
+    switch (position) {
+      case 'top-out':
+        elem.style.top = anchorCoords.top - elem.offsetHeight + 'px';
+        elem.style.left = anchorCoords.left + 'px';
+        break;
+      case 'top-in':
+        elem.style.top = anchorCoords.top + 'px';
+        elem.style.left = anchorCoords.left + 'px';
+        break;
+      case 'right-out':
+        elem.style.top = anchorCoords.top + 'px';
+        elem.style.left = anchorCoords.right + 'px';
+        break;
+      case 'right-in':
+        elem.style.top = anchorCoords.top + 'px';
+        elem.style.left = anchorCoords.right - elem.offsetWidth + 'px';
+        break;
+      case 'bottom-out':
+        elem.style.top = anchorCoords.bottom + 'px';
+        elem.style.left = anchorCoords.left + 'px';
+        break;
+      case 'bottom-in':
+        elem.style.top = anchorCoords.bottom - elem.offsetHeight + 'px';
+        elem.style.left = anchorCoords.left + 'px';
+        break;
+      default:
+        elem.style.top = anchorCoords.top - elem.offsetHeight + 'px';
+        elem.style.left = anchorCoords.left + anchor.offsetWidth / 2 - elem.offsetWidth / 2 + 'px';
+        break;
+    }
 
 
 
+  }
+
+
+  createNote(calendar, 'def', new Date().toLocaleString('ru', {
+    month: 'short',
+    year: 'numeric'
+  }));
   </script>
 </body>
 
