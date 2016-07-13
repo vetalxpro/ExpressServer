@@ -60,6 +60,9 @@
       </tbody>
     </table>
   </div>
+  <div id="example">
+    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur perferendis, doloribus autem laboriosam distinctio, sapiente nesciunt odio quam esse voluptatum ea. Obcaecati expedita commodi error, sunt vero blanditiis dolorum quia iure quas, dolorem voluptas debitis fuga nesciunt, reprehenderit adipisci optio. Consectetur, autem at animi. Expedita dolorum, sed, dicta ipsam facilis consectetur, id molestias et, amet mollitia veritatis maiores quod laboriosam! Quas repudiandae itaque corporis nostrum necessitatibus, officia doloremque nihil excepturi quasi animi! Blanditiis dolorum autem impedit doloribus, aliquid dicta suscipit ipsum amet enim voluptatem inventore commodi, quod nam, natus labore nulla! Eum consectetur, praesentium nulla sit consequatur, exercitationem id sed?"
+  </div>
   <script>
   'use strict';
   var alert = document.getElementById('alert');
@@ -187,7 +190,8 @@
           td.textContent = date.getDate();
           if (new Date().getDate() == date.getDate() && new Date().getMonth() == month) {
             // td.style.background = '#CCCCCC';
-            td.style.border = '3px solid';
+            td.style.border = '3px solid green';
+            td.style.fontWeight = 'bold';
           }
           date.setDate(date.getDate() + 1);
         }
@@ -237,7 +241,7 @@
       tbody.appendChild(item.element);
     });
   }
-  // sortTableFunc();
+  sortTableFunc();
   function bench(){
     let t = performance.now();
     for(let i =0;i<1;i++){
@@ -245,7 +249,71 @@
     }
     console.log(performance.now()-t);
   }
-  bench();
+  // bench();
+
+  function createButton(buttonName){
+    let a = document.createElement('a');
+    a.textContent=buttonName;
+    a.setAttribute('href','#');
+    a.style.color = 'red';
+    a.style.fontWeight = 'bold';
+    a.style.height = '30px';
+    a.style.width = '100px';
+    a.style.display='block';
+    a.style.textDecoration = 'none';
+    a.style.textAlign = 'center';
+    a.style.border = '2px groove green';
+    a.style.webkitBorderRadius = '8px';
+    a.style.lineHeight = '30px';
+    document.body.appendChild(a);
+
+  }
+  // createButton('Click Me');
+
+
+  function showNotification(options){
+    let notification = document.createElement('div');
+    notification.classList.add('notification');
+    if(options.cssText){
+      notification.style.cssText = options.cssText;
+    }
+    notification.style.top = (options.top || 0) + 'px';
+    notification.style.right = (options.right||0)+'px';
+    if(options.className){
+      notification.classList.add(options.className);
+    }
+    notification.innerHTML = options.html;
+
+    document.body.appendChild(notification);
+
+    setTimeout(()=>document.body.removeChild(notification),2000);
+  }
+  setTimeout(()=>showNotification({
+    top: 0,
+    right: 220,
+    html: "Hi vetalxpro"
+  }),500);
+  
+  console.log(example.clientHeight);
+  // console.log(example.offsetParent);
+  console.log(example.offsetLeft);
+  console.log(example.offsetWidth);
+  console.log(example.clientLeft);
+  console.log(example.clientTop);
+  console.log(example.clientWidth);
+  console.log(example.scrollWidth);
+  console.log(example.scrollHeight);
+  console.log(example.scrollLeft);
+  function showScrollBottom(elem){
+    let scrollBottom = elem.scrollHeight-elem.clientHeight-elem.scrollTop;
+    return scrollBottom;
+   }
+  
+  // setInterval(()=>example.scrollTop +=15,20);
+
+
+
+
   </script>
 </body>
 

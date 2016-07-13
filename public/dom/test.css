@@ -38,3 +38,31 @@
 .table th {
     background-color: #D3D3D3;
 }
+
+.notification {
+  position: fixed;
+  z-index: 1000;
+  padding: 12px;
+  border: 1px solid black;
+  -webkit-border-radius:0 0 5px 5px;
+  font-size: 16px;
+  font-family: sans-serif;
+  background: #1B2032;
+  text-align: center;
+  color: white;
+}
+
+.welcome {
+  
+}
+#example {
+    width: 300px;
+
+    height: 200px;
+
+    border: 25px solid #E8C48F; /* рамка 25px */
+
+    padding: 20px;              /* поля 20px */
+
+    overflow: auto;             /* прокрутка */
+  }
