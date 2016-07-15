@@ -1,0 +1,158 @@
+body{
+	padding: 0 10px;
+	height:5000px;
+}
+h1{
+	text-align:center;
+}
+.textClass{
+	display:none;
+}
+
+
+.menu .title {
+	font-size:18px;
+	cursor:pointer;
+}
+
+.menu ul{
+	margin:0;
+	list-style: none;
+	padding-left:20px;
+	display:none;
+}
+.menu .title::before{
+	content:'\25B6\00a0';
+	font-size:80%;
+	color:green;
+}
+.menu.open .title::before{
+	content: '\25BC\00a0';
+}
+.menu.open ul{
+	display:block;
+}
+
+.pane{
+	margin-bottom:8px;
+	width:450px;
+	padding:10px 20px;
+	position:relative;
+	background-color:#edf5e1;
+	border:2px solid #c4df9b;
+	// border-left:2px solid #c4df9b;
+	// border-right:2px solid #c4df9b;
+}
+
+.pane p{
+	margin:0;
+	padding:1px;
+}
+.pane h3{
+	margin:0;
+	padding-right: 10px;
+}
+.remove-button{
+	position:absolute;
+	top:2px;
+	right:2px;
+	width: 24px;
+  height: 24px;
+	font-size:110%;
+	color:white;
+	background: #D82626;
+	border-radius: 3px;
+	text-align:center;
+	line-height: 24px;
+	display:block;
+	cursor:pointer;
+	font-family: sans-serif;
+}
+
+
+.carousel-container{
+position:relative;
+width:390px;
+padding:10px 40px;
+border:1px solid #aaa;
+border-radius:40px;
+background: #222;
+margin:30px 0;
+
+}
+.carousel-gallery{
+	width:390px;
+	overflow:hidden;
+	border:1px solid #aaa;
+	border-radius:5px;
+	background:#777;
+
+}
+.carousel-container img{
+	width:130px;
+	height:130px;
+	display:block;
+}
+.carousel-gallery ul{
+	height:130px;
+	width:9999px;
+	margin:0;
+	padding:0;
+	list-style:none;
+	font-size:0;
+	transition: margin-left 1000ms;
+}
+.carousel-gallery li{
+	display:inline-block;
+}
+
+.carousel-images{
+
+}
+.carousel-arrow{
+	position:absolute;
+	top:60px;
+	// width:50px;
+	padding:0;
+	background:#ddd;
+	border-radius:15px;
+	border:1px solid gray;
+	font-size:24px;
+	line-height:24px;
+	color:#444;
+	display:block;
+}
+.carousel-arrow:focus{
+	outline:none;
+}
+.carousel-arrow:hover{
+	background:#ccc;
+	cursor:pointer;
+}
+.carousel-arrow-left{
+	left:7px;
+}
+.carousel-arrow-right{
+	right:7px;
+}
+
+.ball-field{
+	margin:30px 0;
+	position:relative;
+	background: #00FF00;
+	height:150px;
+	width:200px;
+	border:10px solid;
+	overflow:hidden;
+	cursor:pointer;
+}
+#ball{
+	position:absolute;
+	height:40px;
+	width:40px;
+	top:50%;
+	left:50%;
+	margin-top:-20px;
+	margin-left:-20px;
+	transition:all 500ms;
+}
