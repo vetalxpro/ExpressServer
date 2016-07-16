@@ -92,25 +92,85 @@ function start() {
 	function football(){
 		let ball = document.getElementById('ball');
 		let field = ball.parentNode;
-		fieldCoords = field.getBoundingClientRect();
 
-		field.onclick=function(event){
-			let x = event.clientX-this.offsetLeft-this.clientLeft;
-			let y = Math.round(event.clientY-fieldCoords.top+field.scrollTop-field.clientTop);
-			console.log(x+' : '+y);
-			if(x>180)x=180;
-			if(x<20)x=20;
-			if(y>130)y=130;
-			if(y<20)y=20;
-			ball.style.top = y+'px';
-			ball.style.left=x+'px';
+    field.onclick=function(event){
+      ball.style.marginLeft = '0';
+      ball.style.marginTop='0';
+		  fieldCoords = this.getBoundingClientRect();
+      fieldInnerCoords = {
+        top:fieldCoords.top+field.clientTop,
+        left:fieldCoords.left+field.clientLeft
+      }
+      let ballCoords = {
+        top:event.clientY-fieldInnerCoords.top-ball.clientHeight/2,
+        left:event.clientX-fieldInnerCoords.left-ball.clientWidth/2
+      }
+      // console.log(ballCoords);
+
+      if(ballCoords.top<0)ballCoords.top=0;
+      if(ballCoords.left<0)ballCoords.left=0;
+      if(ballCoords.top>field.clientHeight-ball.clientHeight){
+        ballCoords.top=field.clientHeight-ball.clientHeight;
+      }
+      if(ballCoords.left>field.clientWidth-ball.clientWidth){
+        ballCoords.left=field.clientWidth-ball.clientWidth
+      }
+      ball.style.top = ballCoords.top+'px';
+      ball.style.left=ballCoords.left+'px';
+      // console.log(ball.style.left+' '+ball.style.top);
 		}
-
-
 	}
-
-
 	football();
+
+// ============================
+  let baguaTable = document.getElementById('bagua-table');
+  let baguaSelectedTd;
+  baguaTable.onclick=function(event){
+    let target = event.target;
+    while(target!=this){
+      if(target.tagName=='TD'){
+        highlight(target);       
+        return;
+      }
+      target = target.parentNode;
+    }
+  }
+  function highlight(node){
+    // debugger;
+    if (baguaSelectedTd == node) {
+        baguaSelectedTd.classList.toggle('highlight');
+    } else {
+      if(baguaSelectedTd){
+        baguaSelectedTd.classList.remove('highlight');
+      }
+      baguaSelectedTd = node;
+      baguaSelectedTd.classList.add('highlight');
+    }
+
+  }
+
+  function delegButtons(elem){
+    this.save=function(){
+      alert('Save');
+    }
+    this.load=function(){
+      alert('Load');
+    }
+    this.search=function(){
+      alert('Search');
+    }
+    let self = this;
+    elem.onclick=function(event){
+      let target=event.target;
+      // let action = target.getAttribute('data-action');
+      let action = target.dataset.action;
+      if(action){
+        self[action]();
+      }
+    };
+  }
+  let delegButtonsContainer=document.getElementById('deleg-buttons-container');
+  new delegButtons(delegButtonsContainer);
 
 
 }
