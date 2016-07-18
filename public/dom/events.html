@@ -1,154 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Events</title>
-	<link rel="stylesheet" href="events.css">
-	<script type="text/javascript" src="events.js"></script>
+  <meta charset="UTF-8">
+  <title>Events</title>
+  <link rel="stylesheet" href="events.css">
+  <script type="text/javascript" src="events.js"></script>
 </head>
+
 <body onload="start()">
-	<h1>Events Test</h1>
-	<input id="click_me" type="button" value="Click Me"><br><br>
-	<input id="hider" type="button" value="Click to hide text">
-	<div id="text" class="textClass">
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, nostrum.
-	</div><br><br>
-	<div style="height:21px;">
-		<input id="itSelfHider" type="button" value="hide itself">
-	</div>
-	<br>
-	<br>
+  <h1>Events Test</h1>
+  <input id="click_me" type="button" value="Click Me">
+  <br>
+  <br>
+  <input id="hider" type="button" value="Click to hide text">
+  <div id="text" class="textClass">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, nostrum.
+  </div>
+  <br>
+  <br>
+  <div style="height:21px;">
+    <input id="itSelfHider" type="button" value="hide itself">
+  </div>
+  <br>
+  <br>
+  <div id="sweets" class="menu">
+    <span class="title">Сладости (нажми меня)!</span>
+    <ul>
+      <li>Пирог</li>
+      <li>Пончик</li>
+      <li>Мед</li>
+    </ul>
+  </div>
+  <br>
+  <div id="message-container">
+    <div class="pane">
+      <h3>Title 1</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur sit veniam ipsam quo accusantium iusto quasi hic aliquid. Eveniet vitae consequuntur eius corporis deleniti modi earum esse, reprehenderit officia non.</p>
+      <span class="remove-button" data-action="remove">X</span>
+    </div>
+    <div class="pane">
+      <h3>Title 2</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum unde doloribus neque quae, atque libero mollitia rem nulla, quaerat placeat enim ut tenetur, animi eos illo reiciendis, deserunt praesentium vitae!</p>
+      <span class="remove-button" data-action="remove">X</span>
+    </div>
+    <div class="pane">
+      <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, veniam?</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum veniam adipisci excepturi consequatur velit in, perferendis, atque cum, totam quae ipsam quod accusamus possimus rem reprehenderit natus doloribus fuga. Atque!</p>
+      <span class="remove-button" data-action="remove">X</span>
+    </div>
+  </div>
+  <div id="carousel-container" class="carousel-container">
+    <button class="carousel-arrow carousel-arrow-left">&#8678</button>
+    <div class="carousel-gallery">
+      <ul class="carousel-images">
+        <li><img src="https://js.cx/carousel/1.png" alt="img1"></li>
+        <li><img src="https://js.cx/carousel/2.png" alt="img2"></li>
+        <li><img src="https://js.cx/carousel/3.png" alt="img3"></li>
+        <li><img src="https://js.cx/carousel/4.png" alt="img4"></li>
+        <li><img src="https://js.cx/carousel/5.png" alt="img5"></li>
+        <li><img src="https://js.cx/carousel/6.png" alt="img6"></li>
+        <li><img src="https://js.cx/carousel/7.png" alt="img7"></li>
+        <li><img src="https://js.cx/carousel/8.png" alt="img8"></li>
+        <li><img src="https://js.cx/carousel/9.png" alt="img9"></li>
+        <li><img src="https://js.cx/carousel/10.png" alt="img10"></li>
+      </ul>
+    </div>
+    <button class="carousel-arrow carousel-arrow-right">&#8680</button>
+  </div>
+  <textarea rows="5" cols="20" id="area1">Click me</textarea>
+  <br>
+  <br>
+  <button id="event-button">Event Button</button>
+  <div class="ball-container">
+    <div class="ball-field">. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      <img src="https://js.cx/clipart/ball.svg" alt="ball img" id="ball">
+    </div>
+  </div>
+  <div id="bagula-container">
+    <table id="bagua-table">
+      <tr>
+        <th colspan="3">Bagua Chart: Direction, Element, Color, Meaning</th>
+      </tr>
+      <tr>
+        <td class="nw">
+          <strong>Northwest</strong>
+          <br> Metal
+          <br> Silver
+          <br> Elders
+        </td>
+        <td class="n">
+          <strong>North</strong>
+          <br> Water
+          <br> Blue
+          <br> Change
+        </td>
+        <td class="ne">
+          <strong>Northeast</strong>
+          <br> Earth
+          <br> Yellow
+          <br> Direction
+        </td>
+      </tr>
+      <tr>
+        <td class="w">
+          <strong>West</strong>
+          <br> Metal
+          <br> Gold
+          <br> Youth
+        </td>
+        <td class="c">
+          <strong>Center</strong>
+          <br> All
+          <br> Purple
+          <br> Harmony
+        </td>
+        <td class="e">
+          <strong>East</strong>
+          <br> Wood
+          <br> Blue
+          <br> Future
+        </td>
+      </tr>
+      <tr>
+        <td class="sw">
+          <strong>Southwest</strong>
+          <br> Earth
+          <br> Brown
+          <br> Tranquility
+        </td>
+        <td class="s">
+          <strong>South</strong>
+          <br> Fire
+          <br> Orange
+          <br> Fame
+        </td>
+        <td class="se">
+          <strong>Southeast</strong>
+          <br> Wood
+          <br> Green
+          <br> Romance
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div id="deleg-buttons-container">
+    <button data-action="save">Save</button>
+    <button data-action="load">Load</button>
+    <button data-action="search">Search</button>
+  </div>
+  <div id="animal-tree-container">
+    <ul id="animal-tree">
+      <li>Животные
+        <ul>
+          <li>Млекопитающие
+            <ul>
+              <li>Коровы</li>
+              <li>Ослы</li>
+              <li>Собаки</li>
+              <li>Тигры</li>
+            </ul>
+          </li>
+          <li>Другие
+            <ul>
+              <li>Змеи</li>
+              <li>Птицы</li>
+              <li>Ящерицы</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Рыбы
+        <ul>
+          <li>Аквариумные
+            <ul>
+            <li>Гуппи</li>
+              <li>Скалярии</li>
+            </ul>
+          </li>
+          <li>Морские
+            <ul>
+            <li>Морская форель</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
 
-	<div id="sweets" class="menu">
-		<span class="title">Сладости (нажми меня)!</span>
-		<ul>
-			<li>Пирог</li>
-			<li>Пончик</li>
-			<li>Мед</li>
-		</ul>
-	</div>
-	<br>
-	<div id="message-container">
-		<div class="pane">
-			<h3>Title 1</h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur sit veniam ipsam quo accusantium iusto quasi hic aliquid. Eveniet vitae consequuntur eius corporis deleniti modi earum esse, reprehenderit officia non.</p>
-			<span class="remove-button">X</span>
-		</div>
-		<div class="pane">
-			<h3>Title 2</h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum unde doloribus neque quae, atque libero mollitia rem nulla, quaerat placeat enim ut tenetur, animi eos illo reiciendis, deserunt praesentium vitae!</p>
-			<span class="remove-button">X</span>
-		</div>
-		<div class="pane">
-			<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, veniam?</h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum veniam adipisci excepturi consequatur velit in, perferendis, atque cum, totam quae ipsam quod accusamus possimus rem reprehenderit natus doloribus fuga. Atque!</p>
-			<span class="remove-button">X</span>
-		</div>
-	</div>
-
-	<div id="carousel-container" class="carousel-container">
-			<button class="carousel-arrow carousel-arrow-left">&#8678</button>
-			<div class="carousel-gallery">
-				<ul class="carousel-images">
-					<li><img src="https://js.cx/carousel/1.png" alt="img1"></li>
-					<li><img src="https://js.cx/carousel/2.png" alt="img2"></li>
-					<li><img src="https://js.cx/carousel/3.png" alt="img3"></li>
-					<li><img src="https://js.cx/carousel/4.png" alt="img4"></li>
-					<li><img src="https://js.cx/carousel/5.png" alt="img5"></li>
-					<li><img src="https://js.cx/carousel/6.png" alt="img6"></li>
-					<li><img src="https://js.cx/carousel/7.png" alt="img7"></li>
-					<li><img src="https://js.cx/carousel/8.png" alt="img8"></li>
-					<li><img src="https://js.cx/carousel/9.png" alt="img9"></li>
-					<li><img src="https://js.cx/carousel/10.png" alt="img10"></li>
-				</ul>
-			</div>
-			<button class="carousel-arrow carousel-arrow-right">&#8680</button>
-	</div>
-
-	<textarea rows="5" cols="20" id="area1">Click me</textarea>
-	<br><br>
-
-	<button id="event-button">Event Button</button>
-
-	<div class="ball-container">
-		<div class="ball-field">.   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .
-			<img src="https://js.cx/clipart/ball.svg" alt="ball img" id="ball">
-		</div>
-	</div>
-	<div id="bagula-container">
-		<table id="bagua-table">
-			<tr>
-				<th colspan="3">Bagua Chart: Direction, Element, Color, Meaning</th>
-			</tr>
-			<tr>
-				<td class="nw">
-					<strong>Northwest</strong><br>
-					Metal<br>
-					Silver<br>
-					Elders
-				</td>
-				<td class="n">
-					<strong>North</strong><br>
-					Water<br>
-					Blue<br>
-					Change
-				</td>
-				<td class="ne">
-					<strong>Northeast</strong><br>
-					Earth<br>
-					Yellow<br>
-					Direction
-				</td>
-			</tr>
-			<tr>
-				<td class="w">
-					<strong>West</strong><br>
-					Metal<br>
-					Gold<br>
-					Youth
-				</td>
-				<td class="c">
-					<strong>Center</strong><br>
-					All<br>
-					Purple<br>
-					Harmony
-				</td>
-				<td class="e">
-					<strong>East</strong><br>
-					Wood<br>
-					Blue<br>
-					Future
-				</td>
-			</tr>
-			<tr>
-				<td class="sw">
-					<strong>Southwest</strong><br>
-					Earth<br>
-					Brown<br>
-					Tranquility
-				</td>
-				<td class="s">
-					<strong>South</strong><br>
-					Fire<br>
-					Orange<br>
-					Fame
-				</td>
-				<td class="se">
-					<strong>Southeast</strong><br>
-					Wood<br>
-					Green<br>
-					Romance
-				</td>
-			</tr>
-		</table>
-	</div>
-
-	<div id="deleg-buttons-container">
-		<button data-action="save">Save</button>
-		<button data-action="load">Load</button>
-		<button data-action="search">Search</button>
-	</div>
-	
-
+  <table id="grid">
+  	<thead>
+  		<tr>
+  			<th data-type="number">Возраст</th>
+  			<th data-type="string">Имя</th>
+  		</tr>
+  	</thead>
+  	<tbody>
+  		<tr>
+  			<td>5</td>
+  			<td>Вася</td>
+  		</tr>
+  		<tr>
+  			<td>2</td>
+  			<td>Петя</td>
+  		</tr>
+  		<tr>
+  			<td>12</td>
+  			<td>Женя</td>
+  		</tr>
+  		<tr>
+  			<td>9</td>
+  			<td>Маша</td>
+  		</tr>
+  		<tr>
+  			<td>1</td>
+  			<td>Илья</td>
+  		</tr>
+  	</tbody>
+  </table>
 </body>
+
 </html>
