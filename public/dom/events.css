@@ -254,18 +254,31 @@ h1 {
 	font-weight:bold;
 }
 #grid th:hover{
-	background-color:#9CFBBC;
+    background:#444;
+    color:#fff;
 	cursor:pointer;
+}
+#grid .a-z::before{
+    content:'\25BC\00a0';
+    font-size: 70%;
+
+}
+#grid .z-a::before{
+    content:'\25B2\00a0';
+    font-size: 70%;
 }
 #grid{
 	border-collapse:collapse;
 	text-align:center;
 }
 #grid th,td{
-	width:100px;
-	padding:2px;
-	border:1px solid;
+	/*width:100px;*/
+	padding:2px 10px;
+	border:1px solid #000;
 }
 #grid tr:nth-child(even){
-	background-color:#E8E8E8;
+	background-color:#E5E5E5;
+}
+#grid th {
+    background-color:#999;
 }
