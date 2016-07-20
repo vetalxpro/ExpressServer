@@ -75,6 +75,7 @@
   <div class="ball-container">
     <div class="ball-field">. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
       <img src="https://js.cx/clipart/ball.svg" alt="ball img" id="ball">
+      <!-- <img src="" alt="ball img" id="ball"> -->
     </div>
   </div>
   <div id="bagula-container">
@@ -174,56 +175,108 @@
         <ul>
           <li>Аквариумные
             <ul>
-            <li>Гуппи</li>
+              <li>Гуппи</li>
               <li>Скалярии</li>
             </ul>
           </li>
           <li>Морские
             <ul>
-            <li>Морская форель</li>
+              <li>Морская форель</li>
             </ul>
           </li>
         </ul>
       </li>
     </ul>
   </div>
-
   <table id="grid">
-  	<thead>
-  		<tr>
+    <thead>
+      <tr>
         <th data-type="number">№</th>
-  			<th data-type="string">Имя</th>
+        <th data-type="string">Имя</th>
         <th data-type="number">Возраст</th>
-  		</tr>
-  	</thead>
-  	<tbody>
-  		<tr>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
         <td>1</td>
-  			<td>Вася</td>
+        <td>Вася</td>
         <td>5</td>
-  		</tr>
-  		<tr>
+      </tr>
+      <tr>
         <td>2</td>
-  			<td>Петя</td>
+        <td>Петя</td>
         <td>2</td>
-  		</tr>
-  		<tr>
+      </tr>
+      <tr>
         <td>3</td>
-  			<td>Женя</td>
+        <td>Женя</td>
         <td>12</td>
-  		</tr>
-  		<tr>
+      </tr>
+      <tr>
         <td>4</td>
-  			<td>Маша</td>
+        <td>Маша</td>
         <td>9</td>
-  		</tr>
-  		<tr>
+      </tr>
+      <tr>
         <td>5</td>
-  			<td>Илья</td>
+        <td>Илья</td>
         <td>1</td>
-  		</tr>
-  	</tbody>
+      </tr>
+    </tbody>
   </table>
+  <button data-counter="">1</button>
+  <button data-toggle-id="grid" data-tooltip="показать/скрыть таблицу над кнопкой">Show/Hide Table</button>
+  <br>
+  <br>
+  <button data-tooltip="подсказка длиннее, чем элемент">Короткая кнопка</button>
+  <button data-tooltip="<span>HTML</span><br><b>подсказка</b>">Еще кнопка</button>
+  <br>
+  <br>
+  <a href="http://www.google.com" onclick="event.preventDefault()">google</a>
+  <ul id="menu-links" class="menu-links-class">
+    <li><a href="/html">HMTL</a></li>
+    <li><a href="/css">CSS</a></li>
+    <li><a href="/javascript">JavaScript</a></li>
+  </ul>
+  <fieldset id="contents">
+    <legend>#contents</legend>
+    <p>Как насчет почитать <a href="http://wikipedia.org/">Википедию</a>, или посетить <a href="http://w3.org/"><i>W3.org</i></a> и узнать про современные стандарты?</p>
+  </fieldset>
+  <br>
+
+
+
+  <div id="gallery-container">
+    <img class="big-image" src="https://js.cx/gallery/img4-lg.jpg">
+    <ul>
+      <li>
+        <a href="https://js.cx/gallery/img2-lg.jpg"><img src="https://js.cx/gallery/img2-thumb.jpg" alt="img2"></a>
+      </li>
+      <li>
+        <a href="https://js.cx/gallery/img3-lg.jpg"><img src="https://js.cx/gallery/img3-thumb.jpg" alt="img3"></a>
+      </li>
+      <li>
+        <a href="https://js.cx/gallery/img4-lg.jpg"><img src="https://js.cx/gallery/img4-thumb.jpg" alt="img4"></a>
+      </li>
+      <li>
+        <a href="https://js.cx/gallery/img5-lg.jpg"><img src="https://js.cx/gallery/img5-thumb.jpg" alt="img5"></a>
+      </li>
+      <li>
+        <a href="https://js.cx/gallery/img6-lg.jpg"><img src="https://js.cx/gallery/img6-thumb.jpg" alt="img6"></a>
+      </li>
+    </ul>
+  </div>
+
+  <pre id="rabbit">
+  |\   /|
+   \|_|/
+   /. .\
+  =\_Y_/=
+   {>o<}
+  </pre>
+
+  <p id="hello-script">Hello script</p>
+
 </body>
 
 </html>

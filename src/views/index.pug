@@ -3,10 +3,9 @@ extends layout
 block content
 	.container
 		h1(class="text-center")= title
-		p Welcome to #{title}
-		p Some text
+		p <b>Welcome to #{title}</b>
+		p Links:
 
 		ul
-		each val, index in {"1":"one","2":"two","3":"three"}
-			li text #{val} #{index}
-		p another text
+		each value, name in {"DOM test":"dom/test.html", "events":"dom/events.html"}
+			li <a href="#{value}">#{name}</a>
