@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Events in details</title>
+  <link rel="stylesheet" type="text/css" href="detail-events.css">
+  <script type="text/javascript" src="detail-events.js"></script>
+</head>
+
+<body onload="start()">
+  <h1>Events in Details</h1>
+  Клик на элементе выделяет только его.
+  <br> Ctrl(Cmd)+Клик добавляет/убирает элемент из выделенных.
+  <br> Shift+Клик добавляет промежуток от последнего кликнутого к выделению.
+  <br>
+  <ul id="mark-list">
+    <li>Строка списка 1</li>
+    <li>Строка списка 2</li>
+    <li>Строка списка 3</li>
+    <li>Строка списка 4</li>
+    <li>Строка списка 5</li>
+  </ul>
+  <ul id="tree">
+  <li>Животные
+      <ul>
+        <li>Млекопитающие
+          <ul>
+            <li>Коровы</li>
+            <li>Ослы</li>
+            <li>Собаки</li>
+            <li>Тигры</li>
+          </ul>
+        </li>
+        <li>Другие
+          <ul>
+            <li>Змеи</li>
+            <li>Птицы</li>
+            <li>Ящерицы</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>Рыбы
+      <ul>
+      <li>Аквариумные
+          <ul>
+            <li>Гуппи</li>
+            <li>Скалярии</li>
+          </ul>
+
+        </li>
+        <li>Морские
+          <ul>
+            <li>Морская форель</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+	<br>
+
+	<span ondblclick="alert('test')">test</span>
+	<br>
+	<div class="container">
+		<div class="blue" onmouseover="mouselog(event)" onmouseout="mouselog(event)" onmouseenter="mouselog1(event)" onmouseleave="mouselog1(event)">
+			<div class="red"></div>
+		</div>
+		<textarea id="text">text</textarea>
+		<textarea id="text1">text</textarea>
+		<input type="button" value="Очистить" onclick="text.value='';text1.value=''">
+	</div>
+	<table id="table">
+    <tr>
+      <th colspan="3"><em>Bagua</em> Chart: Direction, Element, Color, Meaning</th>
+    </tr>
+    <tr>
+      <td class="nw"><strong>Northwest</strong>
+        <br>Metal
+        <br>Silver
+        <br>Elders
+      </td>
+      <td class="n"><strong>North</strong>
+        <br>Water
+        <br>Blue
+        <br>Change
+      </td>
+      <td class="ne"><strong>Northeast</strong>
+        <br>Earth
+        <br>Yellow
+        <br>Direction
+      </td>
+    </tr>
+    <tr>
+      <td class="w"><strong>West</strong>
+        <br>Metal
+        <br>Gold
+        <br>Youth
+      </td>
+      <td class="c"><strong>Center</strong>
+        <br>All
+        <br>Purple
+        <br>Harmony
+      </td>
+      <td class="e"><strong>East</strong>
+        <br>Wood
+        <br>Blue
+        <br>Future
+      </td>
+    </tr>
+    <tr>
+      <td class="sw"><strong>Southwest</strong>
+        <br>Earth
+        <br>Brown
+        <br>Tranquility
+      </td>
+      <td class="s"><strong>South</strong>
+        <br>Fire
+        <br>Orange
+        <br>Fame
+      </td>
+      <td class="se"><strong>Southeast</strong>
+        <br>Wood
+        <br>Green
+        <br>Romance
+      </td>
+    </tr>
+
+  </table>
+
+
+	<div id="house" data-tooltip="house">
+		<div id="roof" data-tooltip="roof"></div>
+		<p>Lorem ipsum dolor sit amet, consectetur.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur.</p>
+		<p>Lorem ipsum dolor sit. <a href="http://ru.wikipedia.org/wiki/" data-tooltip="link to wiki">Link</a></p>
+	</div>
+
+
+
+</body>
+
+</html>
