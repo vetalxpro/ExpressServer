@@ -130,20 +130,116 @@ h1{
 }
 
 #house{
-	border:1px solid brown;
-	// padding:5px;
-	margin-top:50px;
-	width:400px;
+	height:100px;
+	width:300px;
+	margin:120px 0 0 60px;
+	background:#a08f78;
+	padding:20px;
+	position:relative;
+	box-shadow:inset 0 4px rgba(0,0,0,.2);
 }
+#house p{
+	/*margin-left:100px;*/
+}
+#chimney{
+	width:20px;
+	height:20px;
+	position:absolute;
+	background:#9f5656;
+	top:-60px;
+	left:35px;
+	box-shadow:inset 0 2px rgba(0,0,0,.2);
+}
+#chimney::before{
+	content:'';
+	display:block;
+	width:150%;
+	height:10px;
+	background:#864343;
+	margin-left:-25%;
+	top:-10px;
+	left:0;
+	position:absolute;
+}
+
+
 #roof{
-	height:0;
-	width:0;
-	border-left:200px solid transparent;
-	border-right:200px solid transparent;
-	border-bottom:20px solid brown;
-	margin-top:-20px;
+	position:absolute;
+	width:110%;
+	height:40px;
+	background:#864343;
+	top:-40px;
+	left:-5%;
 }
-#house p {
-	margin:10px 3px;
-	text-align:justify;
+#window{
+	width:77px;
+	height:82px;
+	background:#a7bcd0;
+	position:relative;
+	float:left;
+	margin:0 10px 10px 0;
+	border:5px solid #655e50;
+	box-shadow: -1px 2px rgba(0,0,0,.2), inset -1px 2px rgba(0,0,0,.2);
+}
+#window::after,
+#window::before{
+	content:'';
+	display:block;
+	position:absolute;
+	background:#656e50;
+
+}
+#window::before{
+	width:100%;
+	height:5px;
+	top:25px;
+	box-shadow:0 2px rgba(0,0,0,.2);
+}
+#window::after{
+	width:5px;
+	height:100%;
+	left:0;
+	right:0;
+	margin:auto;
+	box-shadow:-1px 0 rgba(0,0,0,.2);
+}
+
+
+
+
+
+.tooltip{
+	z-index:100;
+	text-align: center;
+	background:#fff;
+	color:#333;
+	position:fixed;
+	padding: 10px 20px;
+	border:1px solid #b3c9ce;
+	border-radius:5px;
+	box-shadow:3px 3px 3px rgba(0,0,0,.3);
+}
+#clock{
+	background: yellow;
+	/*display:inline-block;*/
+	float:left;
+	margin:20px -4px 20px 0;
+	padding: 5px;
+	font: 20px sans-serif;
+	border:1px dashed black;
+	cursor:default;
+}
+#clock .hours{
+	color:red;
+}
+#clock .minutes{
+	color:green;
+}
+#clock .seconds{
+	color:blue;
+}
+#ball{
+	height:40px;
+	width:40px;
+	cursor:move;
 }

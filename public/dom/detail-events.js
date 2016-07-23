@@ -140,23 +140,131 @@ function start() {
 	};
 
 
-	var show = null;
+	let showingTooltip=null;
 	document.onmouseover=function(event){
-		let target = event.target;
+		let target=event.target;
+		let tooltipText;
 		while(target!=document){
-			var tooltip = target.getAttribute('data-tooltip');
-			if(tooltip)break;
+			tooltipText=target.dataset.tooltip;
+			if(tooltipText)break;
 			target=target.parentNode;
 		}
-		if(!tooltip)return;
-		console.log(tooltip);
-		show = true;
-	};
+		if(!tooltipText)return;
+		showingTooltip=showTooltip(target,tooltipText);
+	}
 	document.onmouseout=function(event){
-		if(show){
-			show=false;
+		if(showingTooltip){
+			// console.log('ttt');
+			document.body.removeChild(showingTooltip);
+			showingTooltip=null;
 		}
-	};
+	}
+
+	function showTooltip(targetElement,text){
+		let tooltipElement=document.createElement('div');
+		tooltipElement.classList.add('tooltip');
+		tooltipElement.innerHTML=text;
+		document.body.appendChild(tooltipElement);
+
+		let targetCoords = targetElement.getBoundingClientRect();
+
+		let left = targetCoords.left+(targetElement.offsetWidth-tooltipElement.offsetWidth)/2;
+		if(left<0)left=0;
+
+		let top = targetCoords.top-tooltipElement.offsetHeight-5;
+		if(top<0)top=targetCoords.bottom+5;
+
+		tooltipElement.style.top=top+'px';
+		tooltipElement.style.left=left+'px';
+
+		return tooltipElement;
+	}
+
+	let clockStatus = document.getElementById('clock-status');
+	let clock=document.getElementById('clock');
+	let tooltip = document.createElement('div');
+	tooltip.classList.add('tooltip');
+	tooltip.innerHTML='test';
+	function HoverIntent(options){
+		var elem = options.elem;
+		var over = options.over;
+		var out = options.out;
+		var start = false;
+
+		elem.onmouseenter=function(event){
+			let target = event.target;
+			if(event.relatedTarget.nodeName=='BODY')start=false;
+			setTimeout(function(){
+				if(!start && document.body.lastElementChild!=tooltip){
+					over.call(target);
+					start=true;
+				}
+			},1000);
+		};
+		elem.onmouseleave=function(event){
+			if(document.body.lastElementChild==tooltip){
+				start=false;
+				out();
+			}else{
+				start=true;
+			}
+		}
+	}
+
+	new HoverIntent({
+		elem:clock,
+		over:function(){
+			tooltip.style.left=this.getBoundingClientRect().left + 'px';
+			tooltip.style.top=this.getBoundingClientRect().bottom+5+'px';
+			document.body.appendChild(tooltip);
+		},
+		out:function(){
+			document.body.removeChild(tooltip);
+		}
+	});
+
+
+// ==============================ball
+	let ball = document.getElementById('ball');
+	console.log(ball);
+	ball.onmousedown=function(event){
+		ball.style.position='absolute';
+		ball.style.zIndex=1000;
+		let shiftX = event.pageX-getCoords(ball).left;
+		let shiftY = event.pageY-getCoords(ball).top;
+		moveAt(event);
+		document.body.appendChild(ball);
+	
+		function moveAt(event){
+			ball.style.left=event.pageX -shiftX+'px';
+			ball.style.top=event.pageY-shiftY+'px';
+
+		}
+		document.onmousemove=function(event){
+			moveAt(event);
+		}
+
+		ball.onmouseup=function(){
+			document.onmousemove=null;
+			ball.onmouseup=null;
+		}
+
+		function getCoords(elem){
+			let coords = elem.getBoundingClientRect();
+			return {
+				top:coords.top+pageYOffset,
+				left:coords.left+pageXOffset
+			};
+		}
+
+	}
+
+
+	ball.ondragstart = function(event){
+		return false;
+	}
+
+
 
 
 
