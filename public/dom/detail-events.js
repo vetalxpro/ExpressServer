@@ -547,7 +547,45 @@ function start() {
   });
 
 
+  let wheelContainer = document.body.querySelector('.computer');
+  wheelContainer.onwheel =function(event){
+  	event.preventDefault();
+  	let deltaY=event.deltaY;
+  	wheelContainer.innerHTML = +wheelContainer.innerHTML+deltaY;
+  }
+  let scaleDiv = document.querySelector('.scale');
+  scaleDiv.scale = 1;
+  // console.dir(scaleDiv);
+  scaleDiv.onwheel=function(event){
+  	event.preventDefault();
+  	let delta = event.deltaY;
+  	if(delta>0){
+  		scaleDiv.scale +=0.05;
+  	}else{
+  		scaleDiv.scale -=0.05;
+  	}
+  	scaleDiv.style.transform= `scale(${scaleDiv.scale})`;
+  }
 
+  document.onwheel=function(event){
+  	if(event.target.tagName!='TEXTAREA')return;
+  	let target = event.target;
+  	let delta = event.deltaY;
+  	if(delta<0 && target.scrollTop==0){
+  		event.preventDefault();
+  	}
+  	if(delta>0 && target.scrollHeight-target.clientHeight-target.scrollTop==0){
+  		event.preventDefault();
+  	}
+  }
+  let showScroll = document.getElementById('showScroll');
+  
+  window.onscroll=function(event){
+  	let scrolled = pageYOffset;
+  	showScroll.style.fontWeight='bold';
+  	showScroll.innerHTML = scrolled+'px';
+
+  }
 
 
 

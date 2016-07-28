@@ -308,10 +308,19 @@ h1{
 }
 .computer{
 	background:url(https://js.cx/clipart/computer.gif) no-repeat;
-	width:93px;
-	height:93px;
-	padding:5px;
+	width:95px;
+	height:98px;
+	padding:0px;
+	text-align: center;
+	line-height: 70px;
 }
 .computer-smile{
 	background: url(https://js.cx/clipart/computer-smile.gif) no-repeat;
+}
+.scale{
+	margin:20px 0;
+	width:200px;
+}
+textarea{
+	width:400px;
 }
