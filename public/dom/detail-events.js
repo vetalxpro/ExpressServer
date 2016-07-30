@@ -1,6 +1,8 @@
 'use strict';
 
-function start() {
+
+document.addEventListener('DOMContentLoaded', function() {
+
 
 
   // =======================================
@@ -345,7 +347,7 @@ function start() {
   field.addEventListener('mousedown', function(event) {
     var target = event.target;
     if (!target.classList.contains('draggable')) return;
-    if(event.which!=1)return;
+    if (event.which != 1) return;
     event.preventDefault();
 
     var shiftX, shiftY;
@@ -395,16 +397,16 @@ function start() {
         newY = Math.min(newY, document.documentElement.clientHeight - target.offsetHeight);
       }
 
-      if(newY<0){
-      	let scrollY=Math.min(-newY,10);
-      	if(scrollY<0)scrollY=0;
-      	window.scrollBy(0,-scrollY);
-      	newY=Math.max(newY,0);
+      if (newY < 0) {
+        let scrollY = Math.min(-newY, 10);
+        if (scrollY < 0) scrollY = 0;
+        window.scrollBy(0, -scrollY);
+        newY = Math.max(newY, 0);
       }
 
-      if(newX<0)newX=0;
-      if(newX>document.documentElement.clientWidth-target.offsetWidth){
-      	newX=document.documentElement.clientWidth-target.offsetWidth;
+      if (newX < 0) newX = 0;
+      if (newX > document.documentElement.clientWidth - target.offsetWidth) {
+        newX = document.documentElement.clientWidth - target.offsetWidth;
       }
 
 
@@ -426,170 +428,304 @@ function start() {
 
 
 
-  var dragObject={};
-  let browserContainer=document.getElementById('browser-container');
-  document.addEventListener('mousedown',function(event){
-  // browserContainer.onmousedown=function(event){
-  	if(event.which!=1)return;
-  	let element = event.target.closest('.draggable');
-  	if(!element)return;
-  	dragObject.elem=element;
-  	// console.log(dragObject);
+  var dragObject = {};
+  let browserContainer = document.getElementById('browser-container');
+  document.addEventListener('mousedown', function(event) {
+    // browserContainer.onmousedown=function(event){
+    if (event.which != 1) return;
+    let element = event.target.closest('.draggable');
+    if (!element) return;
+    dragObject.elem = element;
+    // console.log(dragObject);
 
-  	dragObject.downX=event.pageX;
-  	dragObject.downY=event.pageY;
+    dragObject.downX = event.pageX;
+    dragObject.downY = event.pageY;
 
-  	document.onmousemove=function(event){
-  		event.preventDefault();
-  		if(!dragObject.elem)return;
-  		if(!dragObject.avatar){
-  			var moveX=event.pageX-dragObject.downX;
-  			var moveY=event.pageY-dragObject.downY;
+    document.onmousemove = function(event) {
+      event.preventDefault();
+      if (!dragObject.elem) return;
+      if (!dragObject.avatar) {
+        var moveX = event.pageX - dragObject.downX;
+        var moveY = event.pageY - dragObject.downY;
 
-  			if(Math.abs(moveX)<3 && Math.abs(moveY)<3){
-  				return;
-  			}
+        if (Math.abs(moveX) < 3 && Math.abs(moveY) < 3) {
+          return;
+        }
 
-  			dragObject.avatar=createAvatar(event);
-  			if(!dragObject.avatar){
-  				dragObject={};
-  				return;
-  			}
+        dragObject.avatar = createAvatar(event);
+        if (!dragObject.avatar) {
+          dragObject = {};
+          return;
+        }
 
-  			var coords=getCoords(dragObject.avatar);
-  			dragObject.shiftX=dragObject.downX-coords.left;
-  			dragObject.shiftY=dragObject.downY-coords.top;
+        var coords = getCoords(dragObject.avatar);
+        dragObject.shiftX = dragObject.downX - coords.left;
+        dragObject.shiftY = dragObject.downY - coords.top;
 
-  			startDrag(event);
+        startDrag(event);
 
-  		}
-  		dragObject.avatar.style.left=event.pageX-dragObject.shiftX+'px';
-  		dragObject.avatar.style.top=event.pageY-dragObject.shiftY+'px';
+      }
+      dragObject.avatar.style.left = event.pageX - dragObject.shiftX + 'px';
+      dragObject.avatar.style.top = event.pageY - dragObject.shiftY + 'px';
 
-  		function createAvatar(event){
-  			var avatar=dragObject.elem;
-  			var old={
-  				parent:avatar.parentNode,
-  				nextSibling:avatar.nextSibling,
-  				position:avatar.position||'',
-  				left:avatar.left||'',
-  				top:avatar.top||'',
-  				zIndex:avatar.zIndex||''
-  			};
+      function createAvatar(event) {
+        var avatar = dragObject.elem;
+        var old = {
+          parent: avatar.parentNode,
+          nextSibling: avatar.nextSibling,
+          position: avatar.position || '',
+          left: avatar.left || '',
+          top: avatar.top || '',
+          zIndex: avatar.zIndex || ''
+        };
 
-  			avatar.rollback=function(event){
-  				old.parent.insertBefore(avatar,old.nextSibling);
-  				avatar.style.position=old.position;
-  				avatar.style.left=old.left;
-  				avatar.style.top=old.top;
-  				avatar.style.zIndex=old.zIndex;
+        avatar.rollback = function(event) {
+          old.parent.insertBefore(avatar, old.nextSibling);
+          avatar.style.position = old.position;
+          avatar.style.left = old.left;
+          avatar.style.top = old.top;
+          avatar.style.zIndex = old.zIndex;
 
-  			};
+        };
 
-  			return avatar;
+        return avatar;
 
-  		}
+      }
 
-  		function startDrag(event){
-  			var avatar=dragObject.avatar;
-  			document.body.appendChild(avatar);
-  			avatar.style.zIndex=9999;
-  			avatar.style.position='absolute';
-  		}
+      function startDrag(event) {
+        var avatar = dragObject.avatar;
+        document.body.appendChild(avatar);
+        avatar.style.zIndex = 9999;
+        avatar.style.position = 'absolute';
+      }
 
-  	}
-
-
-  	document.onmouseup=function(event){
-  		if(dragObject.avatar){
-  			finishDrag(event);
-  			dragObject.avatar.rollback(event);
-  			dragObject.avatar.hidden=false;
-  		}
-
-  		dragObject={};
-  	}
+    }
 
 
-  	function finishDrag(event){
-  		var dropElem=findDroppable(event);
-  		if(dropElem){
-  			dropElem.classList.add('computer-smile');
-  			dragObject.avatar.hidden=true;
-  			setTimeout(()=>{
-  				dropElem.classList.remove('computer-smile');
+    document.onmouseup = function(event) {
+      if (dragObject.avatar) {
+        finishDrag(event);
+        dragObject.avatar.rollback(event);
+        dragObject.avatar.hidden = false;
+      }
 
-  			},800);
+      dragObject = {};
+    }
 
-  		}else{
-  			dragObject.avatar.rollback(event);
-  		}
-  	}
 
-  	function findDroppable(event){
-  		dragObject.avatar.hidden=true;
-  		var elem=document.elementFromPoint(event.clientX,event.clientY);
-  		dragObject.avatar.hidden=false;
-  		if(elem==null){
-  			return null;
-  		}
-  		return elem.closest('.droppable');
-  	}
+    function finishDrag(event) {
+      var dropElem = findDroppable(event);
+      if (dropElem) {
+        dropElem.classList.add('computer-smile');
+        dragObject.avatar.hidden = true;
+        setTimeout(() => {
+          dropElem.classList.remove('computer-smile');
 
-  	function getCoords(elem){
-  		let box = elem.getBoundingClientRect();
-  		return {
-  			top:box.top+pageYOffset,
-  			left:box.left+pageXOffset
-  		}
-  	}
+        }, 800);
+
+      } else {
+        dragObject.avatar.rollback(event);
+      }
+    }
+
+    function findDroppable(event) {
+      dragObject.avatar.hidden = true;
+      var elem = document.elementFromPoint(event.clientX, event.clientY);
+      dragObject.avatar.hidden = false;
+      if (elem == null) {
+        return null;
+      }
+      return elem.closest('.droppable');
+    }
+
+    function getCoords(elem) {
+      let box = elem.getBoundingClientRect();
+      return {
+        top: box.top + pageYOffset,
+        left: box.left + pageXOffset
+      }
+    }
 
   });
 
 
   let wheelContainer = document.body.querySelector('.computer');
-  wheelContainer.onwheel =function(event){
-  	event.preventDefault();
-  	let deltaY=event.deltaY;
-  	wheelContainer.innerHTML = +wheelContainer.innerHTML+deltaY;
+  wheelContainer.onwheel = function(event) {
+    event.preventDefault();
+    let deltaY = event.deltaY;
+    wheelContainer.innerHTML = +wheelContainer.innerHTML + deltaY;
   }
   let scaleDiv = document.querySelector('.scale');
   scaleDiv.scale = 1;
   // console.dir(scaleDiv);
-  scaleDiv.onwheel=function(event){
-  	event.preventDefault();
-  	let delta = event.deltaY;
-  	if(delta>0){
-  		scaleDiv.scale +=0.05;
-  	}else{
-  		scaleDiv.scale -=0.05;
-  	}
-  	scaleDiv.style.transform= `scale(${scaleDiv.scale})`;
+  scaleDiv.onwheel = function(event) {
+    event.preventDefault();
+    let delta = event.deltaY;
+    if (delta > 0) {
+      scaleDiv.scale += 0.05;
+    } else {
+      scaleDiv.scale -= 0.05;
+    }
+    scaleDiv.style.transform = `scale(${scaleDiv.scale})`;
   }
 
-  document.onwheel=function(event){
-  	if(event.target.tagName!='TEXTAREA')return;
-  	let target = event.target;
-  	let delta = event.deltaY;
-  	if(delta<0 && target.scrollTop==0){
-  		event.preventDefault();
-  	}
-  	if(delta>0 && target.scrollHeight-target.clientHeight-target.scrollTop==0){
-  		event.preventDefault();
-  	}
+  document.onwheel = function(event) {
+    if (event.target.tagName != 'TEXTAREA') return;
+    let target = event.target;
+    let delta = event.deltaY;
+    if (delta < 0 && target.scrollTop == 0) {
+      event.preventDefault();
+    }
+    if (delta > 0 && target.scrollHeight - target.clientHeight - target.scrollTop == 0) {
+      event.preventDefault();
+    }
   }
   let showScroll = document.getElementById('showScroll');
-  
-  window.onscroll=function(event){
-  	let scrolled = pageYOffset;
-  	showScroll.style.fontWeight='bold';
-  	showScroll.innerHTML = scrolled+'px';
+
+  // let vinni = document.getElementById('vinni');
+  // let vinniSourseBottom = vinni.getBoundingClientRect().bottom + window.pageYOffset;
+
+  window.onscroll = function(event) {
+    let scrolled = pageYOffset;
+    showScroll.style.fontWeight = 'bold';
+    showScroll.innerHTML = scrolled + 'px';
+
+    // if (vinni.classList.contains('fixed') && window.pageYOffset < vinniSourseBottom) {
+    //   vinni.classList.remove('fixed');
+    // } else if (window.pageYOffset > vinniSourseBottom) {
+    //   vinni.classList.add('fixed');
+    // }
+    if (pageYOffset > document.documentElement.clientHeight) {
+      nav.className = 'nav-top';
+      nav.onclick = function() {
+        window.scrollTo(0, 0);
+        nav.className = 'nav-bottom';
+        nav.onclick = function() {
+          // document.body.scrollIntoView(false);
+          window.scrollTo(0, document.documentElement.scrollHeight);
+        };
+      };
+    } else {
+      nav.classList.remove('nav-top');
+    }
 
   }
 
+  keyCodeInput.onkeydown = function(event) {
+
+    keyCodeInput.nextElementSibling.innerHTML = 'keyCode = ' + event.keyCode + ', key = ' + event.key;
+  }
+  keyCodeInput.onkeypress = function() {
+    return false;
+  }
+  keyCodeInput.onkeyup = function(event) {
+    if (event.key != 'q' && event.key != 'w') return false;
+    keyCodeInput.value = "";
+    keyCodeInput.value = event.key;
+  }
+
+  let age = document.getElementById('age');
+  age.onkeypress = function(event) {
+    if (event.ctrlKey || event.altKey || event.metaKey) return;
+    if (isNaN(event.key) || event.keyCode == 32) return false;
+  }
+
+  function runOnKeys(func) {
+    var codes = Array.prototype.slice.call(arguments, 1);
+    var pressed = {};
+    document.onkeydown = function(event) {
+      pressed[event.keyCode] = true;
+      for (let i = 0; i < codes.length; i++) {
+        if (!pressed[codes[i]]) return;
+      }
+      if (Object.keys(pressed).length != 2) return;
+      pressed = {};
+      func();
+    }
+
+    document.onkeyup = function(event) {
+      delete pressed[event.keyCode];
+    }
+  }
+
+  runOnKeys(function() { alert('keys Q + W pressed') },
+    'Q'.charCodeAt(0),
+    'W'.charCodeAt(0));
 
 
-}
+
+  // let script = document.createElement('script');
+  // script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.3.0/lodash.js';
+  // document.body.appendChild(script);
+  // script.onload = function() {
+  //   console.log('load');
+  //   console.dir(_);
+  // }
+  // script.onerror = function() {
+  //   console.log('error');
+  // }
+
+  function replaceImg() {
+    let divReplaceImg = document.body.querySelectorAll('div.img-replace');
+    for (let i = 0; i < divReplaceImg.length-1; i++) {
+      if (divReplaceImg[i].dataset.src) {
+        let img = document.createElement('img');
+        img.onload = function() {
+          divReplaceImg[i].parentNode.replaceChild(img, divReplaceImg[i]);
+        }
+
+        img.src = divReplaceImg[i].dataset.src;
+        img.classList.add('img-replace');
+      }
+    }
+  }
+
+  //setTimeout(replaceImg,2000);
+
+
+  var sources = [
+    'https://js.cx/search/google.png',
+    'https://js.cx/search/yandex.png'
+    //'https://js.cx/search/bing.png'
+  ];
+
+  function preloadImages(sources, callback) {
+    var counter = 0;
+
+    function loading() {
+      counter++;
+      if (counter == sources.length) {
+        setTimeout(callback, 3000);
+      }
+    }
+    for (let i = 0; i < sources.length; i++) {
+      let img = new Image();
+      img.onload = img.onerror = loading;
+      img.src = sources[i];
+    }
+
+  }
+
+  preloadImages(sources, replaceImg);
+
+  function addScript(src,callback){
+  	let script = document.createElement('script');
+  	script.onload =function(){
+  		callback();
+  	}
+  	script.src = src;
+  	document.head.appendChild(script);
+  }
+
+
+  addScript('../js/hello.js',function(){
+  	hello();
+  });
+
+
+
+
+});
 
 
 
