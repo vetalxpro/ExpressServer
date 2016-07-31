@@ -1,0 +1,36 @@
+body{
+	padding:0 10px;
+}
+h1{
+	text-align: center;
+}
+input{
+	outline: none;
+}
+.error{
+	border-color: red;
+}
+input:focus{
+	background: #e8e8e8;
+	outline:none;
+}
+input::-webkit-input-placeholder{
+	color:green;
+}
+input[data-placeholder]{
+      margin-bottom:30px;
+      margin-right: 20px;
+    }
+    .placeholder {
+      color: blue;
+      font-family: Georgia;
+      
+    }
+    /* стиль для подсказки над элементом (вместо плейсхолдера при фокусировке) */
+
+    .placeholder-tooltip {
+      color: blue;
+      font-family: Georgia;
+      position: fixed;
+      font-size:14px;
+    }
