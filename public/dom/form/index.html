@@ -1,44 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Forms</title>
-	<link rel="stylesheet" href="style.css">
-	<script src="script.js"></script>
+    <meta charset="UTF-8">
+    <title>Forms</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
+
 <body>
-	<form action="">
-	<h1>Forms</h1>
-	<fieldset name="field">
-		<legend>title</legend>
-		<label for="input1">input1</label>
-		<input id="input1" type="text" name="input1"><br>
-		<label>checkbox <input id="input2" type="checkbox" checked></label><br>
-		<label>radio <input type="radio"></label><br>
-		<select name="" id="select1">
-			<option value="opt1">option 1</option>
-			<option value="opt2">option 2</option>
-			<option value="opt3">option 3</option>
-		</select>
-		<select name="" id="select2" multiple>
-			<option value="opt1">option 1</option>
-			<option value="opt2" selected>option 2</option>
-			<option value="opt3" selected>option 3</option>
-		</select>
-		
-	</fieldset>
-	</form>
-	<select>
-  	<option value="Rock">Рок</option>
-  	<option value="Blues" selected>Блюз</option>
-	</select>
-	<br><br>
-	<label>Введите число: <input id="input3" type="text" placeholder="Enter a number"caholder></label><span id="error"></span>
-	<br><br>
-  <input type="text" data-placeholder="Name">
-  <input type="text" data-placeholder="Surname"><br>
-	<input type="email" data-placeholder="E-mail">
-  <input type="text" data-placeholder="test"><br>
+<form action="">
+    <h1>Forms</h1>
+    <fieldset name="field">
+        <legend>title</legend>
+        <label for="input1">input1</label>
+        <input id="input1" type="text" name="input1">
+        <br>
+        <label>checkbox
+            <input id="input2" type="checkbox" checked>
+        </label>
+        <br>
+        <label>radio
+            <input type="radio">
+        </label>
+        <br>
+        <select name="" id="select1">
+            <option value="opt1">option 1</option>
+            <option value="opt2">option 2</option>
+            <option value="opt3">option 3</option>
+        </select>
+        <select name="" id="select2" multiple>
+            <option value="opt1">option 1</option>
+            <option value="opt2" selected>option 2</option>
+            <option value="opt3" selected>option 3</option>
+        </select>
+    </fieldset>
+</form>
+<select>
+    <option value="Rock">Рок</option>
+    <option value="Blues" selected>Блюз</option>
+</select>
+<br>
+<br>
+<label>Введите число:
+    <input id="input3" type="text" placeholder="Enter a number" caholder>
+</label><span id="error"></span>
+<br>
+<br>
+<input type="text" data-placeholder="Name">
+<input type="text" data-placeholder="Surname">
+<br>
+<input type="email" data-placeholder="E-mail">
+<input type="text" data-placeholder="test">
+<br>
+<p>Кликните на мышонка и передвигайте его, нажимая клавиши со стрелками.</p>
+  <pre id="mouse" tabindex="0">
+ _   _
+(q\_/p)
+ /. .\
+=\_t_/=   __
+ /   \   (
+((   ))   )
+/\) (/\  /
+\  Y  /-'
+ nn^nn
+</pre>
+<div id="view" class="editable" tabindex="0">text</div>
+<textarea id="area"></textarea>
+
+<p>Кликните на ячейке для начала редактирования. Когда закончите -- нажмите OK или CANCEL.</p>
+
+<table id="bagua-table">
+    <tr>
+        <th colspan="3"><em>Bagua</em> Chart: Direction, Element, Color, Meaning</th>
+    </tr>
+    <tr>
+        <td class="nw"><strong>Northwest</strong>
+            <br>Metal
+            <br>Silver
+            <br>Elders
+        </td>
+        <td class="n"><strong>North</strong>
+            <br>Water
+            <br>Blue
+            <br>Change
+        </td>
+        <td class="ne"><strong>Northeast</strong>
+            <br>Earth
+            <br>Yellow
+            <br>Direction
+        </td>
+    </tr>
+    <tr>
+        <td class="w"><strong>West</strong>
+            <br>Metal
+            <br>Gold
+            <br>Youth
+        </td>
+        <td class="c"><strong>Center</strong>
+            <br>All
+            <br>Purple
+            <br>Harmony
+        </td>
+        <td class="e"><strong>East</strong>
+            <br>Wood
+            <br>Blue
+            <br>Future
+        </td>
+    </tr>
+    <tr>
+        <td class="sw"><strong>Southwest</strong>
+            <br>Earth
+            <br>Brown
+            <br>Tranquility
+        </td>
+        <td class="s"><strong>South</strong>
+            <br>Fire
+            <br>Orange
+            <br>Fame
+        </td>
+        <td class="se"><strong>Southeast</strong>
+            <br>Wood
+            <br>Green
+            <br>Romance
+        </td>
+    </tr>
+
+</table>
+
+<div id="editContainer">
+    <textarea name="" id="">content</textarea>
+    <button value="save">Save</button>
+    <button value="cancel">Cancel</button>
+</div>
+
+<input class="password" type="password" placeholder="Скажи пароль, друг">... и заходи
+<br><br>
+<button id="modalWindowButton">Show modal window</button>
+<div id="modal-form-container">
+    <form id="modal-form">
+        <div id="message"></div>
+        <input type="text" name="inputText" value="">
+        <input type="submit" name="ok" value="OK">
+        <input type="button" name="cancel" value="Cancel">
+    </form>
+</div>
 
 </body>
+
 </html>

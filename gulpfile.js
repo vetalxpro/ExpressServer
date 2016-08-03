@@ -21,6 +21,7 @@ gulp.task('nodemon', function(callback) {
         script: './bin/www',
         ignore: [
             //'gulpfile.js',
+            '.idea',
             'node_modules/',
             './public/',
             'notes.js'

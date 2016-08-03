@@ -6,7 +6,7 @@ document.onmousedown = function(event){
 	var target = event.target;
 	let shiftX=event.pageX -(target.getBoundingClientRect().left+pageXOffset);
 	let shiftY=event.pageY -(target.getBoundingClientRect().top+pageYOffset);
-	target.style.position = 'fixed';
+	target.style.position = 'absolute';
 	target.style.zIndex=1000;
 	document.body.appendChild(target);
 	moveAt(event.pageX,event.pageY);
@@ -43,14 +43,14 @@ document.onmousedown = function(event){
 
 // =========================
 let timerInterval;
+let iconsArr = document.querySelectorAll('img[src^="icons/o"]');
 function start(interval){
-	let iconsArr = document.querySelectorAll('img[src^="icons/o"]');
 	let online = 'icons/online.png';
 	let offline = 'icons/offline.png';
 
 	timerInterval=setInterval(function(){
 		for(let i=0;i<iconsArr.length;i++){
-			changeStatus(iconsArr[i]);
+			if(iconsArr[i].offsetHeight)changeStatus(iconsArr[i]);
 		}
 	},interval);
 
@@ -64,12 +64,28 @@ function start(interval){
 	}
 
 	function random(){
-		var rand = 0 - 0.5 + Math.random()*(1-0+1);
-		rand=Math.round(rand);
-		return rand;
+		var rand = Math.random()*10;
+		if(rand<5)return 0;
+		return 1;
 	}
+
+
+
+
 }
 function stop(){
 	clearInterval(timerInterval);
 }
-start(1000);
+function removeElements(elementsArr){
+	for(let i=0;i<elementsArr.length;i++){
+		setTimeout(function(){
+			elementsArr[i].parentNode.removeChild(elementsArr[i]);
+		},i*100);
+	}
+}
+start(800);
+setTimeout(function(){
+	//stop();
+	//removeElements(iconsArr);
+	if(iconsArr.legth==0)stop();
+},10000);
