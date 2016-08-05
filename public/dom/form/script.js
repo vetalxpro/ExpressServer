@@ -251,4 +251,59 @@ document.addEventListener('DOMContentLoaded', function () {
   };
 
 
+
+  let validateForm=document.getElementById('validate-form');
+  validateForm.onsubmit=function(){
+    
+    validate(this);
+    return false;
+  };
+
+
+
+  function showError(container,errorMessage){
+    container.className='validate-error';
+    let errorSpan=document.createElement('span');
+    errorSpan.className='message-error';
+    errorSpan.textContent=errorMessage;
+    container.appendChild(errorSpan);
+  }
+  function resetError(container){
+    container.className='';
+    if(container.lastChild.className==='message-error'){
+      container.removeChild(container.lastChild);
+    }
+  }
+
+  function validate(form){
+    let elems=form.elements;
+    resetError(elems.name.parentNode);
+    if(!elems.name.value){
+      showError(elems.name.parentNode,'Не введено имя');
+    }
+    resetError(elems.password.parentNode);
+    if(!elems.password.value){
+      showError(elems.password.parentNode,'Не введен пароль');
+    }else if(elems.password.value!==elems.confirm.value){
+      showError(elems.confirm.parentNode,'Пароли не совпадают');
+    }
+    resetError(elems.to.parentNode);
+    if(!elems.to.value){
+      showError(elems.to.parentNode,'Не выбран получатель');
+    }
+    resetError(elems.message.parentNode);
+    if(!elems.message.value){
+      showError(elems.message.parentNode,'Не введен текст сообщения');
+    }
+
+
+  }
+
+
+
+
+
+
+
+
 });

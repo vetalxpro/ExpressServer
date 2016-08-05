@@ -145,6 +145,40 @@
         <input type="button" name="cancel" value="Cancel">
     </form>
 </div>
+<div id="validate-form-container">
+    <form action="" id="validate-form">
+        <table>
+            <tbody>
+            <tr>
+                <td>От кого</td>
+                <td><input name="name" type="text"></td>
+            </tr>
+            <tr>
+                <td>Ваш пароль</td>
+                <td><input name="password" type="password"></td>
+            </tr>
+            <tr>
+                <td>Повторите пароль</td>
+                <td><input name="confirm" type="password"></td>
+            </tr>
+            <tr>
+                <td>Куда</td>
+                <td><select name="to">
+                    <option></option>
+                    <option value="1">Отдел снабжения</option>
+                    <option value="2">Отдел разработки</option>
+                    <option value="3">Директору</option>
+                </select></td>
+            </tr>
+
+            </tbody>
+        </table>
+        <br>
+        Сообщение:
+        <label><textarea name="message"></textarea></label>
+        <input id="validateButton" name="submit" type="submit" value="Проверить">
+    </form>
+</div>
 
 </body>
 

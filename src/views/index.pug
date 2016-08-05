@@ -5,7 +5,6 @@ block content
 		h1(class="text-center")= title
 		p <b>Welcome to #{title}</b>
 		p Links:
-
 		ul
-		each value, name in {"DOM test":"dom/test.html", "events":"dom/events.html","events in details":"dom/detail-events.html","forms":"dom/form"}
+		each value, name in pages
 			li <a href="#{value}">#{name}</a>

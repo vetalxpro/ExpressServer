@@ -1,0 +1,21 @@
+body {
+    padding: 0 10px;
+}
+h1{
+    text-align: center;
+}
+
+.menu ul{
+    display:none;
+    margin:0;
+}
+.menu .title{
+    font-weight:bold;
+    cursor: pointer;
+}
+.menu.open ul{
+    display: block;
+}
+.menu .title::before{
+    content:'▼';
+}

@@ -214,3 +214,36 @@ td {
     height:100%;
     width:100%;
 }
+#validate-form-container{
+    margin:20px 0;
+    border:1px solid black;
+    padding:15px;
+    border-radius: 3px;
+    width:500px;
+}
+
+
+#validate-form-container td{
+    text-align: left;
+    padding:4px 0;
+}
+#validate-form-container td select,
+#validate-form-container td input{
+    width:180px;
+}
+#validate-form-container textarea{
+    display: block;
+    width:400px;
+    height:100px;
+}
+#validate-form-container label{
+    display: block;
+}
+.message-error{
+    color:red;
+    margin-left:5px;
+}
+.validate-error input,
+.validate-error select{
+    border:1px solid red;
+}
