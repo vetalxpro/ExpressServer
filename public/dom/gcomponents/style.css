@@ -1,21 +1,61 @@
 body {
-    padding: 0 10px;
-}
-h1{
-    text-align: center;
+  padding: 0 10px;
 }
 
-.menu ul{
-    display:none;
-    margin:0;
+h1 {
+  text-align: center;
 }
-.menu .title{
-    font-weight:bold;
-    cursor: pointer;
+
+.menu ul {
+  display: none;
+  margin: 0;
 }
-.menu.open ul{
-    display: block;
+
+.menu .title {
+  font-weight: bold;
+  cursor: pointer;
 }
-.menu .title::before{
-    content:'▼';
+
+.menu.open ul {
+  display: block;
+}
+
+.menu .title::before {
+  content: '▶';
+  color: green;
+  padding-right: 6px;
+}
+
+.menu.open .title::before {
+  content: '▼';
+  color: green;
+}
+#clock-container .hours{
+  color:green;
+}
+#clock-container .minutes{
+  color:blue;
+}
+#clock-container .seconds{
+  color:red;
+}
+#slider-container{
+  margin:20px 0;
+}
+.slider-line{
+  position: relative;
+  width:310px;
+  height:16px;
+  background:-webkit-gradient(linear,left top,right bottom,to(#dcdddc),from(#bebebe));
+  border-radius: 5px;
+
+}
+.slider-toggle{
+  position: absolute;
+  background-color:blue;
+  width:10px;
+  height:24px;
+  top:-4px;
+  border-radius: 3px;
+  cursor: pointer;
 }

@@ -15,6 +15,49 @@
         <li>Пончик</li>
         <li>...</li>
     </ul>
+  <br>
+
+  <button id="toggleButton1" onclick="menu1.toggle()">menu.toggle()</button>
+  <button id="openButton1" onclick="menu1.open()">menu.open()</button>
+  <button id="closeButton1" onclick="menu1.close()">menu.close()</button>
+  <div id="ul-container1"></div>
+  <script>
+    var menu1 = new Menu1({
+      title: 'Сладости',
+      items: [
+        'Торт',
+        'Пончик',
+        'Пирожное',
+        'Шоколадка',
+        'Мороженое'
+      ]
+    });
+
+    var elem1 = menu1.getElem();
+    document.getElementById('ul-container1').appendChild(elem1);
+
+  </script>
+  <br>
+  <div id="clock-container">
+    <span class="hours">00</span>:<span class="minutes">00</span>:<span class="seconds">00</span>
+    <br>
+    <button onclick="clock.start()">Start</button>
+    <button onclick="clock.stop()">Stop</button>
+    <button onclick="clock.showAlert()">Alert</button>
+  </div>
+  <script>
+    let clock=new Clock({
+      elem:document.getElementById('clock-container')
+    });
+    clock.start();
+  </script>
 </div>
+
+<div id="slider-container">
+  <div class="slider-line">
+    <div class="slider-toggle"></div>
+  </div>
+</div>
+
 </body>
 </html>
