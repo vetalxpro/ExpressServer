@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function rangeSelect(target) {
     let startElement = lastClickedLi || markList.children[0];
-    let isLastClickedBefore = startElement.compareDocumentPosition(target) & 4;
+    let isLastClickedBefore = (startElement.compareDocumentPosition(target) & 4);
     if (isLastClickedBefore) {
       for (let elem = startElement; elem != target; elem = elem.nextElementSibling) {
         elem.classList.add('selected');

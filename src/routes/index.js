@@ -4,7 +4,6 @@ var router = express.Router();
 router.get('/', function (req, res, next) {
   res.render('index', {
     title: 'Express',
-    test: {test: 11},
     pages: {
       'DOM test': 'dom/test.html',
       'events': 'dom/events.html',

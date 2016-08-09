@@ -9,55 +9,90 @@
 <body>
 <h1>Create graphic components</h1>
 <div class="menu" id="sweets-menu">
-    <span class="title">Сладости</span>
+    <span class="title">Test1</span>
     <ul>
         <li>Торт</li>
         <li>Пончик</li>
         <li>...</li>
     </ul>
-  <br>
-
-  <button id="toggleButton1" onclick="menu1.toggle()">menu.toggle()</button>
-  <button id="openButton1" onclick="menu1.open()">menu.open()</button>
-  <button id="closeButton1" onclick="menu1.close()">menu.close()</button>
-  <div id="ul-container1"></div>
-  <script>
-    var menu1 = new Menu1({
-      title: 'Сладости',
-      items: [
-        'Торт',
-        'Пончик',
-        'Пирожное',
-        'Шоколадка',
-        'Мороженое'
-      ]
-    });
-
-    var elem1 = menu1.getElem();
-    document.getElementById('ul-container1').appendChild(elem1);
-
-  </script>
-  <br>
-  <div id="clock-container">
-    <span class="hours">00</span>:<span class="minutes">00</span>:<span class="seconds">00</span>
     <br>
-    <button onclick="clock.start()">Start</button>
-    <button onclick="clock.stop()">Stop</button>
-    <button onclick="clock.showAlert()">Alert</button>
-  </div>
-  <script>
-    let clock=new Clock({
-      elem:document.getElementById('clock-container')
-    });
-    clock.start();
-  </script>
+
+    <button id="toggleButton1" onclick="menu1.toggle()">menu.toggle()</button>
+    <button id="openButton1" onclick="menu1.open()">menu.open()</button>
+    <button id="closeButton1" onclick="menu1.close()">menu.close()</button>
+    <div id="ul-container1"></div>
+    <script>
+        var menu1 = new Menu1({
+            title: 'Test2',
+            items: [
+                'Торт',
+                'Пончик',
+                'Пирожное',
+                'Шоколадка',
+                'Мороженое'
+            ]
+        });
+
+        var elem1 = menu1.getElem();
+        document.getElementById('ul-container1').appendChild(elem1);
+
+    </script>
+    <br>
+    <div id="clock-container">
+        <span class="hours">00</span>:<span class="minutes">00</span>:<span class="seconds">00</span>
+        <br>
+        <button onclick="clock.start()">Start</button>
+        <button onclick="clock.stop()">Stop</button>
+        <button onclick="clock.showAlert()">Alert</button>
+    </div>
+    <script>
+        let clock = new Clock({
+            elem: document.getElementById('clock-container')
+        });
+        clock.start();
+    </script>
 </div>
 
-<div id="slider-container">
-  <div class="slider-line">
+<div id="slider" class="slider-line">
+    <span>0</span>
     <div class="slider-toggle"></div>
-  </div>
 </div>
+<div id="list-container">
+    List
+    <ul>
+        <li>Element 1</li>
+        <li>Element 2</li>
+        <li>Element 3</li>
+        <li>Element 4</li>
+        <li>Element 5</li>
+    </ul>
+    <button id="getSelectedButton">getSelected</button>
+</div>
+<div id="voter1" class="voter">
+    <span class="down">-</span>
+    <span class="vote">1</span>
+    <span class="up">+</span>
+</div>
+<div id="voter2" class="voter">
+    <span class="down">-</span>
+    <span class="vote">1</span>
+    <span class="up">+</span>
+</div>
+<div id="voter3" class="voter">
+    <span class="down">-</span>
+    <span class="vote">1</span>
+    <span class="up">+</span>
+</div>
+<div>
+    <ul class="horizontal-menu">
+        <li class="horizontal-menu__item"><a href="#">Главная</a></li>
+        <li class="horizontal-menu__vertical-splitter"></li>
+        <li class="horizontal-menu__item"><a href="#">Товары</a></li>
+        <li class="horizontal-menu__item"><a href="#">Фотографии</a></li>
+        <li class="horizontal-menu__item"><a href="#">Контакты</a></li>
+    </ul>
+</div>
+
 
 </body>
 </html>

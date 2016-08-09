@@ -2,7 +2,7 @@
 <project version="4">
   <component name="JSHintConfiguration" version="2.9.1" use-config-file="false">
     <option asi="false" />
-    <option bitwise="true" />
+    <option bitwise="false" />
     <option boss="false" />
     <option browser="true" />
     <option browserify="true" />
@@ -14,7 +14,7 @@
     <option dojo="false" />
     <option elision="false" />
     <option enforceall="false" />
-    <option eqeqeq="true" />
+    <option eqeqeq="false" />
     <option eqnull="false" />
     <option es3="false" />
     <option es5="false" />
