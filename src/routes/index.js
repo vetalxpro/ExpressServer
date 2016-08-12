@@ -9,7 +9,8 @@ router.get('/', function (req, res, next) {
       'events': 'dom/events.html',
       'events in details': 'dom/detail-events.html',
       'forms': 'dom/form',
-      'graphic components': 'dom/gcomponents'
+      'graphic components': 'dom/gcomponents',
+      'future of web-components':'/dom/webcomponents'
     }
   });
 });
