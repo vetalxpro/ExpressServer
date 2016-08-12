@@ -18,8 +18,10 @@
   },
   "devDependencies": {
     "browser-sync": "^2.13.0",
+    "browserify": "^13.1.0",
     "gulp": "^3.9.1",
     "gulp-nodemon": "^2.1.0",
-    "pug": "^2.0.0-beta3"
+    "pug": "^2.0.0-beta3",
+    "vinyl-source-stream": "^1.1.0"
   }
 }

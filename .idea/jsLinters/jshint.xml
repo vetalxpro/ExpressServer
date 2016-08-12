@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="JSHintConfiguration" version="2.9.1" use-config-file="false">
+  <component name="JSHintConfiguration" version="2.9.1" use-config-file="false" custom-config-file-path="$PROJECT_DIR$/package.json">
     <option asi="false" />
     <option bitwise="false" />
     <option boss="false" />
@@ -43,7 +43,7 @@
     <option mootools="false" />
     <option moz="false" />
     <option multistr="false" />
-    <option newcap="false" />
+    <option newcap="true" />
     <option noarg="true" />
     <option nocomma="false" />
     <option node="true" />
@@ -58,6 +58,7 @@
     <option passfail="false" />
     <option phantom="false" />
     <option plusplus="false" />
+    <option predef="_:false" />
     <option proto="false" />
     <option prototypejs="false" />
     <option qunit="false" />
