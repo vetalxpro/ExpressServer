@@ -1,98 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Graphic components</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+  <meta charset="UTF-8">
+  <title>Graphic components</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/lodash/4.14.2/lodash.min.js"></script>
+  <script src="script.js"></script>
 </head>
 <body>
 <h1>Create graphic components</h1>
 <div class="menu" id="sweets-menu">
-    <span class="title">Test1</span>
-    <ul>
-        <li>Торт</li>
-        <li>Пончик</li>
-        <li>...</li>
-    </ul>
+  <span class="title">Test1</span>
+  <ul>
+    <li>Торт</li>
+    <li>Пончик</li>
+    <li>...</li>
+  </ul>
+  <br>
+
+  <button id="toggleButton1" onclick="menu1.toggle()">menu.toggle()</button>
+  <button id="openButton1" onclick="menu1.open()">menu.open()</button>
+  <button id="closeButton1" onclick="menu1.close()">menu.close()</button>
+  <div id="ul-container1"></div>
+  <script>
+    var menu1 = new Menu1({
+      title: 'Test2',
+      items: [
+        'Торт',
+        'Пончик',
+        'Пирожное',
+        'Шоколадка',
+        'Мороженое'
+      ]
+    });
+
+    var elem1 = menu1.getElem();
+    document.getElementById('ul-container1').appendChild(elem1);
+
+  </script>
+  <br>
+  <div id="clock-container">
+    <span class="hours">00</span>:<span class="minutes">00</span>:<span class="seconds">00</span>
     <br>
+    <button onclick="clock.start()">Start</button>
+    <button onclick="clock.stop()">Stop</button>
+    <button onclick="clock.showAlert()">Alert</button>
+  </div>
+  <script>
 
-    <button id="toggleButton1" onclick="menu1.toggle()">menu.toggle()</button>
-    <button id="openButton1" onclick="menu1.open()">menu.open()</button>
-    <button id="closeButton1" onclick="menu1.close()">menu.close()</button>
-    <div id="ul-container1"></div>
-    <script>
-        var menu1 = new Menu1({
-            title: 'Test2',
-            items: [
-                'Торт',
-                'Пончик',
-                'Пирожное',
-                'Шоколадка',
-                'Мороженое'
-            ]
-        });
-
-        var elem1 = menu1.getElem();
-        document.getElementById('ul-container1').appendChild(elem1);
-
-    </script>
-    <br>
-    <div id="clock-container">
-        <span class="hours">00</span>:<span class="minutes">00</span>:<span class="seconds">00</span>
-        <br>
-        <button onclick="clock.start()">Start</button>
-        <button onclick="clock.stop()">Stop</button>
-        <button onclick="clock.showAlert()">Alert</button>
-    </div>
-    <script>
-        let clock = new Clock({
-            elem: document.getElementById('clock-container')
-        });
-        clock.start();
-    </script>
+    let clock = new Clock({
+      elem: document.getElementById('clock-container')
+    });
+    clock.start();
+  </script>
 </div>
 
 <div id="slider" class="slider-line">
-    <span>0</span>
-    <div class="slider-toggle"></div>
-</div>
-<div id="list-container">
-    List
-    <ul>
-        <li>Element 1</li>
-        <li>Element 2</li>
-        <li>Element 3</li>
-        <li>Element 4</li>
-        <li>Element 5</li>
-    </ul>
-    <button id="getSelectedButton">getSelected</button>
-</div>
-<div id="voter1" class="voter">
-    <span class="down">-</span>
-    <span class="vote">1</span>
-    <span class="up">+</span>
-</div>
-<div id="voter2" class="voter">
-    <span class="down">-</span>
-    <span class="vote">1</span>
-    <span class="up">+</span>
-</div>
-<div id="voter3" class="voter">
-    <span class="down">-</span>
-    <span class="vote">1</span>
-    <span class="up">+</span>
-</div>
-<div>
-    <ul class="horizontal-menu">
-        <li class="horizontal-menu__item"><a href="#">Главная</a></li>
-        <li class="horizontal-menu__vertical-splitter"></li>
-        <li class="horizontal-menu__item"><a href="#">Товары</a></li>
-        <li class="horizontal-menu__item"><a href="#">Фотографии</a></li>
-        <li class="horizontal-menu__item"><a href="#">Контакты</a></li>
-    </ul>
+  <span>0</span>
+  <div class="slider-toggle"></div>
 </div>
 
+<div id="list-container">
+  List
+  <ul>
+    <li>Element 1</li>
+    <li>Element 2</li>
+    <li>Element 3</li>
+    <li>Element 4</li>
+    <li>Element 5</li>
+  </ul>
+  <button id="getSelectedButton">getSelected</button>
+</div>
+
+<div id="voter1" class="voter">
+  <span class="down">-</span>
+  <span class="vote">1</span>
+  <span class="up">+</span>
+</div>
+
+<div id="voter2" class="voter">
+  <span class="down">-</span>
+  <span class="vote">1</span>
+  <span class="up">+</span>
+</div>
+
+<div id="voter3" class="voter">
+  <span class="down">-</span>
+  <span class="vote">1</span>
+  <span class="up">+</span>
+</div>
+
+<div>
+  <ul class="horizontal-menu">
+    <li class="horizontal-menu__item"><a href="#">Главная</a></li>
+    <li class="horizontal-menu__vertical-splitter"></li>
+    <li class="horizontal-menu__item"><a href="#">Товары</a></li>
+    <li class="horizontal-menu__item"><a href="#">Фотографии</a></li>
+    <li class="horizontal-menu__item"><a href="#">Контакты</a></li>
+  </ul>
+</div>
+
+<script type="text/template" id="menu-template">
+  <div class="menu1">
+    <span class="title1"><%-title%></span>
+    <ul>
+      <%for(let i=1;i<=count;i++){%>
+      <li><%=i%></li>
+      <%}%>
+    </ul>
+  </div>
+</script>
+
+<script type="text/template" id="class-menu-template">
+  <div class="menu">
+    <span class="title"><%= title %></span>
+  </div>
+</script>
+
+<script type="text/template" id="class-menu-listTemplate">
+  <ul>
+    <% items.forEach(function(item){ %>
+    <li><%= item %></li>
+    <% }); %>
+  </ul>
+</script>
+
+<script type="text/template" id="class-menu-listTemplateLinks">
+  <ul>
+    <% for(let key in items){ %>
+    <li><a href="#<%= encodeURIComponent(key) %>"><%= items[key] %></a></li>
+    <% } %>
+  </ul>
+</script>
+<div id="classMenu1"></div>
+
+<script type="text/template" id="table-template1">
+  <p class="title"><%= title %></p>
+  <table>
+    <thead>
+    <tr>
+      <th>Имя</th>
+      <th>Возраст</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% users.forEach(function(item){ %>
+    <tr>
+      <td><%= item.name %></td>
+      <td><%= item.age %></td>
+    </tr>
+    <% }); %>
+    </tbody>
+  </table>
+</script>
+
+<div id="table-container1" class="table-container"></div>
+
+<div id="classMenu2"></div>
+
+<div>Последний результат: <span id="result">...</span></div>
+
+<div id="animal-select" class="customselect">
+
+  <button class="title">Выберите</button>
+
+  <ul>
+    <li data-value="bird">Птицы</li>
+    <li data-value="fish">Рыбы</li>
+    <li data-value="animal">Звери</li>
+    <li data-value="dino">Динозавры</li>
+    <li data-value="simplest">Одноклеточные</li>
+  </ul>
+
+</div>
+
+<div id="food-select" class="customselect">
+  <button class="title">Выберите</button>
+
+  <ul>
+    <li data-value="carnivore">Плотоядные</li>
+    <li data-value="herbivore">Травоядные</li>
+    <li data-value="omnivore">Всеядные</li>
+  </ul>
+</div>
+
+<div id="classSlider1" class="slider-line">
+  <div class="slider-toggle"></div>
+</div>
+<div>
+  <span>Slide:</span>
+  <span id="slide-value">0</span>
+  <span>Change:</span>
+  <span id="change-value">0</span>
+  <button id="classSlider1Button">classSlider1.setValue(50)</button>
+
+</div>
 
 </body>
 </html>
