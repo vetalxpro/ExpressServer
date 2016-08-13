@@ -1,0 +1,19 @@
+body{
+    /*height:2000px;*/
+    padding: 0 10px;
+}
+h1{
+    text-align: center;
+}
+
+ui-message{
+    width:80%;
+    margin:auto;
+}
+
+button[is="my-timer"]:unresolved{
+    color: white;
+}
+button[is="my-timer"]{
+    color:red;
+}

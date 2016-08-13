@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Template</title>
+    <style>
+        #timer{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+
+<time id="timer">0</time>
+
+<script>
+    function hello() {
+        console.log('hello from template page');
+    }
+
+    let localDocument=document.currentScript.ownerDocument;
+    let timer =localDocument.getElementById('timer');
+    let timerId=setInterval(function(){
+        timer.innerHTML++;
+    },1000);
+
+    function stop(){
+        clearInterval(timerId);
+        return 'Interval cleared';
+    }
+
+</script>
+
+</body>
+</html>

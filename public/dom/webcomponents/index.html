@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Webcomponents</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <link rel="import" href="template.html" id="link">
+    <link id="ui-message" rel="import" href="components/ui-message.html">
+
+</head>
+<body>
+<h1>Future Of WebComponents</h1>
+<input type="range">
+<input type="date">
+
+<p id="elem1">original text</p>
+
+<template id="tmpl1">
+    <style>
+        :host>p{
+            color:green;
+        }
+    </style>
+    <h3><content></content></h3>
+    <p>Text from template</p>
+    <script>
+//        document.write('text from shadow-script');
+    </script>
+</template>
+
+<p id="elem2">Elem2 original text</p>
+<div id="template-container"></div>
+
+<span>'timer1' - </span>
+<button is="my-timer" id="timer1">0</button>
+
+
+<br><br>
+<ui-message class="info">Info Message</ui-message>
+<ui-message class="warning">Warning Message</ui-message>
+
+
+</body>
+</html>
