@@ -1,3 +1,4 @@
 #ignore nodejs modules
 node_modules/
 .idea/workspace.xml
+/bower_components
