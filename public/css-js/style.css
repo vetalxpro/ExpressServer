@@ -1,6 +1,462 @@
-body{
-  padding:0 10px;
+body {
+  /*padding:0 10px;*/
+  font-size: 16px;
+  height: 5000px;
+  position: relative;
 }
-h1{
+
+h1 {
   text-align: center;
+}
+
+.em-px p {
+  margin: 0;
+}
+
+.list {
+  font-size: 16px;
+}
+
+.text1 {
+  font-size: 1em;
+}
+
+.text2 {
+  font-size: 2em;
+}
+
+.text3 {
+  font-size: 3em;
+}
+
+.text4 {
+  font-size: 300%;
+}
+
+.list {
+  font-size: 1rem;
+}
+
+.list1 {
+
+  padding: 0;
+  border: 1px solid black;
+
+}
+
+.list1 > li {
+  display: inline-block;
+  border: 1px solid red;
+  vertical-align: middle;
+  list-style: none;
+}
+
+.vertAlign {
+  height: 100px;
+  display: table-cell;
+  border: 1px solid black;
+  vertical-align: middle;
+}
+
+.placeholder {
+  width: 100px;
+  height: 100px;
+  background: darkgray;
+  border: 1px solid black;
+}
+
+.left-picture {
+  float: left;
+  border: 1px solid black;
+  text-align: center;
+  margin: 5px 10px 5px 0;
+}
+
+h2 {
+  background-color: #3e5e85;
+}
+
+.clear {
+  clear: both;
+}
+
+.hero {
+  background-color: #aaa;
+}
+
+.clearfix:after {
+  content: '.';
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+}
+
+.gallery li {
+  float: left;
+  list-style: none;
+  border: 1px solid black;
+  width: 130px;
+  text-align: center;
+  margin: 5px;
+}
+
+.header {
+  background-color: #3e5e85;
+  text-align: center;
+}
+
+.column-left {
+  width: 30%;
+  float: left;
+  background-color: #aaa;
+  text-align: center;
+}
+
+.column-right {
+  width: 70%;
+  float: right;
+  background-color: #555;
+  text-align: center;
+}
+
+.footer {
+  clear: both;
+  background-color: #3e5e85;
+  text-align: center;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.navigation {
+  width: 200px;
+  height: 40px;
+  margin: auto;
+}
+
+.navigation .pages {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.navigation .pages li {
+  display: inline;
+  line-height: 20px;
+
+}
+
+.navigation img {
+  height: 20px;
+  width: 20px;
+}
+
+.navigation .left {
+  float: left;
+
+}
+
+.navigation .right {
+  float: right;
+}
+
+.navigation a {
+  text-decoration: none;
+}
+
+.multi-list li {
+  list-style: none;
+}
+
+.multi-list .opened .icon {
+  background: url("https://js.cx/sprite-tree/minus.gif");
+}
+
+.multi-list .closed .icon {
+  background: url("https://js.cx/sprite-tree/plus.gif");
+}
+
+.multi-list .leaf .icon {
+  background: url("https://js.cx/sprite-tree/article.gif");
+  cursor: text;
+}
+
+.multi-list .icon {
+  width: 16px;
+  height: 16px;
+  float: left;
+  cursor: pointer;
+}
+
+.multi-list .text {
+  margin: 6px 0 6px 16px;
+}
+
+.border-width {
+  padding: 10px;
+  margin: 20px 0;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.border-width .left-column {
+  padding: inherit;
+  float: left;
+  width: 30%;
+  border: 1px solid green;
+  box-sizing: border-box;
+}
+
+.border-width .right-column {
+  padding: inherit;
+  width: 70%;
+  float: right;
+  box-sizing: border-box;
+  border: 1px solid blue;
+}
+
+.modal-window {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+}
+
+.modal-window div {
+  opacity: 0.8;
+  background: #c3f3ff;
+  width: 90%;
+  margin: auto;
+  height: 100%;
+}
+
+.outer {
+  text-align: center;
+  border: 1px solid black;
+  margin: 15px 0;
+  height: 5em;
+  position: relative;
+}
+
+.outer .inner {
+  width: 150px;
+  box-sizing: border-box;
+  border: 1px solid green;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -75px;
+  margin-top: -0.625em;
+}
+
+.align-with-before {
+  height: 100px;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.align-with-before:before {
+  display: inline-block;
+  height: 100%;
+  content: '';
+  vertical-align: middle;
+}
+
+.align-with-before .inner {
+  display: inline-block;
+  vertical-align: middle;
+  border: 1px solid blue;
+  padding: 10px;
+  margin-left: -0.35em;
+}
+
+.football-field {
+  margin: 10px 0;
+  width: 200px;
+  border: 10px groove black;
+  background-color: #0f0;
+  position: relative;
+}
+
+.football-field .ball-1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -20px;
+  margin-left: -20px;
+}
+
+#login-form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: none;
+  /*background: #636363;*/
+  /*opacity:0.8;*/
+}
+
+#login-form:before {
+  content: '';
+  vertical-align: middle;
+  height: 100%;
+  display: inline-block;
+}
+
+#login-form form {
+  vertical-align: middle;
+  background: lightblue url("https://js.cx/clipart/key.png") 5px 50% no-repeat;
+  display: inline-block;
+  text-align: center;
+  padding: 20px 60px 15px 60px;
+  border-radius: 4px;
+  border: 1px solid #6f8b99;
+  box-shadow: #3e5e85 2px 2px 10px;
+}
+
+#login-form table {
+  margin-top: 5px;
+  border-collapse: collapse;
+}
+
+#login-form table td {
+  padding: 4px;
+}
+
+#login-form p {
+  font-size: 20px;
+  font-family: Helvetica, sans-serif;
+
+}
+
+.arrow {
+  margin-top: 15px;
+  position: absolute;
+  height: 60px;
+  border: 1px solid black;
+  font-size: 28px;
+  line-height: 60px;
+  display: none;
+  vertical-align: middle;
+}
+
+.w-space div {
+  margin: 10px 0;
+}
+
+.info-block div {
+  border: 1px solid black;
+  margin: 2em 0 0 0;
+  font: 0.8em/1.25 Arial, sans-serif;
+}
+
+.info-block h2 {
+  margin: -1.3em 0 0.8em 0;
+  background: lightblue;
+}
+
+.block {
+  height: 150px;
+  border: 1px solid #ccc;
+  background: #eee;
+  position: relative;
+  text-align: center;
+  /*padding-top:1em;*/
+}
+
+.block:before {
+  content: '';
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.spacer {
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  padding: 20px;
+  /*margin-left: 20%;*/
+  /*margin-right: 20%;*/
+  width: 60%;
+  height: 80%;
+  /*margin-top: 10%;*/
+  /*margin-bottom: 10%;*/
+
+  border: 1px solid black;
+  background: #fff;
+}
+
+.spacer input::-webkit-input-placeholder {
+  color: red;
+}
+
+.spacer input {
+  width: 12em;
+  /*margin:0;*/
+}
+
+.spacer .placeholder {
+  color: red;
+  /*display:none;*/
+  background: 0;
+  border: 0;
+  margin-top: -1.25em;
+  /*display:inline-block;*/
+  height: 1.25em;
+  width: auto;
+}
+.toggler-container{
+  position: relative;
+  border:1px solid black;
+}
+.toggler-container .content{
+  margin-left:40px;
+}
+.toggler-container .toggler{
+  position:absolute;
+  top:0;
+  left:0;
+  background: #e7e7e7 url("https://js.cx/height-percent/arrow_left.png")center center no-repeat;
+  height:100%;
+  width:30px;
+  border-right:1px solid darkgray;
+  cursor: pointer;
+}
+@keyframes strobe {
+  0% {
+    transform: skew(4deg,0deg) scaleX(1);
+  }
+  10% {
+    transform: skew(1deg,0deg) scaleY(.9);
+  }
+  50% {
+    transform: skew(-4deg,0deg) scaleX(1);
+  }
+  60% {
+    transform: skew(-1deg,0deg) scaleY(.9);
+  }
+  100% {
+    transform: skew(4deg,0deg) scaleX(1);
+  }
+}
+.apple{
+  width:60px;
+  height:60px;
+  border-radius: 100px;
+  animation:strobe 1s infinite;
+  background: #e41919;
+  border-color: #ab1212;
+  border-style: solid;
+  border-width: 2px 4px 15px 4px;
+  box-shadow: 0px 5px 0px rgba(0,0,0,.2);
 }

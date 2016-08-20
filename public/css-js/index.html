@@ -9,7 +9,433 @@
 <body>
 <h1>CSS and JS</h1>
 <div class="main-container">
+  <div class="em-px"><p class="text1">Text 1em 16px</p>
+    <p class="text2">Text 2em 16px</p>
+    <p class="text3">Text 3em 16px</p>
+    <p class="text4">Text 300% 16px</p></div>
+  <ul id="list" class="list">
+    <li>some text 1</li>
+    <li>some text 2</li>
+    <li>some text 3</li>
+    <li>some text 4</li>
+    <li>some text 5</li>
+  </ul>
+  <button onclick="zoomIn()">ZoomIn</button>
+  <button onclick="zoomOut()">ZoomOut</button>
+  <p style="font-size: 5vh">text 5vh</p>
+  <p style="font-size: 5vw">text 5vw</p>
+  <ul class="list1">
+    <li>Инлайн Блок<br>3 строки<br>высота/ширина явно не заданы</li>
+    <li style="width:100px;height:100px">Инлайн<br>Блок 100x100</li>
+    <li style="width:60px;height:60px">Инлайн<br>Блок 60x60</li>
+    <li style="width:100px;height:60px">Инлайн<br>Блок 100x60</li>
+    <li style="width:60px;height:100px">Инлайн<br>Блок 60x100</li>
+  </ul>
+  <table>
+    <tbody>
+    <tr>
+      <td>Name</td>
+      <td><input type="text"></td>
+    </tr>
+    <tr>
+      <td>Surname</td>
+      <td><input type="text"></td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="vertAlign">
+    <div style="text-align: center;">text text text <br> text text</div>
+  </div>
+  <h3 style="display: run-in; border:2px solid red">Про пчёл.</h3>
+  <div style="border:2px solid black">Пчёлы - отличные создания, они делают мёд.</div>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex facere hic impedit? A aliquam amet animi at
+    consequatur cupiditate dolorem eligendi excepturi exercitationem, expedita id illo impedit inventore ipsum maxime
+    molestiae nemo nisi nostrum porro quod quos repellat repellendus repudiandae rerum saepe sapiente tempore vero vitae
+    voluptatem, voluptates. Ea eos laboriosam minima minus, natus nulla officiis placeat quaerat quos repellendus sequi
+    similique velit voluptatem? Amet consectetur deserunt dolorem dolores, eligendi fugit labore minus natus nulla
+    quaerat quis quisquam quod reiciendis unde ut voluptates voluptatibus. Ab ad assumenda at consequuntur distinctio
+    ducimus eligendi, esse eveniet illum ipsa, iure laborum magnam necessitatibus nisi nostrum possimus quis, ratione
+    rerum temporibus ullam unde vel voluptatibus! Cumque deserunt eveniet ex harum libero minus non pariatur quaerat
+    quisquam. Accusantium, eum, iure. Ab accusantium ad adipisci aliquam architecto assumenda at autem commodi
+    consectetur cumque delectus distinctio doloribus ducimus ea eveniet explicabo fugiat fugit inventore iste itaque
+    labore, laudantium modi nam, nobis obcaecati odit optio perferendis quasi quidem quisquam quod ratione recusandae
+    repudiandae sint temporibus ullam voluptatibus. Aperiam atque, autem consequatur consequuntur culpa dignissimos ea
+    fugit nemo nihil, odit officia, provident quae quaerat quasi qui quod rem repudiandae sed soluta suscipit tempore
+    vel veritatis? Animi deserunt nulla quibusdam!</p>
+  <div class="placeholder" style="float:right"></div>
+  <p style="border:1px solid black;background-color: #0c9">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A
+    ab amet autem culpa dignissimos dolore eaque facilis
+    fugiat, ipsa laborum minus modi nisi nostrum odio quasi quisquam ratione reprehenderit similique tempora tempore!
+    Doloribus, eaque similique. Accusamus accusantium asperiores assumenda at, blanditiis dolor doloremque eius eos ex
+    explicabo facere fugiat illo incidunt, ipsa ipsum iure laborum laudantium libero magnam molestiae nam nemo nesciunt
+    non nostrum numquam obcaecati optio perferendis provident quaerat quia quis quod ratione recusandae rem repudiandae
+    sint sunt. Consectetur consequuntur culpa et, impedit, incidunt magnam mollitia nam nihil officiis optio quibusdam
+    quidem quo velit. Alias autem error rem sint.</p>
+  <div class="placeholder" style="float:left;margin:  10px 10px 0 0"></div>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aperiam eligendi, eveniet hic laboriosam natus
+    nesciunt nostrum tempora. Aperiam architecto aut, corporis dolorem eos eveniet, hic impedit inventore, itaque iure
+    laboriosam minus neque non possimus quibusdam quisquam sed temporibus! Iste quam, qui? Animi cum eius, omnis rerum
+    suscipit unde? Animi consequatur dignissimos dolorem ea eaque earum explicabo facilis fuga fugiat fugit hic iusto
+    laboriosam laudantium modi mollitia necessitatibus nulla officia optio porro quas quia sed tempora, totam. Aliquam
+    animi aperiam atque beatae corporis, culpa delectus deleniti eos et labore laboriosam, nesciunt officiis optio
+    pariatur perspiciatis placeat quisquam quod repellendus unde?</p>
+  <div style="clear:both"></div>
+  <h2 style="margin-top: 10px;">Title 1</h2>
+  <div class="left-picture">
+    <div style="height:150px;width: 150px; background-color: #3f5a54"></div>
+    <div>Title 1</div>
+  </div>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci autem commodi consequatur cumque deleniti eaque
+    et eum illum in neque praesentium quidem, repellat sint sit velit! Asperiores at, commodi dolorem dolorum
+    exercitationem inventore iure nisi perferendis quas repellat. Accusantium aperiam fugit illum iste laboriosam, modi
+    molestias tempore voluptatem. Ab accusantium animi cupiditate doloremque error esse eum ex facilis, ipsam iure quis,
+    quo recusandae tenetur! Adipisci atque, aut beatae culpa cumque est exercitationem explicabo fugiat inventore, iste
+    iure libero natus nesciunt odio perferendis provident quia quos rem repellendus rerum sed sunt tempora tenetur
+    veniam veritatis vero voluptatibus! Debitis in laborum sunt?</p>
+  <div class="clear"></div>
+  <div class="hero clearfix">
+    <h2>Title 2</h2>
+    <div class="left-picture">
+      <div style="height:150px;width: 150px; background-color: #3f5a54"></div>
+      <div>Title 2</div>
+    </div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci autem commodi consequatur cumque deleniti
+      eaque
+      et eum illum in neque praesentium quidem, repellat sint sit velit! Asperiores at, commodi dolorem dolorum
+      exercitationem inventore iure nisi perferendis quas repellat. Accusantium aperiam fugit illum iste laboriosam,
+      modi
+      molestias tempore voluptatem. </p>
+  </div>
+  <div>
+    <ul class="gallery clearfix">
+      <li>
+        <img src="https://js.cx/carousel/1.png" width="130" height="130">
+        <div>Картинка 1</div>
+      </li>
+
+      <li>
+        <img src="https://js.cx/carousel/2.png" width="130" height="130">
+        <div>Картинка 2</div>
+      </li>
+
+      <li>
+        <img src="https://js.cx/carousel/3.png" width="130" height="130">
+        <div>Картинка 3</div>
+      </li>
+
+      <li>
+        <img src="https://js.cx/carousel/4.png" width="130" height="130">
+        <div>Картинка 4</div>
+      </li>
+
+      <li>
+        <img src="https://js.cx/carousel/5.png" width="130" height="130">
+        <div>Картинка 5</div>
+      </li>
+
+      <li>
+        <img src="https://js.cx/carousel/6.png" width="130" height="130">
+        <div>Картинка 6</div>
+      </li>
+
+      <li>
+        <img src="https://js.cx/carousel/7.png" width="130" height="130">
+        <div>Картинка 7</div>
+      </li>
+
+      <li>
+        <img src="https://js.cx/carousel/8.png" width="130" height="130">
+        <div>Картинка 8</div>
+      </li>
+
+      <li>
+        <img src="https://js.cx/carousel/9.png" width="130" height="130">
+        <div>Картинка 9</div>
+      </li>
+    </ul>
+
+  </div>
+
+  <div class="header">Header</div>
+  <div class="column-left">left</div>
+  <div class="column-right">right</div>
+  <div class="footer">footer</div>
+
+
+  <div>
+    <ul class="multi-list">
+      <li class="opened">
+        <div class="icon"></div>
+        <div class="text">Раздел 1 <br>
+          (занимает две строки)
+        </div>
+        <ul>
+          <li class="closed">
+            <div class="icon"></div>
+            <div class="text">Раздел 1.1</div>
+          </li>
+          <li class="leaf">
+            <div class="icon"></div>
+            <div class="text">
+              Страница 1.2 <br>
+              (занимает две строки)
+            </div>
+          </li>
+        </ul>
+      </li>
+      <li class="closed">
+        <div class="icon"></div>
+        <div class="text">
+          Раздел 2 <br>
+          (занимает две строки)
+        </div>
+
+      </li>
+    </ul>
+  </div>
+  <div class="border-width clearfix">
+    <div class="left-column">
+      Левая<br>колонка
+    </div>
+    <div class="right-column">
+      Правая<br>колонка
+    </div>
+  </div>
+
+  <div style="background: #fee; width: 500px">
+    Без позиционирования ("position: static").
+
+    <h2 style="position: relative;left: -0%;background: #aef; margin: 0">Заголовок</h2>
+
+    <div>А тут - всякий разный текст... <br/>
+      ... В две строки!
+    </div>
+  </div>
+  <div style="border: 1px solid black;position: relative;background: #fee; width: 500px">
+    Без позиционирования ("position: static").
+
+    <h2 style="position: absolute;top: 0;right: 0;background: #aef; margin: 0">Заголовок</h2>
+    <h2 style="position: absolute;top: 30px;right: 0;left:200px;bottom:0;overflow:hidden;background: #aef; margin: 0">
+      Заголовок</h2>
+    <div>А тут - всякий разный текст... <br/>
+      ... В две строки!
+    </div>
+  </div>
+
+
+  <!--<div class="modal-window">-->
+  <!--<div></div>-->
+  <!--</div>-->
+
+  <div class="outer">Outer Text
+    <div class="inner">Inner Block <br> new line</div>
+  </div>
+
+  <div class="v-align-test">
+    <div>
+      baseline <img src="https://js.cx/clipart/30.png" style="vertical-align: baseline">
+    </div>
+    <div>
+      middle <img src="https://js.cx/clipart/30.png" style="vertical-align: middle;">
+    </div>
+    <div>
+      sub <sub>2</sub> <img src="https://js.cx/clipart/30.png" style="vertical-align: sub">
+    </div>
+    <div>
+      super <sup>5</sup> <img src="https://js.cx/clipart/30.png" style="vertical-align: super">
+    </div>
+    <div>
+      text-top <img src="https://js.cx/clipart/30.png" style="vertical-align: text-top">
+    </div>
+    <div>
+      text-bottom <img src="https://js.cx/clipart/30.png" style="vertical-align: text-bottom">
+    </div>
+  </div>
+
+  <div class="align-with-before">
+    <span class="inner">Some <br> text</span>
+  </div>
+  <div class="football-field">
+    <img src="https://js.cx/clipart/ball.svg" class="ball-1"> . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . .
+  </div>
+  <button id="showLoginFormButton" onclick="showLoginForm()">Show modal login form</button>
+
+  <div id="login-form">
+    <form action="" name="loginForm">
+
+      <p>Добро пожаловать!</p>
+      <table>
+        <tbody>
+        <tr>
+          <td>Логин:</td>
+          <td>
+            <input name="login" type="text">
+          </td>
+        </tr>
+        <tr>
+          <td>Пароль:</td>
+          <td><input name="password" type="text"></td>
+        </tr>
+        <tr>
+          <td style="text-align: left"><input type="submit" value="Войти"></td>
+          <td style="text-align: right"><input type="button" name="cancel" value="Отмена" onclick="closeLoginForm()">
+          </td>
+
+        </tr>
+        </tbody>
+      </table>
+
+    </form>
+  </div>
+
+
+  <div class="arrow">«</div>
+  <div class="clearfix">
+    <div style="line-height: 1.25;float: left;">
+      standard line
+      <div style="font-size: 2em">
+        font 2x <br>
+        font 2x
+      </div>
+    </div>
+    <div style="line-height: 1.25em;float: left;">
+      стандартная строка
+      <div style="font-size:2em">
+        шрифт в 2 раза больше<br>
+        шрифт в 2 раза больше<br>
+        <span style="font: 20px/1.25 Arial,sans-serif;">font 20px/1.5 Arial,sans-serif</span>
+      </div>
+    </div>
+  </div>
+  <div class="w-space">
+    <div style="white-space:pre;width: 200px;border:1px solid black;">if (hours > 18) {
+      // Пойти поиграть в теннис
+      }
+    </div>
+    <div style="white-space:nowrap;width: 200px;border:1px solid black;overflow: auto">if (hours > 18) {
+      // Пойти поиграть в теннис
+      }
+    </div>
+    <div style="white-space:pre-wrap;width: 200px;border:1px solid black;">if (hours > 18) {
+      // Пойти поиграть в теннис
+      }
+    </div>
+    <div style="white-space:pre-line;width: 200px;border:1px solid black;">if (hours > 18) {
+      // Пойти поиграть в теннис
+      }
+    </div>
+  </div>
+  <div class="outline">
+    <div style="border:3px solid blue;outline: 3px solid red;outline-offset: 5px">
+      Outline
+    </div>
+  </div>
+  <div style="width:200px;margin-top: 15px;border:1px solid #b6a8de">
+    <input type="text" value="box-sizing : border-box" style="width: 200px;box-sizing: border-box">
+    <input type="text" style="width: 200px;box-sizing: border-box">
+    <select name="" id="" style="width: 200px;box-sizing: border-box">
+      <option value="opt1" disabled>option1</option>
+      <option value="opt2" selected>option2</option>
+    </select>
+  </div>
+  <div style="background:#aef;margin-top: 15px;">
+    <p style="margin:20px; background:white">
+
+      <span style="margin:20px; background:orange">Горизонтальный 20px</span>
+      ← 40px →
+      <span style="margin:20px; background:orange">20px Отступ </span>
+
+    </p>
+    <p style="margin:15px; background:white">Вертикальный 20px</p>
+  </div>
+
+  <div class="info-block">
+    <div>
+      <h2>Title 1</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias cum dolores ipsa necessitatibus nemo quibusdam
+        tempore vero? Alias atque, culpa cupiditate debitis, delectus eaque esse ipsum natus nisi nobis, quaerat
+        quisquam quo quos saepe sapiente sed sint veritatis voluptatum! Asperiores cupiditate debitis deleniti dicta
+        eos, nam odio officiis totam vero.</p>
+    </div>
+    <div>
+      <h2>Title 2</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque molestiae non omnis! Culpa eveniet ipsum magni
+        nulla quae, unde! Ad ea nihil nostrum quaerat veritatis! Dolore illum labore magni neque nisi officia quam, vel.
+        Atque corporis cupiditate doloribus, eos iure repellendus voluptatibus. Ab aliquam dolores eveniet facilis
+        impedit nam quia quibusdam ratione recusandae saepe. Autem culpa, dolor error ipsum maiores obcaecati odit omnis
+        quas quasi rem saepe vel. Atque consequatur deleniti dignissimos dolore eligendi illo inventore nemo omnis
+        ratione sunt.</p>
+    </div>
+  </div>
+  <div style="width:80%;padding: 10px;margin: auto;border:1px solid lightgray">
+    <h2 style="background:none;margin: 0;">Общие положения</h2>
+    <hr style="margin-left: -5px">
+
+    <p>Настоящие Правила дорожного движения устанавливают единый порядок дорожного движения на всей территории
+      Российской Федерации. Другие нормативные акты, касающиеся дорожного движения, должны основываться на требованиях
+      Правил и не противоречить им.</p>
+  </div>
+  <div class="block">
+    <div class="spacer">
+      <div>
+        <div>Добро пожаловать</div>
+        <input type="password" placeholder="Скажи пароль">
+        <!--<div class="placeholder">Скажи пароль друг</div>-->
+        <div>и заходи...</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="test-image">
+    <table>
+      <tbody>
+      <tr>
+        <td style="border:1px solid red">
+          <img src="https://js.cx/clipart/square_50.png" alt="img" style="display:block">
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="toggler-container">
+    <div class="toggler"></div>
+    <div class="content">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum laborum nisi praesentium quibusdam similique.
+        Accusamus culpa doloremque eligendi et in iste nisi rem repellat veniam.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem culpa dolor omnis quidem tempora? Cum dolore, eveniet facere ipsa molestias nesciunt odio provident quidem temporibus ullam. Ipsum iste ullam veritatis.</p>
+    </div>
+  </div>
+  <div>
+    <div class="apple"></div>
+  </div>
+
 
 </div>
+<footer>
+  Текст сверху
+  <div class="navigation clearfix">
+
+    <a class="left" href="#"><img src="https://js.cx/clipart/arrow-left.jpg" alt="back"></a>
+    <a class="right" href="#"><img src="https://js.cx/clipart/arrow-right.jpg" alt="forward"></a>
+    <ul class="pages">
+      <li><a href="#">1</a></li>
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">4</a></li>
+      <li><a href="#">5</a></li>
+      <li><a href="#">6</a></li>
+      <li><a href="#">7</a></li>
+      <li><a href="#">8</a></li>
+      <li><a href="#">9</a></li>
+    </ul>
+  </div>
+  <p style="clear: both;">Текст снизу</p>
+</footer>
+
+
 </body>
 </html>
