@@ -16,4 +16,3 @@ $(function () {
     iframeDoc.body.style.backgroundColor='green';
   }
 });
-
