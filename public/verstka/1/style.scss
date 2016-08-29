@@ -1,0 +1,125 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+}
+
+.container {
+    max-width: 960px;
+    margin: auto;
+    background: gray;
+    padding: 20px;
+    //min-height:1100px;
+}
+
+.test1 img {
+    max-width: 40%;
+    height: auto;
+    margin: auto;
+    display: block;
+}
+
+.test2 {
+    text-align: center;
+    border-top:2px solid black;
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        width: 20%;
+        float: left;
+        margin: 10px 10px 10px 0;
+        min-width: 150px;
+        background: black;
+    }
+}
+
+.test3 {
+    border-top:2px solid black;
+    text-align: center;
+    h4{
+        text-decoration: underline;
+    }
+    .two-column {
+        margin: 10px 0 10px 0;
+        width: 30%;
+        display: inline-block;
+        height: auto;
+    }
+    .three-column {
+        @extend .two-column;
+        width: 25%;
+    }
+}
+
+.test4 {
+    border-top:2px solid black;
+    text-align: center;
+    h4 {
+        margin-bottom:15px;
+    }
+    img{
+        height:auto;
+        max-width:22%;
+        display: inline-block;
+    }
+}
+.test5{
+    height: 500px;
+    border-top:2px solid black;
+    margin-top: 15px;
+    text-align: center;
+    background: url("http://csslove.net/wp-content/uploads/2014/01/css3-media-queries.jpg") no-repeat center center;
+    background-size: cover;
+
+}
+
+@media screen and(max-width: 1016px){
+    .test5{
+        height:600px;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .test4{
+        img{
+            max-width:40%;
+        }
+    }
+    .test5{
+        height:300px;
+    }
+}
+@media screen and (max-width: 480px) {
+    p {
+        //color: red;
+    }
+    .test2 img {
+        //width: auto;
+        max-width: 100%;
+        float: none;
+        margin: 10px auto;
+    }
+    .test4{
+        img{
+            display: block;
+            width:40%;
+            margin: 10px auto;
+        }
+    }
+    .test5{
+        height:200px;
+    }
+}
+
+//https://myrusakov.ru/images/articles/javascript-function-declaration-vs-function-expression.png
+
+//https://redpixel.com/_uploads/CSS3_Badge_512.png
+
+//http://iconspot.ru/files/317755.png
+
+//http://iconspot.ru/files/339733.png
