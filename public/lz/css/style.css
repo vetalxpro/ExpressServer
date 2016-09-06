@@ -1,0 +1,375 @@
+/*
+fira_sans-light
+fira_sans-regular
+fira_sans-medium
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: url("../img/gplaypattern.png") repeat;
+  font: 14px/1.25 'fira_sans-light', Arial, sans-serif;
+  color: #727272;
+}
+
+.wrapper {
+  min-height: 100%;
+  margin-bottom: -72px;
+}
+
+.wrapper:after {
+  content: '';
+  display: block;
+  height: 72px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.clearfix:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+/*------------------------------------------------HEADER-----------------*/
+
+.header {
+  position: relative; /*for shadow on the bottom block*/
+  z-index: 100;
+  padding: 15px 0;
+  background-color: #9dc255;
+  -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
+}
+.header .container{
+  padding:0 30px;
+}
+
+.header__user {
+  float: left;
+  font-size: 0;
+}
+
+.header__user-pic {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  vertical-align: middle;
+  border: 1px solid #fff;
+  background-color: #fff;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+
+}
+
+.header__user-info {
+  display: inline-block;
+  margin-left: 20px;
+  vertical-align: middle;
+
+}
+
+.header__user-name {
+
+  font: 21px/1.3 'fira_sans-medium', Arial, sans-serif;
+  color: #ffffff;
+
+}
+
+.header__user-email {
+  font: 14px/1.5 'fira_sans-regular', Arial, sans-serif;
+  color: #ffffff;
+  opacity: 0.7;
+}
+
+.header__social {
+  float: right;
+  padding: 10px 0;
+}
+
+.header__social-list {
+  display: inline-block;
+  vertical-align: middle;
+  list-style-type: none;
+}
+
+.header__social-item {
+  display: inline-block;
+  margin-left: 12px;
+
+}
+
+.social-link {
+  display: block;
+  height: 35px;
+  width: 35px;
+  font-size: 35px;
+  color: #fff;
+  opacity: 0.7;
+}
+
+.social-link:hover {
+  opacity: 1;
+}
+
+.main {
+  padding: 0 130px;
+}
+
+/*-------------------------------------------ABOUT SECTION-----------------*/
+
+.about {
+  padding-top: 72px;
+  background-color: #fff;
+
+}
+
+.about .container {
+  max-width: 960px;
+  padding: 0 10px;
+}
+
+.about-title {
+  text-align: center;
+  font: 42px 'fira_sans-medium', Arial, sans-serif;
+  color: #262626;
+}
+
+.about-subtitle {
+  margin-top: 14px;
+  text-align: center;
+  font: 21px 'fira_sans-light', Arial, sans-serif;
+  color: #727272;
+}
+
+.about__list {
+  margin-top: 30px;
+  text-align: left;
+}
+
+.about a {
+  color: #5fa7f1;
+}
+
+.about__list-item {
+  float: left;
+  width: 445px;
+  padding: 5px;
+  vertical-align: top;
+  margin-bottom: 30px;
+  margin-right: 25px;
+}
+
+.about-pic {
+  float: left;
+  width: 135px;
+  height: auto;
+
+}
+
+.about__list-info {
+  margin-left: 155px;
+}
+
+.about__list-title {
+  font: 21px 'fira_sans-regular', Arial, sans-serif;
+  color: #262626;
+}
+
+.about__list-content {
+  margin-top: 10px;
+  text-align: left;
+  font: 14px/1.5 'fira_sans-light', Arial, sans-serif;
+}
+
+@media screen and (max-width: 980px) {
+  .about__list-item {
+    float: none;
+    margin: 0 auto 30px;
+  }
+}
+
+/*--------------------------------------------COURSES SECTION-------------------------------*/
+
+.courses {
+  padding-bottom: 3px;
+}
+
+.courses .container {
+  position: relative;
+  min-height: 650px;
+  max-width: 960px;
+  padding: 0 10px;
+}
+
+.complete {
+  position: absolute;
+  display: none;
+  left: 0;
+  right: 0;
+  top: 40%;
+  margin-top: -52px;
+  text-align: center;
+  font: 42px 'fira_sans-medium', Arial, sans-serif;
+  color: #9dc255;
+}
+
+.complete .fa-check {
+  margin-right: 20px;
+}
+
+.courses-title {
+  margin-top: 110px;
+  text-align: center;
+  font: 42px 'fira_sans-medium', Arial, sans-serif;
+  color: #262626;
+}
+
+.courses-subtitle {
+  margin-top: 15px;
+  text-align: center;
+  font: 21px 'fira_sans-light', Arial, sans-serif;
+  color: #727272;
+}
+
+.courses__list {
+  margin: 43px auto 55px;
+  text-align: justify;
+  text-justify: newspaper;  /*for IE*/
+  font-size: 0;
+}
+
+.courses__list:after {
+  content: '';
+  display: inline-block;
+  width: 100%;
+}
+
+.courses-pic {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.courses__list-item {
+  display: inline-block;
+  margin-bottom: 20px;
+  width: 300px;
+  text-align: left;
+  font-size: 14px;
+  vertical-align: top;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 0 8px 0 rgba(0, 0, 0, .2);
+  -moz-box-shadow: 0 0 8px 0 rgba(0, 0, 0, .2);
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, .2);
+  background-color: #fff;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 980px) {
+  .courses__list {
+    text-align: center;
+  }
+
+  .courses__list-item {
+    margin: 0 20px;
+  }
+}
+
+.hover-line {
+  position: relative;
+  visibility: hidden;
+  margin-top: -5px;
+  width: 100%;
+  height: 5px;
+  background-color: #9dc255;
+}
+
+.courses__list-content {
+
+  padding: 15px 21px;
+}
+
+.courses__list-title {
+  font: 21px/1.33 'fira_sans-regular', Arial, sans-serif;
+}
+
+.courses__list-text {
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+.courses__list-time {
+  padding-top: 10px;
+  color: #b5b5b5;
+}
+
+.courses__list-time .fa {
+  margin-right: 5px;
+}
+
+.courses-check {
+  padding: 20px 20px 17px;
+  font: 18px 'fira_sans-regular', Arial, sans-serif;
+  background-color: #f6f7f2;
+}
+
+.courses-check .fa {
+  margin-right: 19px;
+  vertical-align: bottom;
+  font-size: 25px;
+  color: #b5b5b5;
+}
+
+.courses__list-item.selected {
+  background-color: #ecf4e3;
+
+}
+
+.courses__list-item.selected .courses-check,
+.courses__list-item.selected .courses-check .fa {
+  color: #9dc255;
+}
+
+.courses__list-item:hover .courses__list-title {
+  color: #9dc255;
+}
+
+.courses__list-item:hover .hover-line {
+  visibility: visible;
+}
+
+/*-------------------------------------------FOOTER-------------------------*/
+
+.footer {
+  height: 72px;
+  padding-top: 16px;
+  padding-bottom: 17px;
+  text-align: center;
+  background-color: #262626;
+
+}
+
+.footer__text {
+  display: inline-block;
+  width: 510px;
+  opacity: 0.5;
+  font-family: 'fira_sans-regular', Arial, sans-serif;
+  line-height: 1.5;
+  color: #ffffff;
+}
+

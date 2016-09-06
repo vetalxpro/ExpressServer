@@ -1,0 +1,21 @@
+@font-face {
+  font-family: fira_sans-light;
+  src: url(../fonts/FiraSans/FiraSans-Light.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: fira_sans-regular;
+  src: url(../fonts/FiraSans/FiraSans-Regular.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: fira_sans-medium;
+  src: url(../fonts/FiraSans/FiraSans-Medium.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+
