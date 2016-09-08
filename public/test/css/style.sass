@@ -1,0 +1,76 @@
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+body
+    font: 100%/1.5em Arial, Helvetica, sans-serif
+    color: #000
+
+.container
+    width: 95%
+    margin: 0 auto
+    background: #d2d2d2
+
+.container .cols
+    float: left
+    margin: 0 0 1em
+    padding: 0 1em
+    background: #fd4
+    text-align: center
+    border: 1px solid #000
+
+
+@for $i from 1 through 12
+    .container .cols.col-#{$i}
+        width: 100%/12*$i
+
+.container:before,
+.container:after,
+.row:before,
+.row:after,
+.clearfix:before,
+.clearfix:after
+    content: ''
+    display: table
+
+.container:after,
+.row:after,
+.clearfix:after
+    clear: both
+
+@media print
+    .container:before,
+    .container:after,
+    .row:before,
+    .row:after,
+    .clearfix:before,
+    .clearfix:after
+        content: ''
+        display: table
+
+    .container:after,
+    .row:after,
+    .clearfix:after
+        clear: both
+.title
+    text-align: center
+    padding: 10px
+
+
+@media screen and (max-width: 320px)
+
+    @for $i from 1 through 12
+        .container .cols.col-#{$i}
+            width: 100%
+
+    .container .cols
+        background: darkslategrey
+
+    .title
+        color: red
+
+
+/*flexible media*/
+
+
